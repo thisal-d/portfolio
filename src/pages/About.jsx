@@ -201,13 +201,21 @@ function About() {
               </p>
             </div>
           </div>
-          <div className="about-visual-card">
-            <span className="about-visual-card-emoji">🥊</span>
-            <p className="about-visual-card-title">Training Routine</p>
-            <div className="about-visual-card-list">
-              {FITNESS_LIST.map((item, i) => (
-                <div key={i} className="about-visual-card-item">{item}</div>
-              ))}
+          
+          <div className="about-athlete-visual">
+            <div className="athlete-img-wrap">
+              <img src="/images/about/mma-workout.jpg" alt="MMA Workout" loading="lazy" />
+              <div className="athlete-img-overlay"></div>
+            </div>
+            
+            <div className="about-visual-card athlete-routine-card">
+              <span className="about-visual-card-emoji">🥊</span>
+              <p className="about-visual-card-title">Training Routine</p>
+              <div className="about-visual-card-list">
+                {FITNESS_LIST.map((item, i) => (
+                  <div key={i} className="about-visual-card-item">{item}</div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

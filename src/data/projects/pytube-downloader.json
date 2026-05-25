@@ -2,7 +2,7 @@
   "slug": "pytube-downloader",
   "title": "PyTube Downloader",
   "type": "app",
-  "status": "archived",
+  "status": "active",
   "start-date": "2024-05-09",
   "platform": "Windows",
   "description": "PyTube Downloader is a Windows desktop application that lets you download YouTube videos and full playlists with a single click. It supports every resolution from 144p up to 8K, lets you download audio-only, and shows a real-time progress bar during download. Built with Python and CustomTkinter, it runs as a standalone executable — no Python installation needed on the end user's machine.",

@@ -1,54 +1,29 @@
-import "../styles/ProjectSection.css"
+import "../styles/ProjectSection.css";
 import ProjectCard from "./ProjectCard";
+import projects from "../data/projects.json";
 
-const projects = [
-    {
-        title: "tkchart",
-        description: "Line-Chart Widget for tkinter, Python library for creating live updating line charts..",
-        images: ["/images/tkchart/1.png", "/images/tkchart/2.png", "/images/tkchart/3.png", "/images/tkchart/4.png"],
-        repo_url: "https://github.com/thisal-d/tkchart/",
-        api_url: "https://api.github.com/repos/thisal-d/tkchart",
-    },
-    {
-        title: "PyTube Downloder",
-        description: "Quickly download YouTube videos and playlists with one click. Choose from 144p to 8K quality.",
-        images: ["/images/pytube-downloader/1.png", "/images/pytube-downloader/2.png", "/images/pytube-downloader/3.png", "/images/pytube-downloader/4.png"],
-        repo_url: "https://github.com/thisal-d/pytube-downloader/",
-        api_url: "https://api.github.com/repos/thisal-d/pytube-downloader",
-    },
-    {
-        title: "ctkchart",
-        description: "Line-Chart Widget for customtkinter, Python library for creating live updating line charts..",
-        images: ["/images/ctkchart/1.png", "/images/ctkchart/2.png", "/images/ctkchart/3.png", "/images/ctkchart/4.png"],
-        repo_url: "https://github.com/thisal-d/ctkchart/",
-        api_url: "https://api.github.com/repos/thisal-d/ctkchart",
-    }
-]
-
-
-function ProjectSection(){
-    return (
-        <div className="prject-section">
-            <p className="project-s-title">My Open Source Projects</p>
-            <p className="project-s-description">
-                Every project here started as a fun idea — 
-                a way to explore, experiment, and push myself further.
-                They may be simple, but each one played a role in getting me 
-                where I am now. You can see a few of them below, 
-                and if you're interested in more, take a peek at my GitHub.
-            </p>
-
-            <div className="projetcs-container">
-                {
-                    projects.map(
-                        (project, index) => (
-                            <ProjectCard project={project}/>
-                        )
-                    )
-                }
-            </div>
+function ProjectSection() {
+  return (
+    <section className="projects-section">
+      <div className="projects-section-inner">
+        <div className="projects-section-header">
+          <p className="section-label">Open Source</p>
+          <h2 className="section-title">My Projects</h2>
+          <p className="section-description">
+            Every project here started as a fun idea — a way to explore, experiment, and push myself further.
+            Some are libraries others use, some are apps I built for myself, and some are full web platforms.
+            Each one taught me something new.
+          </p>
         </div>
-    )
+
+        <div className="projects-grid">
+          {projects.map((project, index) => (
+            <ProjectCard project={project} key={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default ProjectSection;

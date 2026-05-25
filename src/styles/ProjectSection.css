@@ -1,45 +1,61 @@
-.prject-section {
-    background: linear-gradient(-90deg, #550195, #000000, #000000);
-    color: #fff;
-    padding: 3rem 2rem;
-    display: flex;
+/* ============================================================
+   PROJECT SECTION
+   ============================================================ */
+.projects-section {
+  background: var(--gradient-section);
+  padding: 6rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background accent */
+.projects-section::before {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  right: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.projects-section-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.projects-section-header {
+  margin-bottom: 3.5rem;
+}
+
+.projects-section-header .section-description {
+  margin-top: 1rem;
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  justify-content: center;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 4rem 1.25rem;
+  }
+
+  .projects-grid {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .projects-grid {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.project-s-title{
-    font-size: 2rem;
-    font-family: 'SairaStencilOne', monospace;
-    margin-bottom: 30px
-}
-
-.project-s-description{
-    font-family: 'VT323', monospace;
-    font-size: 1.4rem;
-    max-width: 1400px;
-    margin-bottom: 2rem
-}
-
-.projetcs-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 34px;
-}
-
-@media (max-width: 768px){
-    .project-s-description{
-        font-size: 1.12rem;
-    }
-
-    .project-s-title{
-        font-size: 1.6rem;
-    }
-
-    .prject-section {
-        padding: 2rem;
-        background: linear-gradient(140deg, #550195, #000000, #000000);
-    }
+    align-items: stretch;
+  }
 }

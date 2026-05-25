@@ -1,0 +1,40 @@
+{
+  "slug": "auto-fuel-x",
+  "title": "Auto Fuel X",
+  "type": "website",
+  "status": "archived",
+  "start-date": "2025-08-15",
+  "description": "auto-fuel-x is a web-based management system for fuel stations and vehicle service centers. It handles vehicle registration, fuel dispensing records, service history, and inventory — all through a role-based admin dashboard. Built with Jakarta EE (Servlets and JSP) on the backend and Microsoft SQL Server for data storage, it was designed as a full enterprise-style web application for a second-year university module.",
+  "long-description": "Built as a Year 2 Semester 1 university project, auto-fuel-x is a full-stack enterprise-style web application. It manages fuel station operations — vehicle registration, fuel dispensing logs, service records, and inventory — through a clean admin dashboard powered by Jakarta EE (Servlets & JSP) and Microsoft SQL Server.",
+  "images": [
+    "/images/auto-fuel-x/1.png",
+    "/images/auto-fuel-x/2.png",
+    "/images/auto-fuel-x/3.png",
+    "/images/auto-fuel-x/4.png",
+    "/images/auto-fuel-x/5.png"
+  ],
+  "repo_url": "https://github.com/thisal-d/auto-fuel-x/",
+  "api_url": "https://api.github.com/repos/thisal-d/auto-fuel-x",
+  "publish-url": false,
+  "tech-stack": [
+    "Java",
+    "Jakarta EE",
+    "JSP",
+    "Servlets",
+    "Microsoft SQL Server",
+    "HTML",
+    "CSS"
+  ],
+  "features": [
+    "Vehicle registration & history tracking",
+    "Fuel dispensing log management",
+    "Vehicle service records",
+    "Inventory management dashboard",
+    "Role-based admin access control",
+    "Clean JSP-based UI"
+  ],
+  "why-i-made-this": {
+    "simple": "A university group project for Year 2, Semester 1.",
+    "extended": "Year 2 Semester 1 university project. Built a full-stack fuel station and vehicle service management system using Jakarta EE (Servlets, JSP) and Microsoft SQL Server."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "ctkchart",
+  "title": "ctkchart",
+  "type": "library",
+  "status": "active",
+  "start-date": "2024-03-08",
+  "description": "ctkchart is a Python library that brings live-updating line charts to CustomTkinter apps. It is built on top of tkchart and inherits its core charting engine, but adds full support for CustomTkinter's automatic dark and light theme switching. When the OS or app theme changes, the chart's colors update automatically — no manual handling needed. It's a drop-in replacement for tkchart if you're using CustomTkinter.",
+  "long-description": "ctkchart is the CustomTkinter-native upgrade of tkchart. After building tkchart, I discovered CustomTkinter — a modern UI library that adapts its colors automatically to the OS dark/light theme. tkchart, being built on standard Tkinter, didn't support this behavior. ctkchart fixes that: it is a drop-in upgrade that brings live-updating charts to CustomTkinter apps with full theme awareness.",
+  "images": [
+    "/images/ctkchart/1.png",
+    "/images/ctkchart/2.png",
+    "/images/ctkchart/3.png",
+    "/images/ctkchart/4.png"
+  ],
+  "repo_url": "https://github.com/thisal-d/ctkchart/",
+  "api_url": "https://api.github.com/repos/thisal-d/ctkchart",
+  "publish-url": "https://pypi.org/project/ctkchart/",
+  "pypi-api-url": "https://pypi.org/pypi/ctkchart/json",
+  "install-command": "pip install ctkchart",
+  "tech-stack": [
+    "Python",
+    "CustomTkinter",
+    "PyPI"
+  ],
+  "features": [
+    "Automatic dark / light theme switching",
+    "Real-time live updating charts",
+    "Drop-in replacement for tkchart",
+    "Customizable colors, line styles & axes",
+    "Multiple data series on one chart"
+  ],
+  "why-i-made-this": {
+    "simple": "tkchart didn't support dark/light theme changes automatically, so I upgraded it to ctkchart.",
+    "extended": "After making tkchart, I found a new library named customtkinter. It supports dynamic dark and light theme changes — the widget can change its color on its own based on theme change on the OS. But my widget tkchart just didn't support that; it was made using tkinter. So I created ctkchart using tkchart as a base — that's the upgraded version."
+  }
+}

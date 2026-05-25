@@ -1,0 +1,36 @@
+{
+  "slug": "tkchart",
+  "title": "tkchart",
+  "type": "library",
+  "status": "active",
+  "start-date": "2022-12-02",
+  "description": "tkchart is a Python library that provides a live-updating line chart widget built on top of the tkinter framework. It lets you plot real-time data — like network speed, CPU usage, or sensor readings — directly inside a tkinter window without any external dependencies. You simply create a chart, call an update function in a loop, and the chart redraws itself smoothly as data comes in.",
+  "long-description": "tkchart was born out of necessity. While building a network speed monitor using tkinter, I couldn't find any widget that could render live-updating line charts. I ended up hacking together a canvas-based solution, and then realized the community needed a proper, reusable widget. tkchart is the result — a clean, customizable line chart widget that updates in real time.",
+  "images": [
+    "/images/tkchart/1.png",
+    "/images/tkchart/2.png",
+    "/images/tkchart/3.png",
+    "/images/tkchart/4.png"
+  ],
+  "repo_url": "https://github.com/thisal-d/tkchart/",
+  "api_url": "https://api.github.com/repos/thisal-d/tkchart",
+  "publish-url": "https://pypi.org/project/tkchart/",
+  "pypi-api-url": "https://pypi.org/pypi/tkchart/json",
+  "install-command": "pip install tkchart",
+  "tech-stack": [
+    "Python",
+    "Tkinter",
+    "PyPI"
+  ],
+  "features": [
+    "Real-time live updating charts",
+    "Customizable colors, line styles & axes",
+    "Multiple data series on one chart",
+    "Smooth animation support",
+    "Lightweight — no external dependencies"
+  ],
+  "why-i-made-this": {
+    "simple": "There wasn't a live updating line-chart widget for tkinter, so I decided to make one.",
+    "extended": "Long time ago I was trying to create a network speed showing app using tkinter, actually it was like a task manager with network speed showing feature. But I was struggling to find a widget that can show live updating line chart. So I used the canvas widget and drew lines depending on net speed and chart height, then I realized why don't I create my own widget for that to help people out there."
+  }
+}

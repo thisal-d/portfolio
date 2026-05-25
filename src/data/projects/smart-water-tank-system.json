@@ -1,0 +1,42 @@
+{
+  "slug": "smart-water-tank-system",
+  "title": "smart-water-tank-system",
+  "type": "app",
+  "status": "archived",
+  "start-date": "2024-08-12",
+  "platform": "IoT / Mobile",
+  "description": "The Smart Water Tank System is an IoT project that monitors water levels and quality in real time using an ESP32 microcontroller connected to an ultrasonic sensor (for level measurement) and a TDS sensor (for water quality). The data is sent to a Flask backend via Wi-Fi and displayed on a React Native mobile app. Users can also remotely control a water pump through the app.",
+  "long-description": "Built as a Year 1 Semester 1 university project, this IoT system monitors water levels and quality in real time using an ultrasonic sensor (distance/level) and a TDS sensor (water quality). An ESP32 sends data to a Flask backend, which feeds a React Native mobile app — giving users live status, history charts, and remote pump control.",
+  "images": [
+    "/images/smart-water-tank-system/1.png",
+    "/images/smart-water-tank-system/2.png"
+  ],
+  "repo_url": "https://github.com/thisal-d/smart-water-tank-system/",
+  "api_url": "https://api.github.com/repos/thisal-d/smart-water-tank-system",
+  "publish-url": false,
+  "tech-stack": [
+    "Arduino",
+    "ESP32",
+    "Flask",
+    "React Native",
+    "Python"
+  ],
+  "requirements": [
+    "Arduino IDE",
+    "ESP32 board",
+    "Ultrasonic sensor (HC-SR04)",
+    "TDS sensor module"
+  ],
+  "features": [
+    "Real-time water level monitoring",
+    "Water quality (TDS) sensing",
+    "Remote pump control via mobile app",
+    "Live data dashboard in React Native",
+    "Flask REST API backend",
+    "Offline fallback on-device display"
+  ],
+  "why-i-made-this": {
+    "simple": "A university project for Year 1, Semester 1.",
+    "extended": "Year 1 Semester 1 university project. Built an IoT system using Arduino and ESP32 with ultrasonic and TDS sensors for monitoring water levels and quality. Controlled via Flask backend, React Native mobile app."
+  }
+}

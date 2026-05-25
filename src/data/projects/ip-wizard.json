@@ -1,0 +1,39 @@
+{
+  "slug": "ip-wizard",
+  "title": "ip-wizard",
+  "type": "app",
+  "status": "active",
+  "start-date": "2024-02-06",
+  "platform": "Android",
+  "description": "IP Wizard is an Android app for networking students and hobbyists who need to calculate IP addresses, subnet masks, network ranges, and broadcast addresses quickly and accurately. Enter an IP address and a CIDR prefix, and the app instantly computes all related values — no internet connection required. It was built specifically to match the format expected in Advanced Level ICT exam answers.",
+  "long-description": "During Advanced Level ICT, subnet calculations were a regular part of the coursework. Existing online tools were either cluttered, inaccurate, or didn't match the exact format needed for exam answers. IP Wizard was built as a clean, offline-capable Android app that does exactly what's needed — nothing more, nothing less.",
+  "images": [
+    "/images/ip-wizard/1.png",
+    "/images/ip-wizard/2.png",
+    "/images/ip-wizard/3.png",
+    "/images/ip-wizard/4.png"
+  ],
+  "repo_url": "https://github.com/thisal-d/ip-wizard/",
+  "api_url": "https://api.github.com/repos/thisal-d/ip-wizard",
+  "publish-url": "https://sourceforge.net/projects/ip-wizard/",
+  "download-label": "Download APK",
+  "tech-stack": [
+    "Java",
+    "Android Studio",
+    "Android SDK"
+  ],
+  "requirements": [
+    "Android 8.0 (Oreo) or higher"
+  ],
+  "features": [
+    "Subnet mask calculation",
+    "IP range & broadcast address finder",
+    "CIDR notation support",
+    "Works fully offline",
+    "Clean, distraction-free UI"
+  ],
+  "why-i-made-this": {
+    "simple": "In Advanced Level ICT I had to calculate subnet questions. I made this to verify my answers.",
+    "extended": "In A/L I was learning Commerce, Accounting, Economics and ICT. For ICT we had to calculate subnets. I checked and there were sites for that, but there wasn't a site that exactly fit my requirements. So I made a simple app to do that — a simple mathematical app for A/L students."
+  }
+}

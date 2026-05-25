@@ -1,115 +1,140 @@
-/* Base Styles */
+/* ============================================================
+   HEADER
+   ============================================================ */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(180deg, #000000, #000000, #8800ff);
+  padding: 0 2.5rem;
+  height: 64px;
+  background: rgba(10, 15, 26, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
   position: sticky;
   top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: background var(--transition-base);
 }
 
 .header-title {
-  font-family: 'SairaStencilOne', monospace;
-  font-size: 2.5rem;
-  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Hamburger Icon */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 6px;
-  cursor: pointer;
-}
-
-.bar {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  transition: all 0.4s ease;
-}
-
-.bar.open:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.bar.open:nth-child(2) {
-  opacity: 0;
-}
-.bar.open:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Nav Links */
+/* Nav links */
 .header-links-container {
   display: flex;
+  align-items: center;
 }
 
 .header-links {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  gap: 0.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .header-link {
-  font-family: 'SairaStencilOne', monospace;
-  font-size: 1.2rem;
-  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
   text-decoration: none;
-  background: linear-gradient(-20deg, #8800ff, #000000);
-  border: 2px solid #8800ff;
-  border-radius: 24px;
-  padding: 0.5rem 1rem;
-  transition: all 0.5s ease;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: all var(--transition-base);
+  letter-spacing: 0.01em;
 }
 
 .header-link:hover {
-  background: linear-gradient(20deg, #8800ff, #000000);
-  border-color: #ffffff;
-  color: #ffffff;
+  color: var(--text-primary);
+  background: var(--highlight-dim);
+  border-color: var(--border-subtle);
 }
 
 .header-link.active {
-  background: #8800ff;
-  color: #fff;
-  border-color: #fff;
+  color: var(--accent-primary);
+  background: var(--accent-glow);
+  border-color: var(--border-accent);
 }
 
-/* ----------------------------- */
-/* Responsive Styles */
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.hamburger:hover {
+  background: var(--highlight-dim);
+}
+
+.bar {
+  width: 22px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.35s ease;
+}
+
+.bar.open:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.bar.open:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.bar.open:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
 @media (max-width: 768px) {
+  .header {
+    padding: 0 1.25rem;
+  }
+
   .hamburger {
     display: flex;
   }
 
   .header-links-container {
     display: none;
-    width: 100%;
     position: absolute;
-    top: 100%;
+    top: 64px;
     left: 0;
-    background: #000000f5;
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    right: 0;
+    background: rgba(10, 15, 26, 0.97);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 1rem;
   }
 
   .header-links-container.active {
-    display: block;
+    display: flex;
   }
 
   .header-links {
     flex-direction: column;
-    gap: 1rem;
+    width: 100%;
+    gap: 0.25rem;
   }
 
   .header-link {
     display: block;
     width: 100%;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    padding: 0.65rem 1rem;
   }
 }

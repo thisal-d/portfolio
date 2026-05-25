@@ -1,131 +1,120 @@
-@import url('./fonts.css');
-
-.footer-head {
-    padding: 3rem 2rem;
-    background: linear-gradient(90deg, #550195, #000000, #000000);
-    color: #fff;
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  padding: 4rem 2.5rem 0;
 }
 
-.footer-main-container{
-    display: flex;
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Left column */
+.footer-brand {
+  max-width: 420px;
+}
+
+.footer-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* Right column — social links */
+.footer-social-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.footer-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.footer-social-link:hover {
+  color: var(--text-primary);
+  background: var(--highlight-dim);
+  transform: translateX(3px);
+}
+
+.footer-social-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.footer-social-link:hover .footer-social-icon {
+  opacity: 1;
+}
+
+/* Bottom bar */
+.footer-bottom {
+  margin-top: 3rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-bottom span {
+  color: var(--accent-primary);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 700px) {
+  .footer {
+    padding: 3rem 1.25rem 0;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-social-links {
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    max-width: 1000px;
-}
-
-footer div {
-    margin: 0 auto;
-}
-
-.footer-title{
-    font-size: 2rem;
-    margin-bottom: 30px;
-    font-family: 'SairaStencilOne', monospace;
-}
-
-.footer-social-title{
-    font-family: 'SairaStencilOne', monospace;
-    font-size: 1.5rem;
-    color: #cd8dff;
-}
-
-.social-links-container{
-    display: flex;
-    flex-direction: column;
-}
-
-.footer-social-link-container{
-    display: flex; 
-    margin: 10px;
-    justify-content: center;
-}
-
-.footer-social-link-container:hover {
-    transform: scale(1.08);
-    transition: transform 0.3s ease;
-}
-
-.footer-social-link{
-    color: #fff;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    column-gap: 16px;    
-}
-
-.footer-social-name{
-    font-family: 'VT323', monospace;
-    font-size: 1.4rem;
-}
-
-.footer-social-icon{
-    width: 28px;
-    height: 28px;
-}
-
-.footer-profile-image{
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-}
-
-.footer-profile-image:hover{
-    transform: scale(1.08);
-    transition: transform 0.3s ease;
-}
-
-.footer-copyright-text{
-    font-size: 1.3rem;
-    font-family: 'VT323', monospace;
-    background-color: #000000;
-    width: 100%;
-    color: #9c4afa;
-    padding: 20px;
-}
-
-@media (max-width: 768px){
-    .footer-main-container{
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 850px) {
-    .footer-head{
-        background: linear-gradient(210deg, #550195, #000000, #000000);
-    }
-
-    .footer-main-container {
-        flex-direction: column;
-        padding: 2rem;
-        align-items: center;
-        text-align: center;
-    }
-       
-    .footer-title{
-        font-size: 1.6rem;
-        margin-bottom: 1px;
-    }
-
-    .footer-social-title {
-        font-size: 1.2rem;
-        margin-bottom: 24px;
-    }
-
-    .footer-social-name{
-        font-size: 1.12rem;
-    }
-
-    .footer-social-links-container {
-        margin-bottom: 24px;
-    }
-
-    .footer-copyright-text{
-        font-size: 1.04rem;
-    }
-
-    .footer-social-link-container{
-        margin: 6px;
-    }
-
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 }

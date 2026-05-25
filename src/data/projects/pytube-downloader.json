@@ -1,0 +1,41 @@
+{
+  "slug": "pytube-downloader",
+  "title": "PyTube Downloader",
+  "type": "app",
+  "status": "archived",
+  "start-date": "2024-05-09",
+  "platform": "Windows",
+  "description": "PyTube Downloader is a Windows desktop application that lets you download YouTube videos and full playlists with a single click. It supports every resolution from 144p up to 8K, lets you download audio-only, and shows a real-time progress bar during download. Built with Python and CustomTkinter, it runs as a standalone executable — no Python installation needed on the end user's machine.",
+  "long-description": "PyTube Downloader was built at a time when downloading YouTube videos meant navigating sketchy websites full of ads, broken links, and limited resolution support. Using the pytube library as the engine and CustomTkinter for the UI, it provides a clean, fast, no-nonsense desktop experience for downloading videos and full playlists at any quality.",
+  "images": [
+    "/images/pytube-downloader/1.png",
+    "/images/pytube-downloader/2.png",
+    "/images/pytube-downloader/3.png",
+    "/images/pytube-downloader/4.png"
+  ],
+  "repo_url": "https://github.com/thisal-d/pytube-downloader/",
+  "api_url": "https://api.github.com/repos/thisal-d/pytube-downloader",
+  "publish-url": "https://sourceforge.net/projects/pytube-downloader/",
+  "download-label": "Download for Windows",
+  "tech-stack": [
+    "Python",
+    "CustomTkinter",
+    "pytube",
+    "SourceForge"
+  ],
+  "requirements": [
+    "Windows 10/11",
+    "No Python required (bundled executable)"
+  ],
+  "features": [
+    "Download individual videos or full playlists",
+    "Supports 144p to 8K resolution",
+    "Audio-only download mode",
+    "Progress bar with real-time status",
+    "Clean, modern CustomTkinter UI"
+  ],
+  "why-i-made-this": {
+    "simple": "YouTube downloading was hard — full of ads, fake sites, and no support for high quality resolutions.",
+    "extended": "There wasn't a YouTube downloader that supports high quality screen resolutions. There were a lot of issues — too many ads, redirects to unknown sites, some sites not working, not supporting higher qualities, only downloading video without audio. Then I found a library named pytube, I combined it with tkinter and customtkinter to build PyTube Downloader."
+  }
+}

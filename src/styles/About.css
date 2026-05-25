@@ -1,0 +1,473 @@
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+.about-page {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* ── Hero ── */
+.about-hero {
+  padding: 5rem 2.5rem 4rem;
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.about-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero-text .section-label { margin-bottom: 0.5rem; }
+
+.about-hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  margin-bottom: 0.75rem;
+}
+
+.about-hero-name span {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-hero-tagline {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+.about-identity-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.about-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border: 1px solid;
+  transition: all var(--transition-base);
+}
+
+.about-pill-code    { background: var(--accent-glow);          border-color: var(--border-accent);         color: var(--accent-primary); }
+.about-pill-ride    { background: rgba(251,191,36,0.08);        border-color: rgba(251,191,36,0.25);        color: #fbbf24; }
+.about-pill-music   { background: rgba(167,139,250,0.1);        border-color: rgba(167,139,250,0.25);       color: var(--highlight); }
+.about-pill-fitness { background: rgba(52,211,153,0.08);        border-color: rgba(52,211,153,0.25);        color: #34d399; }
+
+/* Profile photo */
+.about-profile-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.about-profile-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 24px;
+  background: var(--gradient-accent);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.about-profile-img {
+  width: 280px;
+  height: 320px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 20px;
+  border: 3px solid var(--bg-primary);
+  display: block;
+}
+
+/* ── Sections container ── */
+.about-sections {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* ── Generic section ── */
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-section.reverse {
+  direction: rtl;
+}
+
+.about-section.reverse > * {
+  direction: ltr;
+}
+
+.about-section-text {}
+
+.about-section-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: 0.6rem;
+}
+
+.about-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
+}
+
+.about-section-body {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.about-section-body p + p {
+  margin-top: 0.75rem;
+}
+
+/* ── Visual card (right side) ── */
+.about-visual-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  transition: border-color var(--transition-base);
+}
+
+.about-visual-card:hover {
+  border-color: var(--border-accent);
+}
+
+.about-visual-card-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.about-visual-card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.about-visual-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.about-visual-card-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.about-visual-card-item::before {
+  content: '›';
+  color: var(--accent-primary);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* ── Bike spec card ── */
+.about-bike-card {
+  background: linear-gradient(135deg, var(--bg-card) 0%, #0d1832 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-bike-card::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(251,191,36,0.08) 0%, transparent 70%);
+}
+
+.about-bike-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fbbf24;
+  margin-bottom: 0.5rem;
+}
+
+.about-bike-model {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+}
+
+.about-bike-make {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.about-bike-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.about-bike-spec {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+}
+
+.about-bike-spec-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.about-bike-spec-val {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ── The Rider (Custom Grid Section) ── */
+.about-rider-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 100%;
+}
+
+.about-rider-header {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.rider-card-override {
+  height: fit-content;
+}
+
+.about-rider-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 220px 220px;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.rider-img-wrap {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  background: var(--bg-secondary);
+}
+
+.rider-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rider-img-wrap:hover img {
+  transform: scale(1.06);
+}
+
+.rider-img-wrap.img-1 {
+  grid-row: 1 / -1;
+  grid-column: 1 / 2;
+}
+
+.rider-img-wrap.img-2 {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+
+.rider-img-wrap.img-3 {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+/* ── Music / vibe section ── */
+.about-music-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-music-card::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(167,139,250,0.1) 0%, transparent 70%);
+}
+
+.about-music-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.about-music-genre {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--highlight-dim);
+  border: 1px solid rgba(167,139,250,0.2);
+  color: var(--highlight);
+}
+
+/* ── Full-width divider section ── */
+.about-cta-strip {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+}
+
+.about-cta-strip-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-cta-title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.about-cta-body {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.about-cta-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .about-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-profile-img {
+    width: 200px;
+    height: 230px;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-rider-header {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-rider-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 220px);
+  }
+
+  .rider-img-wrap.img-1 { grid-column: 1; grid-row: 1; }
+  .rider-img-wrap.img-2 { grid-column: 1; grid-row: 2; }
+  .rider-img-wrap.img-3 { grid-column: 1; grid-row: 3; }
+
+  .about-section.reverse { direction: ltr; }
+
+  .about-sections {
+    padding: 3rem 1.5rem;
+    gap: 3.5rem;
+  }
+
+  .about-hero {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero-name { font-size: 2.2rem; }
+  .about-bike-specs { grid-template-columns: 1fr; }
+}

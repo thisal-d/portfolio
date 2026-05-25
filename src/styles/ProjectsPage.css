@@ -1,0 +1,97 @@
+/* ============================================================
+   PROJECTS PAGE
+   ============================================================ */
+.projects-page {
+  min-height: calc(100vh - 128px);
+  background: var(--bg-primary);
+  padding: 4rem 2.5rem;
+}
+
+.projects-page-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Hero header */
+.projects-page-header {
+  margin-bottom: 3rem;
+}
+
+.projects-page-header .section-description {
+  margin-top: 0.75rem;
+  max-width: 580px;
+}
+
+/* Filter bar */
+.projects-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.projects-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.projects-filter-btn:hover {
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+}
+
+.projects-filter-btn.active {
+  background: var(--accent-glow);
+  border-color: var(--border-accent);
+  color: var(--accent-primary);
+}
+
+.projects-filter-btn.active-lib  { background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.3); color: #a78bfa; }
+.projects-filter-btn.active-app  { background: rgba(52,211,153,0.1);  border-color: rgba(52,211,153,0.3);  color: #34d399; }
+.projects-filter-btn.active-web  { background: var(--accent-glow);    border-color: var(--border-accent);  color: var(--accent-primary); }
+
+.projects-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+/* Grid */
+.projects-page-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  justify-content: flex-start;
+}
+
+/* Empty state */
+.projects-empty {
+  text-align: center;
+  padding: 4rem 0;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .projects-page {
+    padding: 3rem 1.25rem;
+  }
+
+  .projects-page-grid {
+    justify-content: center;
+  }
+}

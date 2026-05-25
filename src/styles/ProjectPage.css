@@ -1,0 +1,745 @@
+/* ============================================================
+   SHARED PROJECT PAGE STYLES
+   Used by LibraryPage, AppPage, WebsitePage
+   ============================================================ */
+
+/* ── Page wrapper ── */
+.pp-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* ── Back bar ── */
+.pp-back-bar {
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(10, 15, 26, 0.7);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.pp-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.pp-back-btn:hover {
+  color: var(--text-primary);
+  background: var(--highlight-dim);
+}
+
+/* ── Hero section ── */
+.pp-hero {
+  padding: 4rem 2.5rem 3rem;
+  background: linear-gradient(180deg, #0d1832 0%, var(--bg-primary) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.pp-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.pp-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.pp-hero-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.pp-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.pp-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.3rem;
+}
+
+.pp-status {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.pp-status.active    { background: rgba(52,211,153,0.1); border-color: rgba(52,211,153,0.35); color: #34d399; }
+.pp-status.archived  { background: rgba(148,163,184,0.08); border-color: rgba(148,163,184,0.2); color: #94a3b8; }
+.pp-status.maintained{ background: rgba(251,191,36,0.1); border-color: rgba(251,191,36,0.3); color: #fbbf24; }
+
+.pp-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 1rem 0 1.75rem;
+}
+
+/* Action buttons row */
+.pp-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.pp-btn-primary {
+  background: var(--gradient-accent);
+  border-color: transparent;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.pp-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(0, 212, 255, 0.4);
+}
+
+.pp-btn-secondary {
+  background: transparent;
+  border-color: var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.pp-btn-secondary:hover {
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.04);
+}
+
+.pp-btn-github {
+  background: transparent;
+  border-color: var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.pp-btn-github:hover {
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.04);
+}
+
+.pp-btn-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* ── GitHub stats bar ── */
+.pp-stats-bar {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 2rem;
+}
+
+.pp-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.pp-stat-val {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pp-stat-version {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--accent-glow);
+  border: 1px solid var(--border-accent);
+  color: var(--accent-primary);
+}
+
+/* ── Main content area ── */
+.pp-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.pp-main { min-width: 0; }
+.pp-sidebar {}
+
+/* ── Section blocks ── */
+.pp-section {
+  margin-bottom: 2.5rem;
+}
+
+.pp-section-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pp-section-title::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  background: var(--gradient-accent);
+  border-radius: 2px;
+}
+
+/* ── Gallery ── */
+.pp-gallery {
+  margin-bottom: 2.5rem;
+}
+
+.pp-gallery-main {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.pp-gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s ease;
+}
+
+.pp-gallery-main:hover img {
+  transform: scale(1.02);
+}
+
+/* Portrait gallery (mobile screenshots) */
+.pp-gallery-portrait {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.pp-gallery-portrait::-webkit-scrollbar { height: 4px; }
+.pp-gallery-portrait::-webkit-scrollbar-thumb { background: var(--border-accent); border-radius: 2px; }
+
+.pp-gallery-thumb-portrait {
+  flex-shrink: 0;
+  width: 160px;
+  height: 280px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: var(--bg-card);
+}
+
+.pp-gallery-thumb-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.pp-gallery-thumb-portrait:hover,
+.pp-gallery-thumb-portrait.active {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.2);
+}
+
+.pp-gallery-thumbs {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.pp-gallery-thumbs::-webkit-scrollbar { height: 4px; }
+.pp-gallery-thumbs::-webkit-scrollbar-thumb { background: var(--border-accent); border-radius: 2px; }
+
+.pp-gallery-thumb {
+  flex-shrink: 0;
+  width: 100px;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: var(--bg-card);
+}
+
+.pp-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.pp-gallery-thumb:hover,
+.pp-gallery-thumb.active {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+}
+
+/* ── Long description ── */
+.pp-long-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ── Why I built this ── */
+.pp-why-block {
+  background: var(--highlight-dim);
+  border: 1px solid rgba(167, 139, 250, 0.15);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.pp-why-block p {
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ── Features list ── */
+.pp-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.pp-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.pp-feature-item::before {
+  content: '✓';
+  color: var(--accent-primary);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Releases ── */
+.pp-releases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pp-release-item {
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
+}
+
+.pp-release-item:hover {
+  border-color: var(--border-accent);
+}
+
+.pp-release-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.pp-release-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  background: var(--accent-glow);
+  border: 1px solid var(--border-accent);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+.pp-release-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pp-release-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.pp-release-body {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pp-release-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.pp-release-btn:hover {
+  color: var(--accent-primary);
+  border-color: var(--border-accent);
+  background: var(--accent-glow);
+}
+
+.pp-releases-loading {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+.pp-releases-empty {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 0.75rem 0;
+}
+
+/* Releases Header Bar */
+.pp-releases-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.pp-releases-count {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+}
+
+.pp-releases-view-all {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pp-releases-view-all:hover {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
+/* ── Sidebar card ── */
+.pp-sidebar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.pp-sidebar-card-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Tech stack tags */
+.pp-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pp-tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background: var(--highlight-dim);
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 999px;
+  color: var(--highlight);
+}
+
+/* Requirements list */
+.pp-requirements {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pp-requirement-item {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.pp-requirement-item::before {
+  content: '→';
+  color: var(--accent-primary);
+  font-size: 0.75rem;
+}
+
+/* Install command */
+.pp-install-block {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-primary);
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+  word-break: break-all;
+}
+
+.pp-install-block:hover {
+  border-color: var(--border-accent);
+}
+
+.pp-install-copy {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.pp-install-copied {
+  color: #34d399;
+}
+
+/* ── GitHub topics/tags ── */
+.pp-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.pp-topic {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  background: var(--accent-glow);
+  border: 1px solid var(--border-accent);
+  border-radius: 999px;
+  color: var(--accent-primary);
+}
+
+/* ── Loading / Error states ── */
+.pp-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.pp-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+.pp-not-found h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-secondary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pp-content {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+    gap: 0;
+  }
+
+  .pp-sidebar {
+    margin-top: 2rem;
+  }
+
+  .pp-hero {
+    padding: 2.5rem 1.5rem 2rem;
+  }
+
+  .pp-back-bar {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .pp-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pp-gallery-thumb-portrait {
+    width: 130px;
+    height: 230px;
+  }
+}
+
+/* ── Project Meta (start date, duration, status) ── */
+.pp-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.pp-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.pp-meta-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.pp-meta-val {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+/* Latest badge on most recent release */
+.pp-release-badge-latest {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 999px;
+  color: #34d399;
+}
+
+.pp-release-latest {
+  border-color: rgba(52, 211, 153, 0.2);
+}

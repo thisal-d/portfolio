@@ -1,0 +1,155 @@
+[
+  {
+    "slug": "tkchart",
+    "title": "tkchart",
+    "type": "library",
+    "description": "Line-Chart Widget for tkinter, Python library for creating live updating line charts.",
+    "images": [
+      "/images/tkchart/1.png",
+      "/images/tkchart/2.png",
+      "/images/tkchart/3.png",
+      "/images/tkchart/4.png"
+    ],
+    "repo_url": "https://github.com/thisal-d/tkchart/",
+    "api_url": "https://api.github.com/repos/thisal-d/tkchart",
+    "why-i-made-this": {
+      "simple": "There wasn't a live updating line-chart widget for tkinter, so I decided to make one."
+    },
+    "publish-url": "https://pypi.org/project/tkchart/",
+    "expand-on-new-tab": true
+  },
+  {
+    "slug": "pytube-downloader",
+    "title": "PyTube Downloader",
+    "type": "app",
+    "description": "Quickly download YouTube videos and playlists with one click. Choose from 144p to 8K quality.",
+    "images": [
+      "/images/pytube-downloader/1.png",
+      "/images/pytube-downloader/2.png",
+      "/images/pytube-downloader/3.png",
+      "/images/pytube-downloader/4.png"
+    ],
+    "repo_url": "https://github.com/thisal-d/pytube-downloader/",
+    "api_url": "https://api.github.com/repos/thisal-d/pytube-downloader",
+    "why-i-made-this": {
+      "simple": "YouTube downloading was hard — full of ads, fake sites, and no support for high quality resolutions."
+    },
+    "publish-url": "https://sourceforge.net/projects/pytube-downloader/",
+    "expand-on-new-tab": true
+  },
+  {
+    "slug": "ctkchart",
+    "title": "ctkchart",
+    "type": "library",
+    "description": "Line-Chart Widget for customtkinter, Python library for creating live updating line charts with automatic dark/light theme support.",
+    "images": [
+      "/images/ctkchart/1.png",
+      "/images/ctkchart/2.png",
+      "/images/ctkchart/3.png",
+      "/images/ctkchart/4.png"
+    ],
+    "repo_url": "https://github.com/thisal-d/ctkchart/",
+    "api_url": "https://api.github.com/repos/thisal-d/ctkchart",
+    "publish-url": "https://pypi.org/project/ctkchart/",
+    "why-i-made-this": {
+      "simple": "tkchart didn't support dark/light theme changes automatically, so I upgraded it to ctkchart."
+    },
+    "expand-on-new-tab": true
+  },
+  {
+    "slug": "ai-verse",
+    "title": "ai-verse",
+    "type": "website",
+    "description": "A centralized platform to explore, discover, and organize AI tools from around the world.",
+    "images": [
+      "/images/ai-verse/1.png",
+      "/images/ai-verse/2.png",
+      "/images/ai-verse/3.png",
+      "/images/ai-verse/4.png",
+      "/images/ai-verse/5.png"
+    ],
+    "repo_url": "https://github.com/thisal-d/ai-verse/",
+    "api_url": "https://api.github.com/repos/thisal-d/ai-verse",
+    "publish-url": "https://ai-verse-tools.netlify.app/",
+    "why-i-made-this": {
+      "simple": "AI is growing fast — I wanted to make a platform to explore AI tools."
+    },
+    "expand-on-new-tab": true
+  },
+  {
+    "slug": "auto-fuel-x",
+    "title": "auto-fuel-x",
+    "type": "website",
+    "description": "Comprehensive Fuel Station & Vehicle Service Management System built with Jakarta EE.",
+    "images": [
+      "/images/auto-fuel-x/1.png",
+      "/images/auto-fuel-x/2.png",
+      "/images/auto-fuel-x/3.png",
+      "/images/auto-fuel-x/4.png",
+      "/images/auto-fuel-x/5.png"
+    ],
+    "repo_url": "https://github.com/thisal-d/auto-fuel-x/",
+    "api_url": "https://api.github.com/repos/thisal-d/auto-fuel-x",
+    "publish-url": false,
+    "why-i-made-this": {
+      "simple": "A university group project for Year 2, Semester 1."
+    },
+    "expand-on-new-tab": false
+  },
+  {
+    "slug": "ip-wizard",
+    "title": "ip-wizard",
+    "type": "app",
+    "description": "Calculate subnet masks and IP ranges on your Android device — a handy tool for networking students.",
+    "images": [
+      "/images/ip-wizard/1.png",
+      "/images/ip-wizard/2.png",
+      "/images/ip-wizard/3.png",
+      "/images/ip-wizard/4.png"
+    ],
+    "repo_url": "https://github.com/thisal-d/ip-wizard/",
+    "api_url": "https://api.github.com/repos/thisal-d/ip-wizard",
+    "why-i-made-this": {
+      "simple": "In Advanced Level ICT I had to calculate subnet questions. I made this to verify my answers."
+    },
+    "publish-url": "https://sourceforge.net/projects/ip-wizard/",
+    "expand-on-new-tab": true
+  },
+  {
+    "slug": "tutor-booking-system",
+    "title": "tutor-booking-system",
+    "type": "website",
+    "description": "A web application for students to discover and book tutoring sessions with verified tutors.",
+    "images": [
+      "/images/tutor-booking-system/1.png",
+      "/images/tutor-booking-system/2.png",
+      "/images/tutor-booking-system/3.png",
+      "/images/tutor-booking-system/4.png",
+      "/images/tutor-booking-system/5.png"
+    ],
+    "repo_url": "https://github.com/thisal-d/tutor-booking-system/",
+    "api_url": "https://api.github.com/repos/thisal-d/tutor-booking-system",
+    "why-i-made-this": {
+      "simple": "A university project for Year 1, Semester 2."
+    },
+    "publish-url": false,
+    "expand-on-new-tab": false
+  },
+  {
+    "slug": "smart-water-tank-system",
+    "title": "smart-water-tank-system",
+    "type": "app",
+    "description": "Arduino-based IoT water level monitoring system with control via web and mobile apps, using ultrasonic and TDS sensors.",
+    "images": [
+      "/images/smart-water-tank-system/1.png",
+      "/images/smart-water-tank-system/2.png"
+    ],
+    "repo_url": "https://github.com/thisal-d/smart-water-tank-system/",
+    "api_url": "https://api.github.com/repos/thisal-d/smart-water-tank-system",
+    "why-i-made-this": {
+      "simple": "A university project for Year 1, Semester 1."
+    },
+    "publish-url": false,
+    "expand-on-new-tab": false
+  }
+]

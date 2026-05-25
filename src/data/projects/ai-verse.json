@@ -1,0 +1,38 @@
+{
+  "slug": "ai-verse",
+  "title": "AI Verse",
+  "type": "website",
+  "status": "active",
+  "start-date": "2026-03-20",
+  "description": "ai-verse is a web platform for discovering, exploring, and organizing AI tools from across the internet. It provides a searchable, filterable directory of AI tools — from writing assistants to image generators to coding helpers — all in one place. Users can filter by category, save favourites, and track which tools they use most. Built with React and deployed on Netlify.",
+  "long-description": "AI tools are multiplying faster than anyone can keep up. ai-verse is a curated, searchable hub where you can discover new AI tools, filter by category, save your favourites, and track which tools you actually use. Built with React and deployed on Netlify, it's become a go-to reference for anyone following the AI space.",
+  "images": [
+    "/images/ai-verse/1.png",
+    "/images/ai-verse/2.png",
+    "/images/ai-verse/3.png",
+    "/images/ai-verse/4.png",
+    "/images/ai-verse/5.png"
+  ],
+  "repo_url": "https://github.com/thisal-d/ai-verse/",
+  "api_url": "https://api.github.com/repos/thisal-d/ai-verse",
+  "publish-url": "https://ai-verse-tools.netlify.app/",
+  "live-label": "Open Live Site",
+  "tech-stack": [
+    "React",
+    "JavaScript",
+    "CSS",
+    "Netlify"
+  ],
+  "features": [
+    "Browse 100+ curated AI tools",
+    "Filter by category and use-case",
+    "Save favourites to local storage",
+    "Track most-used tools",
+    "Search by name or keyword",
+    "Fully responsive design"
+  ],
+  "why-i-made-this": {
+    "simple": "AI is growing fast — I wanted to make a platform to explore AI tools.",
+    "extended": "I saw many AI tools popping up every day, and it was hard to keep track of them. So I decided to create a platform to explore AI tools. It helps to filter, search, save as favourites, categorize, and track what you use the most."
+  }
+}

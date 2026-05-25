@@ -1,0 +1,39 @@
+{
+  "slug": "tutor-booking-system",
+  "title": "Tutor Booking System",
+  "type": "website",
+  "status": "archived",
+  "start-date": "2025-3-05",
+  "description": "The Tutor Booking System is a Java-based web application where students can browse available tutors, view their profiles, and book study sessions — all online. Tutors can manage their availability and respond to bookings. An admin panel provides full user and booking management. Built with Java Servlets, JSP, and MySQL as part of an Object-Oriented Programming module at university.",
+  "long-description": "Built as a Year 1 Semester 2 university OOP project, the Tutor Booking System is a Java Servlet & JSP web application where students can register, browse available tutors, view their profiles, and book sessions. Tutors can manage their availability and accept or decline bookings. The system includes an admin panel with full user management.",
+  "images": [
+    "/images/tutor-booking-system/1.png",
+    "/images/tutor-booking-system/2.png",
+    "/images/tutor-booking-system/3.png",
+    "/images/tutor-booking-system/4.png",
+    "/images/tutor-booking-system/5.png"
+  ],
+  "repo_url": "https://github.com/thisal-d/tutor-booking-system/",
+  "api_url": "https://api.github.com/repos/thisal-d/tutor-booking-system",
+  "publish-url": false,
+  "tech-stack": [
+    "Java",
+    "JSP",
+    "Servlets",
+    "MySQL",
+    "HTML",
+    "CSS"
+  ],
+  "features": [
+    "Student & tutor registration",
+    "Browse and filter available tutors",
+    "Session booking and confirmation",
+    "Tutor availability management",
+    "Admin panel with full user control",
+    "Booking history for both roles"
+  ],
+  "why-i-made-this": {
+    "simple": "A university project for Year 1, Semester 2.",
+    "extended": "Year 1 Semester 2 university project. Built a tutor booking web application with Java, JSP, and Servlets allowing students to browse tutors, book sessions, and manage appointments."
+  }
+}

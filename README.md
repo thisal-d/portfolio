@@ -1,8 +1,13 @@
-# Who Am I – Personal Portfolio
-
-**Who Am I** is a personal portfolio website built with React, designed to showcase my open-source projects, skills, and online presence. This project serves as a digital identity — a place where others can learn more about who I am, what I’ve built, and where to find me online.
-
-> 🧠 “Not just a portfolio — it's a reflection of the journey so far.”
+<div align="center">
+  <img src="public/logo/blue.png" alt="Who Am I Logo" width="120" />
+  <h1>Who Am I – Personal Portfolio</h1>
+  <p>
+    <strong>Who Am I</strong> is a personal portfolio website built with React, designed to showcase my open-source projects, skills, and online presence. This project serves as a digital identity — a place where others can learn more about who I am, what I’ve built, and where to find me online.
+  </p>
+  <p>
+    <i>🧠 “Not just a portfolio — it's a reflection of the journey so far.”</i>
+  </p>
+</div>
 
 ---
 

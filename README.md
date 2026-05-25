@@ -15,7 +15,7 @@
 
 You can see a live demo here:
 
-👉 [**Who Am I ?**](https://who-am-i-web.netlify.app/)
+👉 [**Who Am I ?**](https://who-am-i-web.pages.dev/)
 
 ---
 

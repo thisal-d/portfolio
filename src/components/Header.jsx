@@ -7,7 +7,10 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="header-title">Who Am I</div>
+      <NavLink to="/" className="header-brand">
+        <img src="/logo/blue.png" alt="Who Am I Logo" className="header-logo" />
+        <div className="header-title">Who Am I</div>
+      </NavLink>
 
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>

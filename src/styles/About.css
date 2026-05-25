@@ -36,7 +36,9 @@
   z-index: 1;
 }
 
-.about-hero-text .section-label { margin-bottom: 0.5rem; }
+.about-hero-text .section-label {
+  margin-bottom: 0.5rem;
+}
 
 .about-hero-name {
   font-family: var(--font-display);
@@ -80,10 +82,29 @@
   transition: all var(--transition-base);
 }
 
-.about-pill-code    { background: var(--accent-glow);          border-color: var(--border-accent);         color: var(--accent-primary); }
-.about-pill-ride    { background: rgba(251,191,36,0.08);        border-color: rgba(251,191,36,0.25);        color: #fbbf24; }
-.about-pill-music   { background: rgba(167,139,250,0.1);        border-color: rgba(167,139,250,0.25);       color: var(--highlight); }
-.about-pill-fitness { background: rgba(52,211,153,0.08);        border-color: rgba(52,211,153,0.25);        color: #34d399; }
+.about-pill-code {
+  background: var(--accent-glow);
+  border-color: var(--border-accent);
+  color: var(--accent-primary);
+}
+
+.about-pill-ride {
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.25);
+  color: #fbbf24;
+}
+
+.about-pill-music {
+  background: rgba(167, 139, 250, 0.1);
+  border-color: rgba(167, 139, 250, 0.25);
+  color: var(--highlight);
+}
+
+.about-pill-fitness {
+  background: rgba(52, 211, 153, 0.08);
+  border-color: rgba(52, 211, 153, 0.25);
+  color: #34d399;
+}
 
 /* Profile photo */
 .about-profile-wrap {
@@ -132,7 +153,7 @@
   direction: rtl;
 }
 
-.about-section.reverse > * {
+.about-section.reverse>* {
   direction: ltr;
 }
 
@@ -163,7 +184,7 @@
   line-height: 1.8;
 }
 
-.about-section-body p + p {
+.about-section-body p+p {
   margin-top: 0.75rem;
 }
 
@@ -232,7 +253,7 @@
   right: -30px;
   width: 140px;
   height: 140px;
-  background: radial-gradient(circle, rgba(251,191,36,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 70%);
 }
 
 .about-bike-badge {
@@ -365,7 +386,7 @@
   left: -20px;
   width: 120px;
   height: 120px;
-  background: radial-gradient(circle, rgba(167,139,250,0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
 }
 
 .about-music-genres {
@@ -384,7 +405,7 @@
   font-size: 0.8rem;
   font-weight: 500;
   background: var(--highlight-dim);
-  border: 1px solid rgba(167,139,250,0.2);
+  border: 1px solid rgba(167, 139, 250, 0.2);
   color: var(--highlight);
 }
 
@@ -499,9 +520,20 @@
     grid-template-rows: repeat(3, 220px);
   }
 
-  .rider-img-wrap.img-1 { grid-column: 1; grid-row: 1; }
-  .rider-img-wrap.img-2 { grid-column: 1; grid-row: 2; }
-  .rider-img-wrap.img-3 { grid-column: 1; grid-row: 3; }
+  .rider-img-wrap.img-1 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .rider-img-wrap.img-2 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .rider-img-wrap.img-3 {
+    grid-column: 1;
+    grid-row: 3;
+  }
 
   .athlete-img-wrap {
     height: 300px;
@@ -517,7 +549,9 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
 
-  .about-section.reverse { direction: ltr; }
+  .about-section.reverse {
+    direction: ltr;
+  }
 
   .about-sections {
     padding: 3rem 1.5rem;
@@ -530,6 +564,11 @@
 }
 
 @media (max-width: 480px) {
-  .about-hero-name { font-size: 2.2rem; }
-  .about-bike-specs { grid-template-columns: 1fr; }
+  .about-hero-name {
+    font-size: 2.2rem;
+  }
+
+  .about-bike-specs {
+    grid-template-columns: 1fr;
+  }
 }

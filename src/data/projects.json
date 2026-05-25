@@ -70,7 +70,7 @@
     ],
     "repo_url": "https://github.com/thisal-d/ai-verse/",
     "api_url": "https://api.github.com/repos/thisal-d/ai-verse",
-    "publish-url": "https://ai-verse-tools.netlify.app/",
+    "publish-url": "https://ai-verse.pages.dev/",
     "why-i-made-this": {
       "simple": "AI is growing fast — I wanted to make a platform to explore AI tools."
     },

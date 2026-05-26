@@ -8,24 +8,28 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import ClassifiedPage from './pages/ClassifiedPage';
 import ProjectPage from './pages/project/ProjectPage';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/classified"          element={<ClassifiedPage />} />
-          <Route path="/"                    element={<Home />} />
-          <Route path="/about"               element={<About />} />
-          <Route path="/projects"            element={<Projects />} />
-          <Route path="/contact"             element={<Contact />} />
-          <Route path="/projects/:slug"      element={<ProjectPage />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/classified"     element={<ClassifiedPage />} />
+            <Route path="/"               element={<Home />} />
+            <Route path="/about"          element={<About />} />
+            <Route path="/projects"       element={<Projects />} />
+            <Route path="/contact"        element={<Contact />} />
+            <Route path="/projects/:slug" element={<ProjectPage />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </div>
+    </ThemeProvider>
   );
 }
 
 export default App;
+

@@ -1,27 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import contactData from "../data/contact.json";
 import "../styles/Contact.css";
 
-const PUBLIC_LINKS = [
-  {
-    name: "GitHub",
-    handle: "thisal-d",
-    url: "https://github.com/Thisal-D",
-    icon: "/icons/social/github.png",
-  },
-  {
-    name: "LinkedIn",
-    handle: "Thisal Dilmith",
-    url: "https://www.linkedin.com/in/thisal-dilmith",
-    icon: "/icons/social/linkedin.png",
-  },
-  {
-    name: "Stack Overflow",
-    handle: "Thisal Dilmith",
-    url: "https://stackoverflow.com/users/thisal-dilmith",
-    icon: "/icons/social/stack-overflow.png",
-  },
-];
+const PUBLIC_LINKS = contactData.socials.filter(link => link.isPublic);
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -34,7 +16,7 @@ function Contact() {
   function handleSubmit(e) {
     e.preventDefault();
     /* Mailto fallback — swap for a real API (EmailJS, Formspree, etc.) when ready */
-    const mailto = `mailto:contact@thisaldilmith.dev?subject=Portfolio Contact — ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message + "\n\nFrom: " + form.email)}`;
+    const mailto = `mailto:${contactData.email}?subject=Portfolio Contact — ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message + "\n\nFrom: " + form.email)}`;
     window.open(mailto, "_blank");
     setSent(true);
     setForm({ name: "", email: "", message: "" });

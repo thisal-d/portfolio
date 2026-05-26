@@ -1,0 +1,40 @@
+{
+  "email": "contact@thisaldilmith.dev",
+  "socials": [
+    {
+      "name": "GitHub",
+      "handle": "thisal-d",
+      "url": "https://github.com/Thisal-D",
+      "icon": "/icons/social/github.png",
+      "isPublic": true
+    },
+    {
+      "name": "LinkedIn",
+      "handle": "Thisal Dilmith",
+      "url": "https://www.linkedin.com/in/thisal-dilmith",
+      "icon": "/icons/social/linkedin.png",
+      "isPublic": true
+    },
+    {
+      "name": "Stack Overflow",
+      "handle": "Thisal Dilmith",
+      "url": "https://stackoverflow.com/users/17652621/thisal",
+      "icon": "/icons/social/stack-overflow.png",
+      "isPublic": true
+    },
+    {
+      "name": "Facebook",
+      "handle": "Classified",
+      "url": "/classified",
+      "icon": "/icons/social/facebook.png",
+      "isPublic": false
+    },
+    {
+      "name": "Instagram",
+      "handle": "Classified",
+      "url": "/classified",
+      "icon": "/icons/social/instagram.png",
+      "isPublic": false
+    }
+  ]
+}

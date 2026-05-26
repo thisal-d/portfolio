@@ -3,7 +3,7 @@
     "slug": "tkchart",
     "title": "tkchart",
     "type": "library",
-    "description": "Line-Chart Widget for tkinter, Python library for creating live updating line charts.",
+    "description": "Python's tkinter ships with no charting widget. I built tkchart so developers can drop live-updating line charts into any tkinter app in under five lines — no plotting library, no extra dependencies.",
     "images": [
       "/images/tkchart/1.png",
       "/images/tkchart/2.png",
@@ -13,35 +13,16 @@
     "repo_url": "https://github.com/thisal-d/tkchart/",
     "api_url": "https://api.github.com/repos/thisal-d/tkchart",
     "why-i-made-this": {
-      "simple": "There wasn't a live updating line-chart widget for tkinter, so I decided to make one."
+      "simple": "Building a network-speed monitor in Python, I hit a wall: tkinter has no live chart widget. Instead of searching forever, I built one and published it to PyPI."
     },
     "publish-url": "https://pypi.org/project/tkchart/",
-    "expand-on-new-tab": true
-  },
-  {
-    "slug": "pytube-downloader",
-    "title": "PyTube Downloader",
-    "type": "app",
-    "description": "Quickly download YouTube videos and playlists with one click. Choose from 144p to 8K quality.",
-    "images": [
-      "/images/pytube-downloader/1.png",
-      "/images/pytube-downloader/2.png",
-      "/images/pytube-downloader/3.png",
-      "/images/pytube-downloader/4.png"
-    ],
-    "repo_url": "https://github.com/thisal-d/pytube-downloader/",
-    "api_url": "https://api.github.com/repos/thisal-d/pytube-downloader",
-    "why-i-made-this": {
-      "simple": "YouTube downloading was hard — full of ads, fake sites, and no support for high quality resolutions."
-    },
-    "publish-url": "https://sourceforge.net/projects/pytube-downloader/",
     "expand-on-new-tab": true
   },
   {
     "slug": "ctkchart",
     "title": "ctkchart",
     "type": "library",
-    "description": "Line-Chart Widget for customtkinter, Python library for creating live updating line charts with automatic dark/light theme support.",
+    "description": "When CustomTkinter brought modern light/dark themes to Python desktop apps, charts stayed stuck in one colour scheme. ctkchart extends tkchart to inherit your app's active theme automatically — zero configuration required.",
     "images": [
       "/images/ctkchart/1.png",
       "/images/ctkchart/2.png",
@@ -52,15 +33,34 @@
     "api_url": "https://api.github.com/repos/thisal-d/ctkchart",
     "publish-url": "https://pypi.org/project/ctkchart/",
     "why-i-made-this": {
-      "simple": "tkchart didn't support dark/light theme changes automatically, so I upgraded it to ctkchart."
+      "simple": "tkchart didn't respond to CustomTkinter's theme engine. Rather than patching it, I rebuilt the core with first-class theme support and shipped it as a separate PyPI package."
     },
+    "expand-on-new-tab": true
+  },
+  {
+    "slug": "pytube-downloader",
+    "title": "PyTube Downloader",
+    "type": "app",
+    "description": "Every YouTube downloader on the web is buried under ads or capped at 1080p. PyTube Downloader is a multi-threaded desktop app that downloads single videos or full playlists from 144p to 8K — with honest progress bars and no browser required.",
+    "images": [
+      "/images/pytube-downloader/1.png",
+      "/images/pytube-downloader/2.png",
+      "/images/pytube-downloader/3.png",
+      "/images/pytube-downloader/4.png"
+    ],
+    "repo_url": "https://github.com/thisal-d/pytube-downloader/",
+    "api_url": "https://api.github.com/repos/thisal-d/pytube-downloader",
+    "why-i-made-this": {
+      "simple": "I needed to download lecture playlists offline. Every existing tool had ads, fake progress, or quality limits. Building my own took a weekend and solved it permanently."
+    },
+    "publish-url": "https://sourceforge.net/projects/pytube-downloader/",
     "expand-on-new-tab": true
   },
   {
     "slug": "ai-verse",
     "title": "ai-verse",
     "type": "website",
-    "description": "A centralized platform to explore, discover, and organize AI tools from around the world.",
+    "description": "AI tools multiply faster than anyone can track. ai-verse is a curated discovery platform where engineers, designers, and product teams can search, filter, and organise the AI tools that actually matter to their workflow — cutting hours of research to minutes.",
     "images": [
       "/images/ai-verse/1.png",
       "/images/ai-verse/2.png",
@@ -72,7 +72,7 @@
     "api_url": "https://api.github.com/repos/thisal-d/ai-verse",
     "publish-url": "https://ai-verse.pages.dev/",
     "why-i-made-this": {
-      "simple": "AI is growing fast — I wanted to make a platform to explore AI tools."
+      "simple": "I kept losing track of useful AI tools discovered in passing. Building a structured discovery platform solved my own problem — and turned out useful for others too."
     },
     "expand-on-new-tab": true
   },
@@ -80,7 +80,7 @@
     "slug": "auto-fuel-x",
     "title": "auto-fuel-x",
     "type": "website",
-    "description": "Comprehensive Fuel Station & Vehicle Service Management System built with Jakarta EE.",
+    "description": "Disconnected spreadsheets and paper ledgers leave fuel stations prone to daily errors with no audit trail. auto-fuel-x is a full-stack Jakarta EE system that digitises transactions, vehicle service records, staff scheduling, and inventory into one auditable platform.",
     "images": [
       "/images/auto-fuel-x/1.png",
       "/images/auto-fuel-x/2.png",
@@ -92,7 +92,7 @@
     "api_url": "https://api.github.com/repos/thisal-d/auto-fuel-x",
     "publish-url": false,
     "why-i-made-this": {
-      "simple": "A university group project for Year 2, Semester 1."
+      "simple": "A team project for Year 2. The brief was real-world: model an actual business process end-to-end with a production-grade Java EE backend."
     },
     "expand-on-new-tab": false
   },
@@ -100,7 +100,7 @@
     "slug": "ip-wizard",
     "title": "ip-wizard",
     "type": "app",
-    "description": "Calculate subnet masks and IP ranges on your Android device — a handy tool for networking students.",
+    "description": "Subnetting by hand during an exam is error-prone and slow, and verifying answers without internet access is even harder. ip-wizard is an offline Android calculator for subnet masks, host ranges, and broadcast addresses — results in under a second.",
     "images": [
       "/images/ip-wizard/1.png",
       "/images/ip-wizard/2.png",
@@ -110,7 +110,7 @@
     "repo_url": "https://github.com/thisal-d/ip-wizard/",
     "api_url": "https://api.github.com/repos/thisal-d/ip-wizard",
     "why-i-made-this": {
-      "simple": "In Advanced Level ICT I had to calculate subnet questions. I made this to verify my answers."
+      "simple": "A-Level ICT involved constant subnetting practice. Instead of checking my work manually each time, I built an offline tool — then published it so classmates could use it too."
     },
     "publish-url": "https://sourceforge.net/projects/ip-wizard/",
     "expand-on-new-tab": true
@@ -119,7 +119,7 @@
     "slug": "tutor-booking-system",
     "title": "tutor-booking-system",
     "type": "website",
-    "description": "A web application for students to discover and book tutoring sessions with verified tutors.",
+    "description": "Finding a qualified tutor is still a phone-call and WhatsApp affair for most students. This full-stack platform lets students browse verified tutor profiles, check live availability, and book sessions directly — while tutors manage schedules and earnings from a dedicated dashboard.",
     "images": [
       "/images/tutor-booking-system/1.png",
       "/images/tutor-booking-system/2.png",
@@ -130,7 +130,7 @@
     "repo_url": "https://github.com/thisal-d/tutor-booking-system/",
     "api_url": "https://api.github.com/repos/thisal-d/tutor-booking-system",
     "why-i-made-this": {
-      "simple": "A university project for Year 1, Semester 2."
+      "simple": "The brief for Year 1 was to solve a real problem with a web app. Tutor discovery felt broken, so we built the marketplace we'd actually want to use."
     },
     "publish-url": false,
     "expand-on-new-tab": false
@@ -139,7 +139,7 @@
     "slug": "smart-water-tank-system",
     "title": "smart-water-tank-system",
     "type": "app",
-    "description": "Arduino-based IoT water level monitoring system with control via web and mobile apps, using ultrasonic and TDS sensors.",
+    "description": "Water tanks silently overflow or run dry — wasting litres or leaving families without supply for hours. This Arduino + ESP32 IoT system monitors level via ultrasonic sensors, checks water quality with a TDS sensor, and lets you control the pump remotely from a web or mobile app over Wi-Fi.",
     "images": [
       "/images/smart-water-tank-system/1.png",
       "/images/smart-water-tank-system/2.png"
@@ -147,7 +147,7 @@
     "repo_url": "https://github.com/thisal-d/smart-water-tank-system/",
     "api_url": "https://api.github.com/repos/thisal-d/smart-water-tank-system",
     "why-i-made-this": {
-      "simple": "A university project for Year 1, Semester 1."
+      "simple": "A Year 1 hardware project that turned into a real home utility. The constraint of connecting embedded hardware to a cloud dashboard across three layers was the most interesting engineering challenge I'd faced at the time."
     },
     "publish-url": false,
     "expand-on-new-tab": false

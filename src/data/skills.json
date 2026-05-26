@@ -1,0 +1,55 @@
+[
+  {
+    "category": "Languages",
+    "emoji": "⌨️",
+    "skills": [
+      { "name": "Python",     "icon": "/icons/skill/python.png",     "level": 5 },
+      { "name": "JavaScript", "icon": "/icons/skill/javascript.png", "level": 4 },
+      { "name": "Java",       "icon": "/icons/skill/java.png",       "level": 3 },
+      { "name": "C++",        "icon": "/icons/skill/c++.png",        "level": 3 },
+      { "name": "PHP",        "icon": "/icons/skill/php.png",        "level": 2 }
+    ]
+  },
+  {
+    "category": "Frontend",
+    "emoji": "🎨",
+    "skills": [
+      { "name": "React",    "icon": "/icons/skill/react.png",        "level": 4 },
+      { "name": "HTML",     "icon": "/icons/skill/html.png",         "level": 5 },
+      { "name": "Tailwind", "icon": "/icons/skill/tailwind_css.png", "level": 3 }
+    ]
+  },
+  {
+    "category": "Python UI",
+    "emoji": "🪟",
+    "skills": [
+      { "name": "Tkinter",       "icon": "/icons/skill/tkinter.gif",         "level": 5 },
+      { "name": "CustomTkinter", "icon": "/icons/skill/customtkinter.ico",   "level": 5 }
+    ]
+  },
+  {
+    "category": "Database",
+    "emoji": "🗄️",
+    "skills": [
+      { "name": "MySQL", "icon": "/icons/skill/mysql.png", "level": 3 }
+    ]
+  },
+  {
+    "category": "Mobile & IoT",
+    "emoji": "📱",
+    "skills": [
+      { "name": "Android", "icon": "/icons/skill/android.png", "level": 3 },
+      { "name": "Arduino", "icon": "/icons/skill/arduino.png", "level": 2 }
+    ]
+  },
+  {
+    "category": "Tools & DevOps",
+    "emoji": "🛠️",
+    "skills": [
+      { "name": "Git",       "icon": "/icons/skill/git.png",                   "level": 4 },
+      { "name": "GitHub",    "icon": "/icons/skill/github.png",                "level": 4 },
+      { "name": "VS Code",   "icon": "/icons/skill/visual_studio_code.png",    "level": 5 },
+      { "name": "IntelliJ",  "icon": "/icons/skill/intellij.png",              "level": 3 }
+    ]
+  }
+]

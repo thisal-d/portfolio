@@ -1,42 +1,58 @@
 import React from "react";
 import "../styles/Skills.css";
-import SkillCard from "./SkillCard";
+import skillsData from "../data/skills.json";
 
-const skills = [
-  { name: "Python",       icon: "/icons/skill/python.png" },
-  { name: "Java",         icon: "/icons/skill/java.png" },
-  { name: "JavaScript",   icon: "/icons/skill/javascript.png" },
-  { name: "C++",          icon: "/icons/skill/c++.png" },
-  { name: "PHP",          icon: "/icons/skill/php.png" },
-  { name: "HTML",         icon: "/icons/skill/html.png" },
-  { name: "React",        icon: "/icons/skill/react.png" },
-  { name: "Tailwind",     icon: "/icons/skill/tailwind_css.png" },
-  { name: "MySQL",        icon: "/icons/skill/mysql.png" },
-  { name: "Tkinter",      icon: "/icons/skill/tkinter.gif" },
-  { name: "CustomTkinter",icon: "/icons/skill/customtkinter.ico" },
-  { name: "Arduino",      icon: "/icons/skill/arduino.png" },
-  { name: "Android",      icon: "/icons/skill/android.png" },
-  { name: "Git",          icon: "/icons/skill/git.png" },
-  { name: "GitHub",       icon: "/icons/skill/github.png" },
-  { name: "VS Code",      icon: "/icons/skill/visual_studio_code.png" },
-  { name: "IntelliJ",     icon: "/icons/skill/intellij.png" },
-];
+/* ── Level dots (1-5) ── */
+function LevelDots({ level }) {
+  return (
+    <span className="skill-level" aria-label={`Proficiency: ${level} out of 5`}>
+      {[1, 2, 3, 4, 5].map(i => (
+        <span
+          key={i}
+          className={`skill-dot ${i <= level ? "skill-dot--filled" : ""}`}
+        />
+      ))}
+    </span>
+  );
+}
 
+/* ── Single skill pill ── */
+function SkillPill({ skill }) {
+  return (
+    <div className="skill-pill" title={skill.name}>
+      <img src={skill.icon} alt={skill.name} className="skill-pill-icon" />
+      <span className="skill-pill-name">{skill.name}</span>
+      <LevelDots level={skill.level} />
+    </div>
+  );
+}
+
+/* ── Main Skills section ── */
 const Skills = () => (
-  <section className="skills-section">
-    <div className="skills-section-inner">
-      <div className="skills-section-header">
+  <section className="skills-section" aria-label="Skills and tools">
+    <div className="skills-inner">
+      <div className="skills-header">
         <p className="section-label">Tech Stack</p>
-        <h2 className="section-title">Skills & Tools</h2>
+        <h2 className="section-title">Skills &amp; Tools</h2>
         <p className="section-description">
-          Over time I've picked up a bunch of technologies — some through projects, others out of curiosity.
-          I'm not a pro in everything here, but I know enough to build, break, and fix things on my own.
+          Technologies I've used across real projects — from published PyPI libraries
+          to full-stack web apps. Dots indicate relative proficiency.
         </p>
       </div>
 
-      <div className="skills-grid">
-        {skills.map((skill, index) => (
-          <SkillCard skill={skill} key={index} />
+      <div className="skills-categories">
+        {skillsData.map((group) => (
+          <div className="skills-category" key={group.category}>
+            <div className="skills-category-header">
+              <span className="skills-category-emoji" aria-hidden="true">{group.emoji}</span>
+              <h3 className="skills-category-name">{group.category}</h3>
+            </div>
+            <div className="skills-pills">
+              {group.skills.map((skill) => (
+                <SkillPill skill={skill} key={skill.name} />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>

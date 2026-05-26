@@ -1,13 +1,8 @@
 import React from "react";
+import contactData from "../data/contact.json";
 import "../styles/Footer.css";
 
-const socialLinks = [
-  { name: "GitHub",         url: "https://github.com/thisal-d",                          icon: "/icons/social/github.png"         },
-  { name: "LinkedIn",       url: "https://www.linkedin.com/in/thisal-dilmith",            icon: "/icons/social/linkedin.png"       },
-  { name: "Stack Overflow", url: "https://stackoverflow.com/users/17652621/thisal",       icon: "/icons/social/stack-overflow.png" },
-  { name: "Facebook",       url: "/classified",                                            icon: "/icons/social/facebook.png"       },
-  { name: "Instagram",      url: "/classified",                                            icon: "/icons/social/instagram.png"      },
-];
+const socialLinks = contactData.socials;
 
 const Footer = () => (
   <footer className="footer">

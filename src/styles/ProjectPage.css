@@ -57,8 +57,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(99, 102, 241, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
@@ -144,12 +144,12 @@
   background: var(--gradient-accent);
   border-color: transparent;
   color: #000;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.32);
 }
 
 .pp-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 6px 28px rgba(99, 102, 241, 0.45);
 }
 
 .pp-btn-secondary {
@@ -318,7 +318,7 @@
 .pp-gallery-thumb-portrait:hover,
 .pp-gallery-thumb-portrait.active {
   border-color: var(--accent-primary);
-  box-shadow: 0 0 16px rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.22);
 }
 
 .pp-gallery-thumbs {
@@ -354,7 +354,7 @@
 .pp-gallery-thumb:hover,
 .pp-gallery-thumb.active {
   border-color: var(--accent-primary);
-  box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.22);
 }
 
 /* ── Long description ── */

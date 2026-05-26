@@ -344,7 +344,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 212, 255, 0.08);
+  background: rgba(99, 102, 241, 0.08);
   color: var(--accent-primary);
   font-family: var(--font-mono);
   font-size: 0.8rem;

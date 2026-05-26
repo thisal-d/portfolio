@@ -44,8 +44,8 @@ Want to run this project locally? Follow these simple steps:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/thisal-d/who-am-i.git
-cd who-am-i
+git clone https://github.com/thisal-d/portfolio.git
+cd portfolio
 ```
 
 ### 2. Install dependencies
@@ -71,7 +71,7 @@ npm run build
 ## 💬 Feedback & Contributions
 
 Got an idea or found a bug? I'd love to hear from you! 
-Feel free to [open an issue](https://github.com/thisal-d/who-am-i/issues) or submit a pull request. Every bit of feedback helps me grow.
+Feel free to [open an issue](https://github.com/thisal-d/portfolio/issues) or submit a pull request. Every bit of feedback helps me grow.
 
 ---
 

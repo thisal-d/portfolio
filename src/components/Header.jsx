@@ -43,9 +43,9 @@ function Header() {
 
   return (
     <header className="header" ref={navRef}>
-      <NavLink to="/" className="header-brand" aria-label="Home — Who Am I">
+      <NavLink to="/" className="header-brand" aria-label="Home — Thisal Dilmith">
         <img src="/logo/blue.png" alt="" className="header-logo" aria-hidden="true" />
-        <div className="header-title">Who Am I</div>
+        <div className="header-title">Thisal Dilmith</div>
       </NavLink>
 
       {/* Controls: theme toggle + hamburger */}

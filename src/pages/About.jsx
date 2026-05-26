@@ -44,7 +44,7 @@ function About() {
       <section className="about-hero">
         <div className="about-hero-inner">
           <div className="about-hero-text">
-            <p className="section-label">Who Am I</p>
+            <p className="section-label">About Me</p>
             <h1 className="about-hero-name">
               Thisal<br /><span>Dilmith</span>
             </h1>

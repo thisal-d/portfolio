@@ -19,10 +19,11 @@ function formatNumber(n) {
 
 /* ── component ── */
 function ProjectCard({ project }) {
-  const [repoData,   setRepoData]   = useState(null);
-  const [latestTag,  setLatestTag]  = useState(null);
-  const [slideIndex, setSlideIndex] = useState(0);
-  const [loadingAPI, setLoadingAPI] = useState(true);
+  const [repoData,      setRepoData]      = useState(null);
+  const [latestTag,     setLatestTag]     = useState(null);
+  const [pypiDownloads, setPypiDownloads] = useState(null);
+  const [slideIndex,    setSlideIndex]    = useState(0);
+  const [loadingAPI,    setLoadingAPI]    = useState(true);
 
   const images  = project.images || [];
   const total   = images.length;
@@ -48,6 +49,15 @@ function ProjectCard({ project }) {
       .then(d => d && setLatestTag(d.tag_name))
       .catch(() => {});
   }, [project.api_url]);
+
+  /* fetch PyPI monthly downloads (public API — no auth needed) */
+  useEffect(() => {
+    if (!project.pypi_name) return;
+    fetch(`https://pypistats.org/api/packages/${project.pypi_name}/recent`)
+      .then(r => r.ok ? r.json() : null)
+      .then(d => d?.data?.last_month != null && setPypiDownloads(d.data.last_month))
+      .catch(() => {});
+  }, [project.pypi_name]);
 
   /* carousel */
   const prev = useCallback(() => setSlideIndex(i => Math.max(0, i - 1)), []);
@@ -144,9 +154,13 @@ function ProjectCard({ project }) {
           </div>
         )}
 
+        {/* ── GitHub stats row ── */}
         <div className="pc-stats">
           {loadingAPI ? (
-            <span className="pc-stats-loading">fetching stats…</span>
+            <>
+              <span className="pc-stat-skeleton" aria-hidden="true" />
+              <span className="pc-stat-skeleton pc-stat-skeleton--sm" aria-hidden="true" />
+            </>
           ) : repoData ? (
             <>
               <span className="pc-stat">
@@ -159,6 +173,13 @@ function ProjectCard({ project }) {
                 <span className="pc-stat-val">{formatNumber(repoData.forks_count)}</span>
                 &nbsp;Forks
               </span>
+              {pypiDownloads != null && (
+                <span className="pc-stat">
+                  <span className="pc-stat-icon">⬇️</span>
+                  <span className="pc-stat-val">{formatNumber(pypiDownloads)}</span>
+                  &nbsp;/mo
+                </span>
+              )}
               {latestTag && <span className="pc-version">{latestTag}</span>}
             </>
           ) : null}

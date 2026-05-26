@@ -1,0 +1,26 @@
+{
+  "slug": "auto-mate",
+  "title": "Auto Mate",
+  "type": "Web & Mobile",
+  "description": "A comprehensive management system built on the MERN stack to streamline vehicle service center operations, handling service bookings, inventory, and customer records.",
+  "images": [
+      "/images/auto-mate/1.png",
+      "/images/auto-mate/2.png",
+      "/images/auto-mate/3.png",
+      "/images/auto-mate/4.png",
+      "/images/auto-mate/5.png"
+  ],
+  "repo_url": "https://github.com/Nuwanthapasindu/vehicle-service-center-management-System",
+  "api_url": "https://api.github.com/repos/Nuwanthapasindu/vehicle-service-center-management-System",
+  "publish-url": false,
+  "expand-on-new-tab": false,
+  "why-i-made-this": {
+    "simple": "University Year 2, Semester 2 project."
+  },
+  "sections": [
+    {
+      "type": "text",
+      "content": "This project was developed as a group assignment in Year 2 Semester 2. The goal was to build a full-stack web application using MongoDB, Express.js, React, and Node.js (MERN) to solve a real-world problem. We chose to digitise the workflow of a vehicle service center, creating modules for appointment scheduling, customer management, and inventory tracking."
+    }
+  ]
+}

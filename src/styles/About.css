@@ -238,8 +238,8 @@
 
 /* ── Bike spec card ── */
 .about-bike-card {
-  background: linear-gradient(135deg, var(--bg-card) 0%, #0d1832 100%);
-  border: 1px solid var(--border-subtle);
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  border: 1px solid var(--border-accent);
   border-radius: var(--radius-xl);
   padding: 1.75rem;
   position: relative;
@@ -287,7 +287,7 @@
 }
 
 .about-bike-spec {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 0.5rem 0.75rem;

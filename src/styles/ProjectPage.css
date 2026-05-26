@@ -14,7 +14,7 @@
 .pp-back-bar {
   padding: 1rem 2.5rem;
   border-bottom: 1px solid var(--border-subtle);
-  background: rgba(10, 15, 26, 0.7);
+  background: var(--bg-header);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
@@ -46,7 +46,7 @@
 /* ── Hero section ── */
 .pp-hero {
   padding: 4rem 2.5rem 3rem;
-  background: linear-gradient(180deg, #0d1832 0%, var(--bg-primary) 100%);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   border-bottom: 1px solid var(--border-subtle);
   position: relative;
   overflow: hidden;
@@ -161,7 +161,7 @@
 .pp-btn-secondary:hover {
   border-color: var(--text-muted);
   color: var(--text-primary);
-  background: rgba(255,255,255,0.04);
+  background: var(--bg-card-hover);
 }
 
 .pp-btn-github {
@@ -173,7 +173,7 @@
 .pp-btn-github:hover {
   border-color: var(--text-muted);
   color: var(--text-primary);
-  background: rgba(255,255,255,0.04);
+  background: var(--bg-card-hover);
 }
 
 .pp-btn-icon {
@@ -740,6 +740,27 @@
   color: #34d399;
 }
 
-.pp-release-latest {
-  border-color: rgba(52, 211, 153, 0.2);
+/* ============================================================
+   LIGHT THEME OVERRIDES
+   ============================================================ */
+[data-theme="light"] .pp-btn-primary {
+  color: #fff;
 }
+
+[data-theme="light"] .pp-why-block {
+  background: rgba(99, 102, 241, 0.06);
+  border-color: rgba(99, 102, 241, 0.18);
+}
+
+[data-theme="light"] .pp-tech-tag {
+  background: rgba(99, 102, 241, 0.10);
+  border-color: rgba(99, 102, 241, 0.22);
+  color: var(--accent-primary);
+}
+
+[data-theme="light"] .pp-hero::before {
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.06) 1px, transparent 1px);
+}
+

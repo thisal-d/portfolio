@@ -1,6 +1,6 @@
 {
   "slug": "ip-wizard",
-  "title": "ip-wizard",
+  "title": "IP Wizard",
   "type": "app",
   "status": "active",
   "start-date": "2024-02-06",
@@ -33,7 +33,7 @@
     "Clean, distraction-free UI"
   ],
   "why-i-made-this": {
-    "simple": "In Advanced Level ICT I had to calculate subnet questions. I made this to verify my answers.",
-    "extended": "In A/L I was learning Commerce, Accounting, Economics and ICT. For ICT we had to calculate subnets. I checked and there were sites for that, but there wasn't a site that exactly fit my requirements. So I made a simple app to do that — a simple mathematical app for A/L students."
+    "simple": "For my A/L ICT exam in Sri Lanka, subnetting was a core topic. I built this to check my calculations offline.",
+    "extended": "In Sri Lanka's Advanced Level ICT subject, subnetting is a required exam topic. Online tools were cluttered and none matched the exact output format needed for A/L answers. I built IP Wizard as a clean, offline Android app that does exactly what an A/L student needs — no ads, no noise."
   }
 }

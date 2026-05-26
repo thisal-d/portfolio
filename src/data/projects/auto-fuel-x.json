@@ -34,7 +34,6 @@
     "Clean JSP-based UI"
   ],
   "why-i-made-this": {
-    "simple": "A university group project for Year 2, Semester 1.",
-    "extended": "Year 2 Semester 1 university project. Built a full-stack fuel station and vehicle service management system using Jakarta EE (Servlets, JSP) and Microsoft SQL Server."
+    "simple": "University Year 2, Semester 1 project."
   }
 }

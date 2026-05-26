@@ -48,32 +48,7 @@ function Header() {
         <div className="header-title">Thisal Dilmith</div>
       </NavLink>
 
-      {/* Controls: theme toggle + hamburger */}
-      <div className="header-controls">
-        <button
-          className="theme-toggle"
-          onClick={toggleTheme}
-          aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-          title={theme === "dark" ? "Light mode" : "Dark mode"}
-        >
-          {theme === "dark" ? "☀️" : "🌙"}
-        </button>
-
-        {/* Hamburger */}
-        <button
-          className={`hamburger ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen(o => !o)}
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={menuOpen}
-          aria-controls="header-nav"
-        >
-          <span className="bar" />
-          <span className="bar" />
-          <span className="bar" />
-        </button>
-      </div>
-
-      {/* Nav */}
+      {/* Nav — sits between brand and controls on desktop */}
       <nav
         id="header-nav"
         className={`header-links-container ${menuOpen ? "active" : ""}`}
@@ -96,6 +71,31 @@ function Header() {
           ))}
         </ul>
       </nav>
+
+      {/* Controls: theme toggle + hamburger */}
+      <div className="header-controls">
+        <button
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          title={theme === "dark" ? "Light mode" : "Dark mode"}
+        >
+          {theme === "dark" ? "☀️" : "🌙"}
+        </button>
+
+        {/* Hamburger — hidden on desktop via CSS */}
+        <button
+          className={`hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="header-nav"
+        >
+          <span className="bar" />
+          <span className="bar" />
+          <span className="bar" />
+        </button>
+      </div>
 
       {/* Mobile overlay */}
       {menuOpen && (

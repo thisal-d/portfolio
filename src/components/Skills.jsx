@@ -2,27 +2,21 @@ import React from "react";
 import "../styles/Skills.css";
 import skillsData from "../data/skills.json";
 
-/* ── Level dots (1-5) ── */
-function LevelDots({ level }) {
-  return (
-    <span className="skill-level" aria-label={`Proficiency: ${level} out of 5`}>
-      {[1, 2, 3, 4, 5].map(i => (
-        <span
-          key={i}
-          className={`skill-dot ${i <= level ? "skill-dot--filled" : ""}`}
-        />
-      ))}
-    </span>
-  );
-}
-
 /* ── Single skill pill ── */
 function SkillPill({ skill }) {
   return (
-    <div className="skill-pill" title={skill.name}>
-      <img src={skill.icon} alt={skill.name} className="skill-pill-icon" />
+    <div
+      className={`skill-pill${skill.primary ? " skill-pill--primary" : ""}`}
+      title={skill.name}
+      aria-label={skill.primary ? `${skill.name} — primary skill` : skill.name}
+    >
+      <img src={skill.icon} alt="" className="skill-pill-icon" aria-hidden="true" />
       <span className="skill-pill-name">{skill.name}</span>
-      <LevelDots level={skill.level} />
+      {skill.evidence && (
+        <span className="skill-evidence" aria-label={`Evidence: ${skill.evidence}`}>
+          {skill.evidence}
+        </span>
+      )}
     </div>
   );
 }
@@ -35,8 +29,8 @@ const Skills = () => (
         <p className="section-label">Tech Stack</p>
         <h2 className="section-title">Skills &amp; Tools</h2>
         <p className="section-description">
-          Technologies I've used across real projects — from published PyPI libraries
-          to full-stack web apps. Dots indicate relative proficiency.
+          Technologies I've used across real shipped projects — from published PyPI
+          libraries to full-stack web apps and hardware systems.
         </p>
       </div>
 

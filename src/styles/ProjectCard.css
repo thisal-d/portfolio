@@ -251,11 +251,27 @@
   color: var(--accent-primary);
 }
 
-.pc-stats-loading {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  font-style: italic;
+/* ============================================================
+   Skeleton loaders while GitHub stats load
+   ============================================================ */
+@keyframes pc-shimmer {
+  0%   { opacity: 0.45; }
+  50%  { opacity: 0.9;  }
+  100% { opacity: 0.45; }
+}
+
+.pc-stat-skeleton {
+  display: inline-block;
+  width: 72px;
+  height: 18px;
+  border-radius: 6px;
+  background: var(--border-subtle);
+  animation: pc-shimmer 1.4s ease-in-out infinite;
+}
+
+.pc-stat-skeleton--sm {
+  width: 48px;
+  animation-delay: 0.2s;
 }
 
 /* ============================================================

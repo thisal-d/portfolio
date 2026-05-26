@@ -21,6 +21,7 @@ import aiVerse           from "../../data/projects/ai-verse.json";
 import autoFuelX         from "../../data/projects/auto-fuel-x.json";
 import tutorBooking      from "../../data/projects/tutor-booking-system.json";
 import smartWater        from "../../data/projects/smart-water-tank-system.json";
+import autoMate          from "../../data/projects/auto-mate.json";
 
 /* ── Page templates ── */
 import LibraryPage from "./LibraryPage";
@@ -37,6 +38,7 @@ const PROJECT_DATA = {
   "auto-fuel-x":            autoFuelX,
   "tutor-booking-system":   tutorBooking,
   "smart-water-tank-system":smartWater,
+  "auto-mate":              autoMate,
 };
 
 /* ── Type → component map ── */

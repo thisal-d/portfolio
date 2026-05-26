@@ -3,6 +3,7 @@
     "slug": "tkchart",
     "title": "tkchart",
     "type": "library",
+    "pypi_name": "tkchart",
     "description": "Python's tkinter ships with no charting widget. I built tkchart so developers can drop live-updating line charts into any tkinter app in under five lines — no plotting library, no extra dependencies.",
     "images": [
       "/images/tkchart/1.png",
@@ -22,6 +23,7 @@
     "slug": "ctkchart",
     "title": "ctkchart",
     "type": "library",
+    "pypi_name": "ctkchart",
     "description": "When CustomTkinter brought modern light/dark themes to Python desktop apps, charts stayed stuck in one colour scheme. ctkchart extends tkchart to inherit your app's active theme automatically — zero configuration required.",
     "images": [
       "/images/ctkchart/1.png",
@@ -58,7 +60,7 @@
   },
   {
     "slug": "ai-verse",
-    "title": "ai-verse",
+    "title": "AI Verse",
     "type": "website",
     "description": "AI tools multiply faster than anyone can track. ai-verse is a curated discovery platform where engineers, designers, and product teams can search, filter, and organise the AI tools that actually matter to their workflow — cutting hours of research to minutes.",
     "images": [
@@ -78,7 +80,7 @@
   },
   {
     "slug": "auto-fuel-x",
-    "title": "auto-fuel-x",
+    "title": "Auto Fuel X",
     "type": "website",
     "description": "Disconnected spreadsheets and paper ledgers leave fuel stations prone to daily errors with no audit trail. auto-fuel-x is a full-stack Jakarta EE system that digitises transactions, vehicle service records, staff scheduling, and inventory into one auditable platform.",
     "images": [
@@ -92,13 +94,13 @@
     "api_url": "https://api.github.com/repos/thisal-d/auto-fuel-x",
     "publish-url": false,
     "why-i-made-this": {
-      "simple": "A team project for Year 2. The brief was real-world: model an actual business process end-to-end with a production-grade Java EE backend."
+      "simple": "University Year 2, Semester 1 project."
     },
     "expand-on-new-tab": false
   },
   {
     "slug": "ip-wizard",
-    "title": "ip-wizard",
+    "title": "IP Wizard",
     "type": "app",
     "description": "Subnetting by hand during an exam is error-prone and slow, and verifying answers without internet access is even harder. ip-wizard is an offline Android calculator for subnet masks, host ranges, and broadcast addresses — results in under a second.",
     "images": [
@@ -110,14 +112,14 @@
     "repo_url": "https://github.com/thisal-d/ip-wizard/",
     "api_url": "https://api.github.com/repos/thisal-d/ip-wizard",
     "why-i-made-this": {
-      "simple": "A-Level ICT involved constant subnetting practice. Instead of checking my work manually each time, I built an offline tool — then published it so classmates could use it too."
+      "simple": "For my A/L ICT exam in Sri Lanka, subnetting was a core topic. I built this to check my calculations offline."
     },
     "publish-url": "https://sourceforge.net/projects/ip-wizard/",
     "expand-on-new-tab": true
   },
   {
     "slug": "tutor-booking-system",
-    "title": "tutor-booking-system",
+    "title": "Tutor Booking System",
     "type": "website",
     "description": "Finding a qualified tutor is still a phone-call and WhatsApp affair for most students. This full-stack platform lets students browse verified tutor profiles, check live availability, and book sessions directly — while tutors manage schedules and earnings from a dedicated dashboard.",
     "images": [
@@ -130,15 +132,15 @@
     "repo_url": "https://github.com/thisal-d/tutor-booking-system/",
     "api_url": "https://api.github.com/repos/thisal-d/tutor-booking-system",
     "why-i-made-this": {
-      "simple": "The brief for Year 1 was to solve a real problem with a web app. Tutor discovery felt broken, so we built the marketplace we'd actually want to use."
+      "simple": "University Year 1, Semester 2 project."
     },
     "publish-url": false,
     "expand-on-new-tab": false
   },
   {
     "slug": "smart-water-tank-system",
-    "title": "smart-water-tank-system",
-    "type": "app",
+    "title": "Smart Water Tank System",
+    "type": "System",
     "description": "Water tanks silently overflow or run dry — wasting litres or leaving families without supply for hours. This Arduino + ESP32 IoT system monitors level via ultrasonic sensors, checks water quality with a TDS sensor, and lets you control the pump remotely from a web or mobile app over Wi-Fi.",
     "images": [
       "/images/smart-water-tank-system/1.png",
@@ -147,7 +149,27 @@
     "repo_url": "https://github.com/thisal-d/smart-water-tank-system/",
     "api_url": "https://api.github.com/repos/thisal-d/smart-water-tank-system",
     "why-i-made-this": {
-      "simple": "A Year 1 hardware project that turned into a real home utility. The constraint of connecting embedded hardware to a cloud dashboard across three layers was the most interesting engineering challenge I'd faced at the time."
+      "simple": "University Year 1, Semester 1 project."
+    },
+    "publish-url": false,
+    "expand-on-new-tab": false
+  },
+  {
+    "slug": "auto-mate",
+    "title": "Auto Mate",
+    "type": "Web & Mobile",
+    "description": "A comprehensive management system built on the MERN stack to streamline vehicle service center operations, handling service bookings, inventory, and customer records.",
+    "images": [
+      "/images/auto-mate/1.png",
+      "/images/auto-mate/2.png",
+      "/images/auto-mate/3.png",
+      "/images/auto-mate/4.png",
+      "/images/auto-mate/5.png"
+    ],
+    "repo_url": "https://github.com/Nuwanthapasindu/vehicle-service-center-management-System",
+    "api_url": "https://api.github.com/repos/Nuwanthapasindu/vehicle-service-center-management-System",
+    "why-i-made-this": {
+      "simple": "University Year 2, Semester 2 project."
     },
     "publish-url": false,
     "expand-on-new-tab": false

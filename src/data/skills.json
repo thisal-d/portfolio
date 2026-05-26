@@ -3,53 +3,160 @@
     "category": "Languages",
     "emoji": "⌨️",
     "skills": [
-      { "name": "Python",     "icon": "/icons/skill/python.png",     "level": 5 },
-      { "name": "JavaScript", "icon": "/icons/skill/javascript.png", "level": 4 },
-      { "name": "Java",       "icon": "/icons/skill/java.png",       "level": 3 },
-      { "name": "C++",        "icon": "/icons/skill/c++.png",        "level": 3 },
-      { "name": "PHP",        "icon": "/icons/skill/php.png",        "level": 2 }
+      {
+        "name": "Python",
+        "icon": "/icons/skill/python.png",
+        "evidence": "PyPI packages",
+        "primary": true
+      },
+      {
+        "name": "JavaScript",
+        "icon": "/icons/skill/javascript.png",
+        "evidence": "web apps"
+      },
+      {
+        "name": "Java",
+        "icon": "/icons/skill/java.png",
+        "evidence": "Jakarta EE backend"
+      },
+      {
+        "name": "C++",
+        "icon": "/icons/skill/c++.png",
+        "evidence": "Simple library"
+      },
+      {
+        "name": "PHP",
+        "icon": "/icons/skill/php.png",
+        "evidence": "Self taught"
+      }
     ]
   },
   {
     "category": "Frontend",
     "emoji": "🎨",
     "skills": [
-      { "name": "React",    "icon": "/icons/skill/react.png",        "level": 4 },
-      { "name": "HTML",     "icon": "/icons/skill/html.png",         "level": 5 },
-      { "name": "Tailwind", "icon": "/icons/skill/tailwind_css.png", "level": 3 }
+      {
+        "name": "React",
+        "icon": "/icons/skill/react.png",
+        "evidence": "AI Verse & Portfolio",
+        "primary": true
+      },
+      {
+        "name": "HTML/CSS",
+        "icon": "/icons/skill/html.png",
+        "evidence": "Every web project"
+      },
+      {
+        "name": "Tailwind",
+        "icon": "/icons/skill/tailwind_css.png",
+        "evidence": "Self taught"
+      }
     ]
   },
   {
     "category": "Python UI",
     "emoji": "🪟",
     "skills": [
-      { "name": "Tkinter",       "icon": "/icons/skill/tkinter.gif",         "level": 5 },
-      { "name": "CustomTkinter", "icon": "/icons/skill/customtkinter.ico",   "level": 5 }
+      {
+        "name": "Tkinter",
+        "icon": "/icons/skill/tkinter.gif",
+        "evidence": "tkchart library",
+        "primary": true
+      },
+      {
+        "name": "CustomTkinter",
+        "icon": "/icons/skill/customtkinter.ico",
+        "evidence": "ctkchart library",
+        "primary": true
+      }
+    ]
+  },
+  {
+    "category": "Backend",
+    "emoji": "⚙️",
+    "skills": [
+      {
+        "name": "Node.js",
+        "icon": "/icons/skill/nodejs.png",
+        "evidence": "Automate web app",
+        "primary": true
+      },
+      {
+        "name": "Express.js",
+        "icon": "/icons/skill/express.png",
+        "evidence": "Automate web app",
+        "primary": true
+      }
     ]
   },
   {
     "category": "Database",
     "emoji": "🗄️",
     "skills": [
-      { "name": "MySQL", "icon": "/icons/skill/mysql.png", "level": 3 }
+      {
+        "name": "MySQL",
+        "icon": "/icons/skill/mysql.png",
+        "evidence": "Auto Fuel X project",
+        "primary": true
+      },
+      {
+        "name": "Mongo DB",
+        "icon": "/icons/skill/mongodb.png",
+        "evidence": "Automate web app",
+        "primary": true
+      }
     ]
   },
   {
     "category": "Mobile & IoT",
     "emoji": "📱",
     "skills": [
-      { "name": "Android", "icon": "/icons/skill/android.png", "level": 3 },
-      { "name": "Arduino", "icon": "/icons/skill/arduino.png", "level": 2 }
+      {
+        "name": "Android",
+        "icon": "/icons/skill/android.png",
+        "evidence": "IP Wizard app"
+      },
+      {
+        "name": "Arduino",
+        "icon": "/icons/skill/arduino.png",
+        "evidence": "Smart water tank system"
+      },
+      {
+        "name": "React Native",
+        "icon": "/icons/skill/react.png",
+        "evidence": "Water tank monitoring app"
+      }
     ]
   },
   {
     "category": "Tools & DevOps",
     "emoji": "🛠️",
     "skills": [
-      { "name": "Git",       "icon": "/icons/skill/git.png",                   "level": 4 },
-      { "name": "GitHub",    "icon": "/icons/skill/github.png",                "level": 4 },
-      { "name": "VS Code",   "icon": "/icons/skill/visual_studio_code.png",    "level": 5 },
-      { "name": "IntelliJ",  "icon": "/icons/skill/intellij.png",              "level": 3 }
+      {
+        "name": "Git",
+        "icon": "/icons/skill/git.png",
+        "evidence": "All projects"
+      },
+      {
+        "name": "GitHub",
+        "icon": "/icons/skill/github.png",
+        "evidence": "Open source releases"
+      },
+      {
+        "name": "VS Code",
+        "icon": "/icons/skill/visual_studio_code.png",
+        "evidence": "Daily driver"
+      },
+      {
+        "name": "IntelliJ",
+        "icon": "/icons/skill/intellij.png",
+        "evidence": "Java / Jakarta EE"
+      },
+      {
+        "name": "WordPress",
+        "icon": "/icons/skill/wordpress.png",
+        "evidence": "Self taught"
+      }
     ]
   }
 ]

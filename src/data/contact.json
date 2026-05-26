@@ -23,6 +23,13 @@
       "isPublic": true
     },
     {
+      "name": "PyPI",
+      "handle": "Thisal_D",
+      "url": "https://pypi.org/user/Thisal_D/",
+      "icon": "/icons/social/pypi.svg",
+      "isPublic": true
+    },
+    {
       "name": "Facebook",
       "handle": "Classified",
       "url": "/classified",

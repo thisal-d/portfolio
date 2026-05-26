@@ -28,25 +28,21 @@ function useReveal(delay = 0) {
 
 /* ── Decorative terminal code lines ── */
 const CODE_LINES = [
-  { indent: 0, token: "keyword",  text: "from"       , suffix: " tkchart "           },
-  { indent: 0, token: "keyword",  text: "import"     , suffix: " LineChart"           },
-  { indent: 0, token: "comment",  text: ""           , suffix: ""                     },
-  { indent: 0, token: "keyword",  text: "class"      , suffix: " RealTimeChart:"      },
-  { indent: 1, token: "fn",       text: "def"        , suffix: " __init__(self, root):" },
-  { indent: 2, token: "comment",  text: "# Live data stream → chart widget" , suffix: "" },
-  { indent: 2, token: "var",      text: "self.chart" , suffix: " = LineChart("        },
-  { indent: 3, token: "param",    text: "master"     , suffix: "=root,"               },
-  { indent: 3, token: "param",    text: "width"      , suffix: "=700,"                },
-  { indent: 3, token: "param",    text: "height"     , suffix: "=400,"                },
-  { indent: 3, token: "accent",   text: "axis_size"  , suffix: "=1)"                  },
-  { indent: 2, token: "var",      text: "self.line"  , suffix: " = self.chart"        },
-  { indent: 3, token: "fn",       text: ".create_line"  , suffix: "("                 },
-  { indent: 4, token: "accent",   text: "color"      , suffix: '="#6366F1")'          },
-  { indent: 0, token: "comment",  text: ""           , suffix: ""                     },
-  { indent: 1, token: "fn",       text: "def"        , suffix: " stream(self, data):" },
-  { indent: 2, token: "var",      text: "self.chart" , suffix: ""                     },
-  { indent: 3, token: "fn",       text: ".show_data" , suffix: "("                    },
-  { indent: 4, token: "param",    text: "self.line"  , suffix: ", data)"              },
+  { indent: 0, token: "keyword",  text: "@staticmethod",       suffix: ""                              },
+  { indent: 0, token: "fn",       text: "def",                  suffix: " theme_tracker() -> None:"     },
+  { indent: 1, token: "comment",  text: "# auto-sync theme across all chart widgets", suffix: ""       },
+  { indent: 1, token: "keyword",  text: "while",                suffix: " ThemeManager.child_objects:"  },
+  { indent: 2, token: "var",      text: "current_theme",        suffix: " = ctk.get_appearance_mode()"  },
+  { indent: 2, token: "keyword",  text: "if",                   suffix: " current_theme != ThemeManager.theme:" },
+  { indent: 3, token: "var",      text: "ThemeManager.theme",   suffix: " = current_theme"              },
+  { indent: 3, token: "keyword",  text: "for",                  suffix: " widget in ThemeManager.child_objects:" },
+  { indent: 4, token: "keyword",  text: "try:",                 suffix: ""                              },
+  { indent: 5, token: "var",      text: "widget",               suffix: ".__configure_theme_mode()"     },
+  { indent: 4, token: "keyword",  text: "except",               suffix: " Exception as e:"              },
+  { indent: 5, token: "fn",       text: "print",                suffix: "(f\"[ThemeManager] {e}\")"     },
+  { indent: 2, token: "fn",       text: "time",                 suffix: ".sleep(1)"                     },
+  { indent: 0, token: "comment",  text: ""                     , suffix: ""                             },
+  { indent: 0, token: "var",      text: "ThemeManager.running_state", suffix: " = False"               },
 ];
 
 const STATS = [
@@ -74,7 +70,12 @@ const Hero = () => {
               <span className="hero-terminal-dot" style={{ background: "#ff5f57" }} />
               <span className="hero-terminal-dot" style={{ background: "#febc2e" }} />
               <span className="hero-terminal-dot" style={{ background: "#28c840" }} />
-              <span className="hero-terminal-filename">tkchart / chart.py</span>
+              <a
+                href="https://github.com/thisal-d/ctkchart/blob/main/src/ctkchart/ThemeManager.py"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-terminal-filename hero-terminal-filename--link"
+              >ctkchart / ThemeManager.py</a>
             </div>
             <pre className="hero-terminal-code">
               {CODE_LINES.map((line, i) => (
@@ -126,11 +127,38 @@ const Hero = () => {
           </div>
 
           <div className="hero-actions">
-            <a href="/projects" className="btn-primary" id="hero-cta-projects">
+            <a href="/projects" className="btn btn-primary" id="hero-cta-projects">
               View Projects →
             </a>
-            <a href="/contact" className="btn-secondary" id="hero-cta-contact">
+            <a href="/contact" className="btn btn-secondary" id="hero-cta-contact">
               Get in Touch
+            </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-resume"
+              id="hero-cta-resume"
+              aria-label="Download Thisal Dilmith's resume as a PDF (opens in new tab)"
+              download="Thisal_Dilmith_Resume.pdf"
+            >
+              <svg
+                className="btn-resume-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Resume
             </a>
           </div>
 
@@ -159,13 +187,14 @@ const Hero = () => {
             </a>
             <span className="hero-social-sep" aria-hidden="true">·</span>
             <a
-              href="https://pypi.org/user/thisal-d/"
+              href="https://pypi.org/user/Thisal_D/"
               target="_blank"
               rel="noopener noreferrer"
               className="hero-social-link"
               aria-label="PyPI profile"
             >
-              🐍 PyPI
+              <img src="/icons/social/pypi.svg" alt="" className="hero-social-icon" />
+              PyPI
             </a>
           </div>
         </div>

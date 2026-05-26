@@ -33,7 +33,6 @@
     "Booking history for both roles"
   ],
   "why-i-made-this": {
-    "simple": "A university project for Year 1, Semester 2.",
-    "extended": "Year 1 Semester 2 university project. Built a tutor booking web application with Java, JSP, and Servlets allowing students to browse tutors, book sessions, and manage appointments."
+    "simple": "University Year 1, Semester 2 project."
   }
 }

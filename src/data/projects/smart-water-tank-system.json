@@ -1,6 +1,6 @@
 {
   "slug": "smart-water-tank-system",
-  "title": "smart-water-tank-system",
+  "title": "Smart Water Tank System",
   "type": "app",
   "status": "archived",
   "start-date": "2024-08-12",
@@ -36,7 +36,6 @@
     "Offline fallback on-device display"
   ],
   "why-i-made-this": {
-    "simple": "A university project for Year 1, Semester 1.",
-    "extended": "Year 1 Semester 1 university project. Built an IoT system using Arduino and ESP32 with ultrasonic and TDS sensors for monitoring water levels and quality. Controlled via Flask backend, React Native mobile app."
+    "simple": "University Year 1, Semester 1 project."
   }
 }

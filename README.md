@@ -14,7 +14,7 @@
 ## 🚀 Live Demo
 
 Experience the portfolio in action:
-👉 **[Thisal Dilmith - Live Site](https://who-am-i-web.pages.dev/)**
+👉 **[Thisal Dilmith - Live Site](https://thisal-dilmith.pages.dev/)**
 
 ---
 

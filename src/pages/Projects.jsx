@@ -36,7 +36,10 @@ function ProjectsPage() {
 
         {/* Recognition banner */}
         <div className="projects-recognition-bar">
-          <span className="projects-recog-label">Recognition</span>
+          <div className="projects-recog-header">
+            <span className="projects-recog-label">Recognition</span>
+            <a href="/about#achievements" className="projects-recog-link">View details →</a>
+          </div>
           <div className="projects-recog-badges">
             <div className="proj-recog-item proj-recog-normal">
               <img src="/awards-badges/starstruck-normal.png" alt="GitHub Starstruck" className="proj-recog-img" />
@@ -44,14 +47,13 @@ function ProjectsPage() {
             </div>
             <div className="proj-recog-item proj-recog-bronze">
               <img src="/awards-badges/starstruck-bronze.png" alt="GitHub Starstruck Bronze" className="proj-recog-img" />
-              <span>GitHub Starstruck · Bronze</span>
+              <span>Starstruck · Bronze</span>
             </div>
             <div className="proj-recog-item proj-recog-neutral">
               <img src="/awards-badges/rising-start.png" alt="SourceForge Rising Star" className="proj-recog-img" />
               <span>SF Rising Star</span>
             </div>
           </div>
-          <a href="/about#achievements" className="projects-recog-link">View details →</a>
         </div>
 
         {/* Featured project — shown above grid when no filter active */}

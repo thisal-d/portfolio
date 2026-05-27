@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/ProjectsPage.css";
 import ProjectCard from "../components/ProjectCard";
+import FeaturedProjectCard from "../components/FeaturedProjectCard";
 import projects from "../data/projects.json";
 
 const FILTERS = [
@@ -13,8 +14,11 @@ const FILTERS = [
 function ProjectsPage() {
   const [active, setActive] = useState("all");
 
+  const featuredProject = projects.find(p => p.featured);
+
+  // When filtering, include featured project in results; when showing all, exclude from grid (shown separately above)
   const filtered = active === "all"
-    ? projects
+    ? projects.filter(p => !p.featured)
     : projects.filter(p => p.type === active);
 
   return (
@@ -30,6 +34,31 @@ function ProjectsPage() {
           </p>
         </div>
 
+        {/* Recognition banner */}
+        <div className="projects-recognition-bar">
+          <span className="projects-recog-label">Recognition</span>
+          <div className="projects-recog-badges">
+            <div className="proj-recog-item proj-recog-normal">
+              <img src="/awards-badges/starstruck-normal.png" alt="GitHub Starstruck" className="proj-recog-img" />
+              <span>GitHub Starstruck</span>
+            </div>
+            <div className="proj-recog-item proj-recog-bronze">
+              <img src="/awards-badges/starstruck-bronze.png" alt="GitHub Starstruck Bronze" className="proj-recog-img" />
+              <span>GitHub Starstruck · Bronze</span>
+            </div>
+            <div className="proj-recog-item proj-recog-neutral">
+              <img src="/awards-badges/rising-start.png" alt="SourceForge Rising Star" className="proj-recog-img" />
+              <span>SF Rising Star</span>
+            </div>
+          </div>
+          <a href="/about#achievements" className="projects-recog-link">View details →</a>
+        </div>
+
+        {/* Featured project — shown above grid when no filter active */}
+        {active === "all" && featuredProject && (
+          <FeaturedProjectCard project={featuredProject} />
+        )}
+
         {/* Filter bar */}
         <div className="projects-filter-bar">
           {FILTERS.map(f => (
@@ -42,7 +71,9 @@ function ProjectsPage() {
             </button>
           ))}
           <span className="projects-count">
-            {filtered.length} project{filtered.length !== 1 ? "s" : ""}
+            {active === "all"
+              ? `${filtered.length + (featuredProject ? 1 : 0)} projects`
+              : `${filtered.length} project${filtered.length !== 1 ? "s" : ""}`}
           </span>
         </div>
 
@@ -62,3 +93,4 @@ function ProjectsPage() {
 }
 
 export default ProjectsPage;
+

@@ -27,8 +27,6 @@
   "features": [
     "Student & tutor registration",
     "Browse and filter available tutors",
-    "Session booking and confirmation",
-    "Tutor availability management",
     "Admin panel with full user control",
     "Booking history for both roles"
   ],

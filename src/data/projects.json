@@ -17,7 +17,8 @@
       "simple": "Building a network-speed monitor in Python, I hit a wall: tkinter has no live chart widget. Instead of searching forever, I built one and published it to PyPI."
     },
     "publish-url": "https://pypi.org/project/tkchart/",
-    "expand-on-new-tab": true
+    "expand-on-new-tab": true,
+    "achievements": ["starstruck"]
   },
   {
     "slug": "ctkchart",
@@ -43,7 +44,9 @@
     "slug": "pytube-downloader",
     "title": "PyTube Downloader",
     "type": "app",
+    "featured": true,
     "description": "Every YouTube downloader on the web is buried under ads or capped at 1080p. PyTube Downloader is a multi-threaded desktop app that downloads single videos or full playlists from 144p to 8K — with honest progress bars and no browser required.",
+    "stack": ["Python", "CustomTkinter", "yt-dlp", "Threading", "FFmpeg"],
     "images": [
       "/images/pytube-downloader/1.png",
       "/images/pytube-downloader/2.png",
@@ -55,8 +58,17 @@
     "why-i-made-this": {
       "simple": "I needed to download lecture playlists offline. Every existing tool had ads, fake progress, or quality limits. Building my own took a weekend and solved it permanently."
     },
+    "case-study": {
+      "paragraphs": [
+        "Downloading a YouTube playlist offline meant juggling browser extensions with quality caps, ad-riddled websites, and tools that lied about progress. I built PyTube Downloader to replace all of them with one honest desktop app.",
+        "The key technical decisions were around concurrency and accuracy. Running simultaneous downloads with Python's threading model required careful queue management to avoid race conditions on shared progress state. I implemented per-thread progress tracking that aggregates into a single truthful progress bar — no fake percentages, no silent failures.",
+        "Quality selection from 144p to 8K meant handling adaptive streams: video and audio arrive as separate tracks at high resolutions and must be merged post-download via FFmpeg. Building that pipeline cleanly — with proper error recovery when merges fail — was the most demanding part of the architecture.",
+        "174 stars and 21 forks later, the community's response validated the gap it filled. The SourceForge Rising Star recognition came from the download volume in the first few months alone."
+      ]
+    },
     "publish-url": "https://sourceforge.net/projects/pytube-downloader/",
-    "expand-on-new-tab": true
+    "expand-on-new-tab": true,
+    "achievements": ["starstruck-bronze", "sf-rising-star"]
   },
   {
     "slug": "ai-verse",

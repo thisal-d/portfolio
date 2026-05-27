@@ -1,10 +1,10 @@
-import "../../styles/ProjectPage.css";
+import "./ProjectPage.css";
 import { useState } from "react";
 import { useGitHubData, usePyPIData } from "../../hooks/useProjectData";
 import {
   Gallery, StatsBar, ProjectReleases,
   TechStackCard, TopicsCard, FeaturesList, ProjectMeta,
-} from "../../components/project/ProjectPageParts";
+} from "../../components/ProjectPageParts/ProjectPageParts";
 
 function LibraryPage({ data }) {
   const { repoData, releases, latestTag, loading, error } = useGitHubData(data["api_url"]);

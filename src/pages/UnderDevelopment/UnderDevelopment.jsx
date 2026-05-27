@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/UnderDevelopment.css";
+import "./UnderDevelopment.css";
 
 function UnderDevelopmentPage() {
   return (

@@ -1,6 +1,6 @@
-import ProjectSection from "../components/ProjectSection";
-import Hero from "../components/Hero";
-import Skills from "../components/Skills";
+import ProjectSection from "../../components/ProjectSection/ProjectSection";
+import Hero from "../../components/Hero/Hero";
+import Skills from "../../components/Skills/Skills";
 
 function Home() {
     return (

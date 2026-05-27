@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import "../styles/Hero.css";
+import "./Hero.css";
+import profile from "../../data/profile.json";
 
 /* ── Scroll-reveal hook ── */
 function useReveal(delay = 0) {
@@ -45,11 +46,7 @@ const CODE_LINES = [
   { indent: 0, token: "var",      text: "ThemeManager.running_state", suffix: " = False"               },
 ];
 
-const STATS = [
-  { value: "8+",  label: "Projects Shipped"  },
-  { value: "5+",  label: "PyPI Packages"     },
-  { value: "3+",  label: "Years Building"    },
-];
+const STATS = profile.stats;
 
 const Hero = () => {
   const leftRef  = useReveal(0);

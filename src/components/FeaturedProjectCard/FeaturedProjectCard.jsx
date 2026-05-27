@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
-import allBadges from "../data/badges.json";
-import "../styles/FeaturedProjectCard.css";
+import allBadges from "../../data/badges.json";
+import "./FeaturedProjectCard.css";
 
 /* ── helpers ── */
 function formatNumber(n) {

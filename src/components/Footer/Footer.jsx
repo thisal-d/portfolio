@@ -1,6 +1,6 @@
 import React from "react";
-import contactData from "../data/contact.json";
-import "../styles/Footer.css";
+import contactData from "../../data/contact.json";
+import "./Footer.css";
 
 const socialLinks = contactData.socials;
 

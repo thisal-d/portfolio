@@ -1,6 +1,6 @@
-import "../styles/ProjectSection.css";
-import ProjectCard from "./ProjectCard";
-import projects from "../data/projects.json";
+import "./ProjectSection.css";
+import ProjectCard from "../ProjectCard/ProjectCard";
+import projects from "../../data/projects.json";
 
 function ProjectSection() {
   return (

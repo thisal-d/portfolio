@@ -8,7 +8,7 @@
  *  4. Renders it — no props passed via router navigation state
  */
 import { useParams } from "react-router-dom";
-import "../../styles/ProjectPage.css";
+import "./ProjectPage.css";
 
 /* ── Statically import all project JSONs ──────────────────────
    Vite processes these at build time, so each one is bundled

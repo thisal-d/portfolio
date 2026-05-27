@@ -1,24 +1,15 @@
-import "../../styles/ProjectPage.css";
+import "./ProjectPage.css";
 import { useGitHubData } from "../../hooks/useProjectData";
 import {
   Gallery, StatsBar, ProjectReleases,
   TechStackCard, TopicsCard, FeaturesList, ProjectMeta,
-} from "../../components/project/ProjectPageParts";
+} from "../../components/ProjectPageParts/ProjectPageParts";
 
-const PLATFORM_META = {
-  "Windows":      { icon: "🪟", downloadLabel: "Download for Windows" },
-  "Android":      { icon: "🤖", downloadLabel: "Download APK" },
-  "IoT / Mobile": { icon: "📡", downloadLabel: null },
-};
-
-function AppPage({ data }) {
+function WebsitePage({ data }) {
   const { repoData, releases, latestTag, loading, error } = useGitHubData(data["api_url"]);
 
-  const platform      = data.platform || "";
-  const meta          = PLATFORM_META[platform] || { icon: "💻", downloadLabel: "Download" };
-  const hasDownload   = data["publish-url"] && data["publish-url"] !== false;
-  const isPortrait    = platform === "Android";
-  const downloadLabel = data["download-label"] || meta.downloadLabel;
+  const hasLiveUrl = data["publish-url"] && data["publish-url"] !== false;
+  const liveLabel  = data["live-label"] || "Open Live Site";
 
   return (
     <div className="pp-page">
@@ -33,10 +24,7 @@ function AppPage({ data }) {
           <h1 className="pp-title">{data.title}</h1>
 
           <div className="pp-badges">
-            <span className="badge badge-app">App</span>
-            {platform && (
-              <span className="pp-status maintained">{meta.icon} {platform}</span>
-            )}
+            <span className="badge badge-website">Website</span>
             {data.status && (
               <span className={`pp-status ${data.status}`}>{data.status}</span>
             )}
@@ -45,9 +33,9 @@ function AppPage({ data }) {
           <p className="pp-description">{data.description}</p>
 
           <div className="pp-actions">
-            {hasDownload && downloadLabel && (
+            {hasLiveUrl && (
               <a href={data["publish-url"]} target="_blank" rel="noopener noreferrer" className="pp-btn pp-btn-primary">
-                ⬇️ {downloadLabel}
+                🚀 {liveLabel}
               </a>
             )}
             <a href={data.repo_url} target="_blank" rel="noopener noreferrer" className="pp-btn pp-btn-github">
@@ -63,7 +51,7 @@ function AppPage({ data }) {
       {/* Content */}
       <div className="pp-content">
         <div className="pp-main">
-          <Gallery images={data.images} portrait={isPortrait} />
+          <Gallery images={data.images} portrait={false} />
 
           {/* About */}
           {data["long-description"] && (
@@ -100,19 +88,6 @@ function AppPage({ data }) {
         {/* Sidebar */}
         <div className="pp-sidebar">
           <ProjectMeta data={data} />
-
-          {/* Requirements */}
-          {data.requirements && data.requirements.length > 0 && (
-            <div className="pp-sidebar-card">
-              <p className="pp-sidebar-card-title">Requirements</p>
-              <div className="pp-requirements">
-                {data.requirements.map((r, i) => (
-                  <div key={i} className="pp-requirement-item">{r}</div>
-                ))}
-              </div>
-            </div>
-          )}
-
           <TechStackCard tags={data["tech-stack"]} />
           <TopicsCard topics={repoData?.topics} />
         </div>
@@ -121,4 +96,4 @@ function AppPage({ data }) {
   );
 }
 
-export default AppPage;
+export default WebsitePage;

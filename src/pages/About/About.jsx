@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "../styles/About.css";
-import AchievementBadges from "../components/AchievementBadges";
+import "./About.css";
+import AchievementBadges from "../../components/AchievementBadges/AchievementBadges";
 
 /* ── Data ── */
 const IDENTITY_PILLS = [

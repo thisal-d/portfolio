@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/Skills.css";
-import skillsData from "../data/skills.json";
+import "./Skills.css";
+import skillsData from "../../data/skills.json";
 
 /* ── Single skill pill ── */
 function SkillPill({ skill }) {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/ClassifiedPage.css";
+import "./Classified.css";
 
 /* The passcode is the bike model — "XT200" — referenced indirectly through the riddle */
 const PASSCODE = "XT200";

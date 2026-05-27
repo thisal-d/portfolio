@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "../styles/ProjectsPage.css";
-import ProjectCard from "../components/ProjectCard";
-import FeaturedProjectCard from "../components/FeaturedProjectCard";
-import projects from "../data/projects.json";
+import "./Projects.css";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import FeaturedProjectCard from "../../components/FeaturedProjectCard/FeaturedProjectCard";
+import projects from "../../data/projects.json";
 
 const FILTERS = [
   { id: "all",     label: "All",      activeClass: ""            },

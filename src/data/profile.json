@@ -1,0 +1,19 @@
+{
+  "stats": [
+    {
+      "value": "9",
+      "label": "Projects Built",
+      "note": "Total projects in portfolio"
+    },
+    {
+      "value": "2",
+      "label": "PyPI Packages",
+      "note": "tkchart and ctkchart, both actively maintained"
+    },
+    {
+      "value": "250+",
+      "label": "GitHub Stars",
+      "note": "Across pytube-downloader (~174), tkchart (~46), ctkchart (~27)"
+    }
+  ]
+}

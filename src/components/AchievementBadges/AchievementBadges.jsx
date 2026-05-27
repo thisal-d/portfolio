@@ -1,5 +1,5 @@
-import "../styles/AchievementBadges.css";
-import ACHIEVEMENTS from "../data/badges.json";
+import "./AchievementBadges.css";
+import ACHIEVEMENTS from "../../data/badges.json";
 
 /* ─── Tier colour tokens ─────────────────────────────────── */
 const TIER_META = {

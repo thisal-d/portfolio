@@ -1,6 +1,6 @@
-import "../styles/ProjectCard.css";
+import "./ProjectCard.css";
 import { useEffect, useState, useCallback } from "react";
-import allBadges from "../data/badges.json";
+import allBadges from "../../data/badges.json";
 
 /* ── helpers ── */
 function typeBadge(type) {

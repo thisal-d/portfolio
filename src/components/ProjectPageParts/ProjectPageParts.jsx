@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../styles/ProjectPage.css";
+import "../../pages/Project/ProjectPage.css";
 
 /* ══════════════════════════════════════════════════════════════
    GALLERY

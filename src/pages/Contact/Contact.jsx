@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import contactData from "../data/contact.json";
-import "../styles/Contact.css";
+import contactData from "../../data/contact.json";
+import "./Contact.css";
 
 const PUBLIC_LINKS = contactData.socials.filter(link => link.isPublic);
 

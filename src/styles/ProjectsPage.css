@@ -95,3 +95,106 @@
     justify-content: center;
   }
 }
+
+/* ============================================================
+   RECOGNITION BANNER
+   ============================================================ */
+.projects-recognition-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  padding: 0.85rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-recognition-bar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gradient-accent);
+  border-radius: 2px 0 0 2px;
+}
+
+.projects-recog-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.projects-recog-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.proj-recog-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px 3px 4px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all var(--transition-base);
+}
+
+.proj-recog-item:hover {
+  transform: translateY(-1px);
+}
+
+.proj-recog-normal  { border-color: rgba(99,102,241,0.28);  background: rgba(99,102,241,0.08);  color: var(--accent-primary); }
+.proj-recog-bronze  { border-color: rgba(194,140,80,0.25);  background: rgba(194,140,80,0.07);  color: #c48040; }
+.proj-recog-neutral { border-color: rgba(148,163,184,0.20); background: rgba(148,163,184,0.06); color: var(--text-secondary); }
+
+.proj-recog-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.35));
+  transition: transform var(--transition-fast);
+}
+
+.proj-recog-item:hover .proj-recog-img {
+  transform: scale(1.15);
+}
+
+.projects-recog-link {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  margin-left: auto;
+  transition: color var(--transition-fast);
+}
+
+.projects-recog-link:hover {
+  color: var(--accent-primary);
+}
+
+@media (max-width: 600px) {
+  .projects-recognition-bar {
+    gap: 0.75rem;
+  }
+
+  .projects-recog-link {
+    margin-left: 0;
+  }
+}

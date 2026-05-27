@@ -1,0 +1,237 @@
+/* ============================================================
+   ACHIEVEMENT BADGES SECTION
+   Minimal, recruiter-friendly credibility indicators
+   ============================================================ */
+
+.achv-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem;
+}
+
+/* ── Header ── */
+.achv-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.achv-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.65rem;
+  margin-top: 0.4rem;
+}
+
+.achv-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ── Grid ── */
+.achv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── Card ── */
+.achv-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--tier-border, var(--border-subtle));
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.75rem 1.5rem;
+  gap: 1.25rem;
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+              border-color var(--transition-base);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.achv-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, var(--tier-glow, transparent) 0%, transparent 60%);
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity var(--transition-base);
+}
+
+.achv-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--tier-text, var(--border-accent));
+  box-shadow: 0 12px 40px var(--tier-glow, rgba(0,0,0,0.4)), 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.achv-card:hover::after {
+  opacity: 1;
+}
+
+/* ── Accent top bar ── */
+.achv-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--tier-text, var(--accent-primary)) 50%, transparent 100%);
+  opacity: 0.6;
+  transition: opacity var(--transition-base);
+}
+
+.achv-card:hover .achv-card-accent {
+  opacity: 1;
+}
+
+/* ── Badge image ── */
+.achv-badge-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.achv-badge-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 4px 12px var(--tier-glow, rgba(0,0,0,0.3)));
+  transition: transform var(--transition-base), filter var(--transition-base);
+}
+
+.achv-card:hover .achv-badge-img {
+  transform: scale(1.08) translateY(-2px);
+  filter: drop-shadow(0 8px 20px var(--tier-glow, rgba(0,0,0,0.4)));
+}
+
+.achv-badge-glow {
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, var(--tier-glow, transparent) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  border-radius: 50%;
+}
+
+.achv-card:hover .achv-badge-glow {
+  opacity: 1;
+}
+
+/* ── Card body ── */
+.achv-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  z-index: 1;
+  width: 100%;
+}
+
+/* ── Meta row: platform + tier pill ── */
+.achv-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.15rem;
+}
+
+.achv-platform {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.achv-tier-pill {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tier-text, var(--accent-primary));
+  background: var(--tier-glow, var(--accent-glow));
+  border: 1px solid var(--tier-border, var(--border-accent));
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+/* ── Badge name ── */
+.achv-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+/* ── Description ── */
+.achv-desc {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ── Footer row ── */
+.achv-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.65rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.achv-stat {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--tier-text, var(--text-muted));
+  font-weight: 600;
+}
+
+.achv-project-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.achv-project-link:hover {
+  color: var(--tier-text, var(--accent-primary));
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .achv-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .achv-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .achv-badge-wrap {
+    width: 80px;
+    height: 80px;
+  }
+}

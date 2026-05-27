@@ -1,0 +1,38 @@
+[
+  {
+    "id": "starstruck",
+    "platform": "GitHub",
+    "name": "Starstruck",
+    "tier": "normal",
+    "tierLabel": null,
+    "image": "/awards-badges/starstruck-normal.png",
+    "project": "tkchart",
+    "projectLink": "/projects/tkchart",
+    "description": "Awarded for earning 16+ stars on a repository. tkchart became a community-recognised Python charting library on PyPI.",
+    "stat": "16+ ⭐ stars"
+  },
+  {
+    "id": "starstruck-bronze",
+    "platform": "GitHub",
+    "name": "Starstruck",
+    "tier": "bronze",
+    "tierLabel": "Bronze",
+    "image": "/awards-badges/starstruck-bronze.png",
+    "project": "PyTube Downloader",
+    "projectLink": "/projects/pytube-downloader",
+    "description": "Earned by accumulating 128+ community stars on PyTube Downloader — a multi-threaded desktop downloader that solved real offline workflow problems.",
+    "stat": "128+ ⭐ stars"
+  },
+  {
+    "id": "sf-rising-star",
+    "platform": "SourceForge",
+    "name": "Rising Star",
+    "tier": "neutral",
+    "tierLabel": null,
+    "image": "/awards-badges/rising-start.png",
+    "project": "PyTube Downloader",
+    "projectLink": "/projects/pytube-downloader",
+    "description": "Recognised by SourceForge as a Rising Star project — given to open-source tools that gain rapid traction and community downloads.",
+    "stat": "Rapid download growth"
+  }
+]

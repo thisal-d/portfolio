@@ -53,7 +53,7 @@
   padding: 2rem 1.75rem 1.5rem;
   gap: 1.25rem;
   transition: transform var(--transition-base), box-shadow var(--transition-base),
-              border-color var(--transition-base);
+    border-color var(--transition-base);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
@@ -70,7 +70,7 @@
 .achv-card:hover {
   transform: translateY(-5px);
   border-color: var(--tier-text, var(--border-accent));
-  box-shadow: 0 12px 40px var(--tier-glow, rgba(0,0,0,0.4)), 0 4px 16px rgba(0,0,0,0.4);
+  box-shadow: 0 12px 40px var(--tier-glow, rgba(0, 0, 0, 0.4)), 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .achv-card:hover::after {
@@ -107,13 +107,13 @@
   height: 100%;
   object-fit: contain;
   object-position: center;
-  filter: drop-shadow(0 4px 12px var(--tier-glow, rgba(0,0,0,0.3)));
+  filter: drop-shadow(0 4px 12px var(--tier-glow, rgba(0, 0, 0, 0.3)));
   transition: transform var(--transition-base), filter var(--transition-base);
 }
 
 .achv-card:hover .achv-badge-img {
   transform: scale(1.08) translateY(-2px);
-  filter: drop-shadow(0 8px 20px var(--tier-glow, rgba(0,0,0,0.4)));
+  filter: drop-shadow(0 8px 20px var(--tier-glow, rgba(0, 0, 0, 0.4)));
 }
 
 .achv-badge-glow {

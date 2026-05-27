@@ -18,7 +18,9 @@
     },
     "publish-url": "https://pypi.org/project/tkchart/",
     "expand-on-new-tab": true,
-    "achievements": ["starstruck"]
+    "achievements": [
+      "starstruck"
+    ]
   },
   {
     "slug": "ctkchart",
@@ -46,12 +48,23 @@
     "type": "app",
     "featured": true,
     "description": "Every YouTube downloader on the web is buried under ads or capped at 1080p. PyTube Downloader is a multi-threaded desktop app that downloads single videos or full playlists from 144p to 8K — with honest progress bars and no browser required.",
-    "stack": ["Python", "CustomTkinter", "yt-dlp", "Threading", "FFmpeg"],
+    "stack": [
+      "Python",
+      "CustomTkinter",
+      "yt-dlp",
+      "Threading",
+      "FFmpeg"
+    ],
     "images": [
       "/images/pytube-downloader/1.png",
       "/images/pytube-downloader/2.png",
       "/images/pytube-downloader/3.png",
-      "/images/pytube-downloader/4.png"
+      "/images/pytube-downloader/4.png",
+      "/images/pytube-downloader/5.png",
+      "/images/pytube-downloader/6.png",
+      "/images/pytube-downloader/7.png",
+      "/images/pytube-downloader/8.png",
+      "/images/pytube-downloader/9.png"
     ],
     "repo_url": "https://github.com/thisal-d/pytube-downloader/",
     "api_url": "https://api.github.com/repos/thisal-d/pytube-downloader",
@@ -68,7 +81,10 @@
     },
     "publish-url": "https://sourceforge.net/projects/pytube-downloader/",
     "expand-on-new-tab": true,
-    "achievements": ["starstruck-bronze", "sf-rising-star"]
+    "achievements": [
+      "starstruck-bronze",
+      "sf-rising-star"
+    ]
   },
   {
     "slug": "ai-verse",

@@ -141,7 +141,32 @@
   gap: 5rem;
 }
 
-/* ── Generic section ── */
+/* ── Achievement strip (between hero and life sections) ── */
+.about-achv-strip {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-achv-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* lower sections have no top padding since achv strip acts as spacer */
+.about-sections-lower {
+  padding-top: 4rem;
+}
+
+
 .about-section {
   display: grid;
   grid-template-columns: 1fr 1fr;

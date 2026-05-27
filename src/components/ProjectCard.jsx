@@ -1,5 +1,6 @@
 import "../styles/ProjectCard.css";
 import { useEffect, useState, useCallback } from "react";
+import allBadges from "../data/badges.json";
 
 /* ── helpers ── */
 function typeBadge(type) {
@@ -16,6 +17,22 @@ function formatNumber(n) {
   if (n >= 1000) return (n / 1000).toFixed(1) + "k";
   return n.toString();
 }
+
+function relativeDate(iso) {
+  if (!iso) return null;
+  const days = Math.floor((Date.now() - new Date(iso).getTime()) / 86400000);
+  if (days === 0) return "today";
+  if (days === 1) return "yesterday";
+  if (days < 30) return `${days}d ago`;
+  const mo = Math.floor(days / 30);
+  if (mo < 12) return `${mo}mo ago`;
+  return `${Math.floor(mo / 12)}y ago`;
+}
+
+const LANG_COLOR = {
+  Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6",
+  Java: "#b07219", Kotlin: "#A97BFF", HTML: "#e34c26",
+};
 
 /* ── component ── */
 function ProjectCard({ project }) {
@@ -79,6 +96,10 @@ function ProjectCard({ project }) {
 
   const why = project["why-i-made-this"];
   const hasPublish = project["publish-url"] && project["publish-url"] !== false;
+  // achievements is an array of badge IDs — resolve full objects from badges.json
+  const achievements = (project.achievements || [])
+    .map(id => allBadges.find(b => b.id === id))
+    .filter(Boolean);
 
   return (
     <article
@@ -154,6 +175,18 @@ function ProjectCard({ project }) {
           </div>
         )}
 
+        {/* ── Achievement ribbon ── */}
+        {achievements.length > 0 && (
+          <div className="pc-achievements">
+            {achievements.map((a) => (
+              <div key={a.id} className={`pc-achv-badge pc-achv-${a.tier}`} title={`${a.platform} — ${a.name}${a.tierLabel ? ` (${a.tierLabel})` : ""}`}>
+                <img src={a.image} alt={a.name} className="pc-achv-img" />
+                <span className="pc-achv-label">{a.name}{a.tierLabel ? ` · ${a.tierLabel}` : ""}</span>
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* ── GitHub stats row ── */}
         <div className="pc-stats">
           {loadingAPI ? (
@@ -178,6 +211,15 @@ function ProjectCard({ project }) {
                   <span className="pc-stat-icon">⬇️</span>
                   <span className="pc-stat-val">{formatNumber(pypiDownloads)}</span>
                   &nbsp;/mo
+                </span>
+              )}
+              {repoData.language && (
+                <span className="pc-stat">
+                  <span
+                    className="pc-lang-dot"
+                    style={{ background: LANG_COLOR[repoData.language] ?? "#6366f1" }}
+                  />
+                  {repoData.language}
                 </span>
               )}
               {latestTag && <span className="pc-version">{latestTag}</span>}

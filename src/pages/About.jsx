@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/About.css";
+import AchievementBadges from "../components/AchievementBadges";
 
 /* ── Data ── */
 const IDENTITY_PILLS = [
@@ -73,8 +74,13 @@ function About() {
         </div>
       </section>
 
+      {/* ════════════ ACHIEVEMENTS STRIP ════════════ */}
+      <div className="about-achv-strip">
+        <AchievementBadges />
+      </div>
+
       {/* ════════════ SECTIONS ════════════ */}
-      <div className="about-sections">
+      <div className="about-sections about-sections-lower">
 
         {/* ── The Coder ── */}
         <div className="about-section">

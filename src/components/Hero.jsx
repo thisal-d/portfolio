@@ -28,31 +28,31 @@ function useReveal(delay = 0) {
 
 /* ── Decorative terminal code lines ── */
 const CODE_LINES = [
-  { indent: 0, token: "keyword",  text: "@staticmethod",       suffix: ""                              },
-  { indent: 0, token: "fn",       text: "def",                  suffix: " theme_tracker() -> None:"     },
-  { indent: 1, token: "comment",  text: "# auto-sync theme across all chart widgets", suffix: ""       },
-  { indent: 1, token: "keyword",  text: "while",                suffix: " ThemeManager.child_objects:"  },
-  { indent: 2, token: "var",      text: "current_theme",        suffix: " = ctk.get_appearance_mode()"  },
-  { indent: 2, token: "keyword",  text: "if",                   suffix: " current_theme != ThemeManager.theme:" },
-  { indent: 3, token: "var",      text: "ThemeManager.theme",   suffix: " = current_theme"              },
-  { indent: 3, token: "keyword",  text: "for",                  suffix: " widget in ThemeManager.child_objects:" },
-  { indent: 4, token: "keyword",  text: "try:",                 suffix: ""                              },
-  { indent: 5, token: "var",      text: "widget",               suffix: ".__configure_theme_mode()"     },
-  { indent: 4, token: "keyword",  text: "except",               suffix: " Exception as e:"              },
-  { indent: 5, token: "fn",       text: "print",                suffix: "(f\"[ThemeManager] {e}\")"     },
-  { indent: 2, token: "fn",       text: "time",                 suffix: ".sleep(1)"                     },
-  { indent: 0, token: "comment",  text: ""                     , suffix: ""                             },
-  { indent: 0, token: "var",      text: "ThemeManager.running_state", suffix: " = False"               },
+  { indent: 0, token: "keyword", text: "@staticmethod", suffix: "" },
+  { indent: 0, token: "fn", text: "def", suffix: " theme_tracker() -> None:" },
+  { indent: 1, token: "comment", text: "# auto-sync theme across all chart widgets", suffix: "" },
+  { indent: 1, token: "keyword", text: "while", suffix: " ThemeManager.child_objects:" },
+  { indent: 2, token: "var", text: "current_theme", suffix: " = ctk.get_appearance_mode()" },
+  { indent: 2, token: "keyword", text: "if", suffix: " current_theme != ThemeManager.theme:" },
+  { indent: 3, token: "var", text: "ThemeManager.theme", suffix: " = current_theme" },
+  { indent: 3, token: "keyword", text: "for", suffix: " widget in ThemeManager.child_objects:" },
+  { indent: 4, token: "keyword", text: "try:", suffix: "" },
+  { indent: 5, token: "var", text: "widget", suffix: ".__configure_theme_mode()" },
+  { indent: 4, token: "keyword", text: "except", suffix: " Exception as e:" },
+  { indent: 5, token: "fn", text: "print", suffix: "(f\"[ThemeManager] {e}\")" },
+  { indent: 2, token: "fn", text: "time", suffix: ".sleep(1)" },
+  { indent: 0, token: "comment", text: "", suffix: "" },
+  { indent: 0, token: "var", text: "ThemeManager.running_state", suffix: " = False" },
 ];
 
 const STATS = [
-  { value: "8+",  label: "Projects Shipped"  },
-  { value: "5+",  label: "PyPI Packages"     },
-  { value: "3+",  label: "Years Building"    },
+  { value: "2+", label: "Projects Shipped" },
+  { value: "2", label: "PyPI Packages" },
+  { value: "3+", label: "Years Building" },
 ];
 
 const Hero = () => {
-  const leftRef  = useReveal(0);
+  const leftRef = useReveal(0);
   const rightRef = useReveal(120);
   const statsRef = useReveal(240);
 

@@ -1,14 +1,19 @@
 import "../styles/AchievementBadges.css";
 import ACHIEVEMENTS from "../data/badges.json";
+import { useTheme } from "../context/ThemeContext";
+import { getBadgeImage } from "../utils/badgeResolver";
 
 /* ─── Tier colour tokens ─────────────────────────────────── */
 const TIER_META = {
   normal: { glow: "rgba(99,102,241,0.15)", border: "rgba(99,102,241,0.30)", text: "var(--accent-primary)" },
   bronze: { glow: "rgba(180,120,60,0.15)", border: "rgba(194,140,80,0.30)", text: "#c48040" },
+  silver: { glow: "rgba(161,161,170,0.15)", border: "rgba(161,161,170,0.30)", text: "#a1a1aa" },
   neutral: { glow: "rgba(148,163,184,0.10)", border: "rgba(148,163,184,0.22)", text: "var(--text-secondary)" },
 };
 
 function AchievementBadges() {
+  const { theme } = useTheme();
+
   return (
     <section className="achv-section" id="achievements" aria-label="Developer Achievements">
       {/* ── Header ── */}
@@ -24,7 +29,7 @@ function AchievementBadges() {
       {/* ── Badge Cards ── */}
       <div className="achv-grid">
         {ACHIEVEMENTS.map((achv) => {
-          const tier = TIER_META[achv.tier];
+          const tier = TIER_META[achv.tier] || TIER_META.neutral;
           return (
             <article
               key={achv.id}
@@ -41,7 +46,7 @@ function AchievementBadges() {
               {/* Badge image */}
               <div className="achv-badge-wrap">
                 <img
-                  src={achv.image}
+                  src={getBadgeImage(achv.id, theme)}
                   alt={`${achv.name} badge`}
                   className="achv-badge-img"
                   loading="lazy"

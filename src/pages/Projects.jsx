@@ -3,6 +3,9 @@ import "../styles/ProjectsPage.css";
 import ProjectCard from "../components/ProjectCard";
 import FeaturedProjectCard from "../components/FeaturedProjectCard";
 import projects from "../data/projects.json";
+import allBadges from "../data/badges.json";
+import { useTheme } from "../context/ThemeContext";
+import { getBadgeImage } from "../utils/badgeResolver";
 
 const FILTERS = [
   { id: "all",     label: "All",      activeClass: ""            },
@@ -12,6 +15,7 @@ const FILTERS = [
 ];
 
 function ProjectsPage() {
+  const { theme } = useTheme();
   const [active, setActive] = useState("all");
 
   const featuredProject = projects.find(p => p.featured);
@@ -41,18 +45,22 @@ function ProjectsPage() {
             <a href="/about#achievements" className="projects-recog-link">View details →</a>
           </div>
           <div className="projects-recog-badges">
-            <div className="proj-recog-item proj-recog-normal">
-              <img src="/awards-badges/starstruck-normal.png" alt="GitHub Starstruck" className="proj-recog-img" />
-              <span>GitHub Starstruck</span>
-            </div>
-            <div className="proj-recog-item proj-recog-bronze">
-              <img src="/awards-badges/starstruck-bronze.png" alt="GitHub Starstruck Bronze" className="proj-recog-img" />
-              <span>Starstruck · Bronze</span>
-            </div>
-            <div className="proj-recog-item proj-recog-neutral">
-              <img src="/awards-badges/rising-start.png" alt="SourceForge Rising Star" className="proj-recog-img" />
-              <span>SF Rising Star</span>
-            </div>
+            {allBadges.map((achv) => (
+              <div key={achv.id} className={`proj-recog-item proj-recog-${achv.tier}`}>
+                <img
+                  src={getBadgeImage(achv.id, theme)}
+                  alt={achv.name}
+                  className="proj-recog-img"
+                />
+                <span>
+                  {achv.platform === "GitHub"
+                    ? (achv.id === "starstruck" ? "GitHub Starstruck" : `Starstruck · ${achv.tierLabel}`)
+                    : achv.id === "sf-rising-star"
+                    ? "SF Rising Star"
+                    : "SF Favourite"}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 

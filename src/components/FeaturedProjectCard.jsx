@@ -1,5 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import allBadges from "../data/badges.json";
+import { useTheme } from "../context/ThemeContext";
+import { getBadgeImage } from "../utils/badgeResolver";
 import "../styles/FeaturedProjectCard.css";
 
 /* ── helpers ── */
@@ -40,6 +42,7 @@ const LANG_COLOR = {
 };
 
 function FeaturedProjectCard({ project }) {
+  const { theme } = useTheme();
   const [repoData,      setRepoData]      = useState(null);
   const [latestTag,     setLatestTag]     = useState(null);
   const [releaseDate,   setReleaseDate]   = useState(null);
@@ -170,7 +173,7 @@ function FeaturedProjectCard({ project }) {
                     className={`fpc-achv fpc-achv-${a.tier}`}
                     title={`${a.platform} — ${a.name}${a.tierLabel ? ` (${a.tierLabel})` : ""}`}
                   >
-                    <img src={a.image} alt={a.name} className="fpc-achv-img" />
+                    <img src={getBadgeImage(a.id, theme)} alt={a.name} className="fpc-achv-img" />
                   </div>
                 ))}
               </div>

@@ -1,6 +1,8 @@
 import "../styles/ProjectCard.css";
 import { useEffect, useState, useCallback } from "react";
 import allBadges from "../data/badges.json";
+import { useTheme } from "../context/ThemeContext";
+import { getBadgeImage } from "../utils/badgeResolver";
 
 /* ── helpers ── */
 function typeBadge(type) {
@@ -36,6 +38,7 @@ const LANG_COLOR = {
 
 /* ── component ── */
 function ProjectCard({ project }) {
+  const { theme } = useTheme();
   const [repoData,      setRepoData]      = useState(null);
   const [latestTag,     setLatestTag]     = useState(null);
   const [pypiDownloads, setPypiDownloads] = useState(null);
@@ -180,7 +183,7 @@ function ProjectCard({ project }) {
           <div className="pc-achievements">
             {achievements.map((a) => (
               <div key={a.id} className={`pc-achv-badge pc-achv-${a.tier}`} title={`${a.platform} — ${a.name}${a.tierLabel ? ` (${a.tierLabel})` : ""}`}>
-                <img src={a.image} alt={a.name} className="pc-achv-img" />
+                <img src={getBadgeImage(a.id, theme)} alt={a.name} className="pc-achv-img" />
                 <span className="pc-achv-label">{a.name}{a.tierLabel ? ` · ${a.tierLabel}` : ""}</span>
               </div>
             ))}

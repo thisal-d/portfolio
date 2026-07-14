@@ -55,9 +55,7 @@ function ProjectsPage() {
                 <span>
                   {achv.platform === "GitHub"
                     ? (achv.id === "starstruck" ? "GitHub Starstruck" : `Starstruck · ${achv.tierLabel}`)
-                    : achv.id === "sf-rising-star"
-                    ? "SF Rising Star"
-                    : "SF Favourite"}
+                    : `SF ${achv.name}`}
                 </span>
               </div>
             ))}

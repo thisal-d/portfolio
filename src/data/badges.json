@@ -58,5 +58,17 @@
     "projectLink": "/projects/pytube-downloader",
     "description": "Recognised by SourceForge as a Community Favourite project — showcasing sustained download milestones and high user satisfaction rating.",
     "stat": "High user rating"
+  },
+  {
+    "id": "sf-community-choice",
+    "platform": "SourceForge",
+    "name": "Community Choice",
+    "tier": "neutral",
+    "tierLabel": null,
+    "image": "/src/assets/awards-badges/pytube-downloader/source-froge-community-choice/black.svg",
+    "project": "PyTube Downloader",
+    "projectLink": "/projects/pytube-downloader",
+    "description": "Recognised by SourceForge as a Community Choice project — awarded for being highly selected by the community.",
+    "stat": "Community Choice"
   }
 ]

@@ -237,6 +237,7 @@
 .fpc-achv:hover { transform: scale(1.15); }
 .fpc-achv-normal  { border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.08); }
 .fpc-achv-bronze  { border-color: rgba(194,140,80,0.3); background: rgba(194,140,80,0.08); }
+.fpc-achv-silver  { border-color: rgba(161,161,170,0.3); background: rgba(161,161,170,0.08); }
 .fpc-achv-neutral { border-color: rgba(148,163,184,0.2); background: rgba(148,163,184,0.06); }
 
 .fpc-achv-img {

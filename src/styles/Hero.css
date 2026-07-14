@@ -338,6 +338,43 @@
   font-size: 1rem;
 }
 
+/* Recognised By */
+.hero-recognised-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.hero-recognised-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero-recognised-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.hero-recognised-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  transition: transform var(--transition-fast);
+}
+
+.hero-recognised-icon:hover {
+  transform: scale(1.15) translateY(-2px);
+}
+
+
 /* ============================================================
    STATS BAR
    ============================================================ */
@@ -471,6 +508,8 @@
   .hero-chips     { justify-content: center; }
   .hero-actions   { justify-content: center; }
   .hero-social-row { justify-content: center; }
+  .hero-recognised-row { justify-content: center; }
+
 
   .hero-avatar-wrap {
     bottom: -22px;

@@ -435,6 +435,13 @@
 }
 .pc-achv-bronze .pc-achv-label { color: #c48040; }
 
+/* Silver tier */
+.pc-achv-silver {
+  border-color: rgba(161, 161, 170, 0.28);
+  background: rgba(161, 161, 170, 0.08);
+}
+.pc-achv-silver .pc-achv-label { color: #a1a1aa; }
+
 /* Neutral tier (SourceForge Rising Star — no tier) */
 .pc-achv-neutral {
   border-color: rgba(148, 163, 184, 0.20);

@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/Hero.css";
+import { useTheme } from "../context/ThemeContext";
+import { getBadgeImage } from "../utils/badgeResolver";
+import allBadges from "../data/badges.json";
 
 /* ── Scroll-reveal hook ── */
 function useReveal(delay = 0) {
@@ -52,6 +55,7 @@ const STATS = [
 ];
 
 const Hero = () => {
+  const { theme } = useTheme();
   const leftRef = useReveal(0);
   const rightRef = useReveal(120);
   const statsRef = useReveal(240);
@@ -196,6 +200,22 @@ const Hero = () => {
               <img src="/icons/social/pypi.svg" alt="" className="hero-social-icon" />
               PyPI
             </a>
+          </div>
+
+          {/* Recognised By row */}
+          <div className="hero-recognised-row">
+            <span className="hero-recognised-label">Recognised By:</span>
+            <div className="hero-recognised-badges">
+              {allBadges.map(achv => (
+                <img
+                  key={achv.id}
+                  src={getBadgeImage(achv.id, theme)}
+                  alt={achv.name}
+                  className="hero-recognised-icon"
+                  title={`${achv.platform} — ${achv.name}${achv.tierLabel ? ` (${achv.tierLabel})` : ""}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -5,6 +5,8 @@ import sfRisingStarBlack from "../assets/awards-badges/pytube-downloader/source-
 import sfRisingStarWhite from "../assets/awards-badges/pytube-downloader/source-forge-rising-start/white.svg";
 import sfFavouriteBlack from "../assets/awards-badges/pytube-downloader/source-forge-favourite/black.svg";
 import sfFavouriteWhite from "../assets/awards-badges/pytube-downloader/source-forge-favourite/white.svg";
+import sfCommunityChoiceBlack from "../assets/awards-badges/pytube-downloader/source-froge-community-choice/black.svg";
+import sfCommunityChoiceWhite from "../assets/awards-badges/pytube-downloader/source-froge-community-choice/white.svg";
 
 export function getBadgeImage(id, theme) {
   const isLight = theme === "light";
@@ -19,6 +21,8 @@ export function getBadgeImage(id, theme) {
       return isLight ? sfRisingStarWhite : sfRisingStarBlack;
     case "sf-favourite":
       return isLight ? sfFavouriteWhite : sfFavouriteBlack;
+    case "sf-community-choice":
+      return isLight ? sfCommunityChoiceWhite : sfCommunityChoiceBlack;
     default:
       return null;
   }

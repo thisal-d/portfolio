@@ -1,0 +1,162 @@
+{
+  "slug": "pcforge",
+  "title": "PCForge",
+  "type": "system",
+  "version": "v1.1.0",
+  "description": "A full-stack, cross-platform e-commerce and custom PC building ecosystem. Customers design rigs with real-time hardware compatibility validation, five LangGraph AI agents recommend specs and reserve inventory, and store technicians review builds in dedicated assembly workbenches — with RMA and service scheduling built in.",
+  "long-description": "PCForge is a full-stack, cross-platform platform modelled on the enthusiast computer retail industry. Customers design custom rigs on a Flutter mobile app with live compatibility validation, autonomous LangGraph AI agents recommend specifications and reserve inventory, store technicians review builds in a React web portal, and after-sales workflows handle RMA and appointment scheduling.",
+  "images": [
+    "/images/pcforge/dashboard.png",
+    "/images/pcforge/build-reviews.png",
+    "/images/pcforge/orders.png",
+    "/images/pcforge/inventory.png",
+    "/images/pcforge/service-requests.png",
+    "/images/pcforge/products.png"
+  ],
+  "image-captions": [
+    "Staff dashboard — operational KPIs and action queue",
+    "Custom Build Clearance — PSU headroom and compatibility review",
+    "Order Management — fulfilment pipeline",
+    "Inventory — stock control",
+    "Service Requests — after-sales queue",
+    "Products — catalogue management"
+  ],
+  "repo_url": "https://github.com/thisal-d/pc-forge/",
+  "api_url": "https://api.github.com/repos/thisal-d/pc-forge",
+  "publish-url": "https://pc-forge-admin.pages.dev",
+  "download-label": "Open Live Web Portal",
+  "tech-stack": [
+    "ASP.NET Core 8",
+    "Entity Framework Core",
+    "PostgreSQL (Neon)",
+    "React 19",
+    "Vite",
+    "Flutter 3",
+    "Provider",
+    "Python 3.11",
+    "FastAPI",
+    "LangGraph",
+    "Google Gemini",
+    "GitHub Actions",
+    "Cloudflare Pages",
+    "Render"
+  ],
+  "features": [
+    "Interactive custom PC builder — live wattage summation and CPU / motherboard socket matching (AM5, AM4, LGA1700)",
+    "RAM DDR generation verification and form-factor clearance checks, with one-tap checkout and automatic component reservation",
+    "5 specialised LangGraph agents: Requirement, Inventory, PC Build, Order Planning and After-Sales",
+    "Multi-key Gemini cascading failover — up to 6 keys with exponential backoff and health tracking",
+    "Store operations portal — KPI metrics, build review queue with compatibility meters, inventory adjusters, order fulfilment and service intake",
+    "Branded EmailJS notifications for build approvals, order fulfilment and service appointments",
+    "Flutter Material 3 mobile client — faceted catalog search, hardware camera scanner, appointment management",
+    "Stateless AI boundary — all database writes are validated and committed only through the ASP.NET Core backend"
+  ],
+  "architecture": [
+    {
+      "tier": "React Web Admin Portal",
+      "tech": "React 19 · Vite · React Router 7",
+      "role": "Store staff & technicians",
+      "where": "Cloudflare Pages"
+    },
+    {
+      "tier": "Flutter Mobile App",
+      "tech": "Flutter 3 · Material 3 · Provider",
+      "role": "Customer client (Android APK)",
+      "where": "GitHub Releases"
+    },
+    {
+      "tier": "ASP.NET Core 8 Web API",
+      "tech": "EF Core 8 · JWT · BCrypt · Swagger",
+      "role": "Single entry gateway & source of truth",
+      "where": "Render"
+    },
+    {
+      "tier": "Python AI Microservice",
+      "tech": "FastAPI · LangGraph · Gemini",
+      "role": "5 domain-specific agent toolkits (internal)",
+      "where": "Render"
+    },
+    {
+      "tier": "PostgreSQL",
+      "tech": "15 normalised tables",
+      "role": "Persistence with row-level locking for reservations",
+      "where": "Neon Serverless"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Requirement Discovery",
+      "does": "Extracts use-case, LKR budget and priorities without prematurely naming parts."
+    },
+    {
+      "name": "Inventory Stock",
+      "does": "Checks live stock, suggests pin-compatible alternatives and places 15-minute reservation holds."
+    },
+    {
+      "name": "PC Build & Compatibility",
+      "does": "Deterministic socket, DDR, form-factor and PSU headroom (TDP + 150 W) validation."
+    },
+    {
+      "name": "Order Planning & Pricing",
+      "does": "Itemised LKR bills, coupon validation, delivery tiers and draft order proposals."
+    },
+    {
+      "name": "After-Sales Service",
+      "does": "Troubleshooting trees, warranty checks and technician appointments (max 10 per day)."
+    }
+  ],
+  "links": [
+    {
+      "label": "Web Admin Portal",
+      "url": "https://pc-forge-admin.pages.dev",
+      "note": "React 19 + Vite on Cloudflare Pages"
+    },
+    {
+      "label": "API Docs (Swagger)",
+      "url": "https://pc-forge.onrender.com/swagger",
+      "note": "ASP.NET Core 8 on Render"
+    },
+    {
+      "label": "AI Service Docs",
+      "url": "https://pc-forge-ai-service.onrender.com/docs",
+      "note": "FastAPI + LangGraph"
+    },
+    {
+      "label": "Android APK",
+      "url": "https://github.com/thisal-d/pc-forge/releases",
+      "note": "Flutter 3 — GitHub Releases"
+    }
+  ],
+  "demo-note": "The free-tier Render services spin down after 15 minutes idle — allow roughly 30–45 seconds for the first request.",
+  "demo-login": {
+    "role": "Staff / Technician",
+    "email": "staff@pcforge.com",
+    "password": "Staff123!",
+    "note": "Public demo account listed in the repository README."
+  },
+  "quality": [
+    "xUnit + InMemory EF Core backend tests",
+    "Vitest web tests",
+    "Flutter widget tests",
+    "Pytest agent evaluation",
+    "Locust load testing",
+    "GitHub Actions CI across all four tiers"
+  ],
+  "why-i-made-this": {
+    "simple": "Modelled on the enthusiast computer retail industry — from a customer's custom rig to technician review, assembly and after-sales support."
+  },
+  "principles": [
+    {
+      "t": "Single entry gateway",
+      "d": "React and Flutter clients communicate exclusively with the ASP.NET Core Web API."
+    },
+    {
+      "t": "Stateless AI boundary",
+      "d": "The Python AI microservice is internal — invoked only by AiAgentService.cs and never exposed to external networks."
+    },
+    {
+      "t": "Database consistency",
+      "d": "All PostgreSQL writes are transactional via EF Core, with row-level locking during inventory reservations."
+    }
+  ]
+}

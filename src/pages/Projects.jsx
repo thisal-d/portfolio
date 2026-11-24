@@ -1,104 +1,51 @@
-import { useState } from "react";
-import "../styles/ProjectsPage.css";
-import ProjectCard from "../components/ProjectCard";
-import FeaturedProjectCard from "../components/FeaturedProjectCard";
-import projects from "../data/projects.json";
-import allBadges from "../data/badges.json";
-import { useTheme } from "../context/ThemeContext";
-import { getBadgeImage } from "../utils/badgeResolver";
+import { Link } from "react-router-dom";
+import { useTheme } from "@/context/theme";
+import { badges } from "@/lib/data";
+import { badgeImage } from "@/lib/assets";
+import { Lineup } from "@/components/Lineup";
+import { CaseStudy, PcForgeShowcase } from "@/components/Showcase";
+import { CTA } from "@/components/Sections";
+import { Reveal, SectionBar } from "@/components/ui";
 
-const FILTERS = [
-  { id: "all",     label: "All",      activeClass: ""            },
-  { id: "library", label: "Libraries",activeClass: "active-lib" },
-  { id: "app",     label: "Apps",     activeClass: "active-app" },
-  { id: "website", label: "Websites", activeClass: "active-web" },
-];
-
-function ProjectsPage() {
+export default function Projects() {
   const { theme } = useTheme();
-  const [active, setActive] = useState("all");
-
-  const featuredProject = projects.find(p => p.featured);
-
-  // When filtering, include featured project in results; when showing all, exclude from grid (shown separately above)
-  const filtered = active === "all"
-    ? projects.filter(p => !p.featured)
-    : projects.filter(p => p.type === active);
-
   return (
-    <div className="projects-page">
-      <div className="projects-page-inner">
-        {/* Header */}
-        <div className="projects-page-header">
-          <p className="section-label">Open Source</p>
-          <h1 className="section-title">All Projects</h1>
-          <p className="section-description">
-            Libraries, apps, and websites — things I built to solve real problems, learn new tech,
-            or just because I wanted to.
-          </p>
-        </div>
-
-        {/* Recognition banner */}
-        <div className="projects-recognition-bar">
-          <div className="projects-recog-header">
-            <span className="projects-recog-label">Recognition</span>
-            <a href="/about#achievements" className="projects-recog-link">View details →</a>
+    <>
+      <section className="border-b border-line">
+        <div className="frame">
+          <SectionBar n="00" label="Open source" right="Libraries · Apps · Websites · Systems" />
+          <div className="sec-pad py-[clamp(3rem,8vw,6rem)]">
+            <h1 className="display text-[clamp(2.6rem,8vw,7rem)]">
+              <span className="mask"><span>All Projects</span></span>
+            </h1>
+            <p className="lede fade-up mt-6 max-w-2xl" style={{ "--d": "300ms" }}>
+              Libraries, apps, and websites — things I built to solve real problems, learn new tech, or just because I wanted to.
+            </p>
           </div>
-          <div className="projects-recog-badges">
-            {allBadges.map((achv) => (
-              <div key={achv.id} className={`proj-recog-item proj-recog-${achv.tier}`}>
-                <img
-                  src={getBadgeImage(achv.id, theme)}
-                  alt={achv.name}
-                  className="proj-recog-img"
-                />
-                <span>
-                  {achv.platform === "GitHub"
-                    ? (achv.id === "starstruck" ? "GitHub Starstruck" : `Starstruck · ${achv.tierLabel}`)
-                    : `SF ${achv.name}`}
+          {/* recognition bar */}
+          <div className="flex flex-col gap-4 border-t border-line px-[clamp(1rem,3vw,2.5rem)] py-5 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex items-center gap-4">
+              <span className="mono text-ink3">Recognition</span>
+              <Link to="/about" state={{ scroll: "achievements" }} className="mono border-b border-ink pb-0.5 hover:text-blue">View details →</Link>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {badges.map((b) => (
+                <span key={b.id} className="flex items-center gap-2 border border-line bg-card py-1.5 pl-2 pr-3 transition-transform hover:-translate-y-0.5">
+                  <img src={badgeImage(b.id, theme)} alt={b.name} className="h-6 w-6 object-contain" />
+                  <span className="mono-sm">
+                    {b.platform === "GitHub" ? (b.id === "starstruck" ? "GitHub Starstruck" : `Starstruck · ${b.tierLabel}`) : `SF ${b.name}`}
+                  </span>
                 </span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Featured project — shown above grid when no filter active */}
-        {active === "all" && featuredProject && (
-          <FeaturedProjectCard project={featuredProject} />
-        )}
-
-        {/* Filter bar */}
-        <div className="projects-filter-bar">
-          {FILTERS.map(f => (
-            <button
-              key={f.id}
-              className={`projects-filter-btn ${active === f.id ? ("active " + f.activeClass).trim() : ""}`}
-              onClick={() => setActive(f.id)}
-            >
-              {f.label}
-            </button>
-          ))}
-          <span className="projects-count">
-            {active === "all"
-              ? `${filtered.length + (featuredProject ? 1 : 0)} projects`
-              : `${filtered.length} project${filtered.length !== 1 ? "s" : ""}`}
-          </span>
-        </div>
-
-        {/* Grid */}
-        {filtered.length > 0 ? (
-          <div className="projects-page-grid">
-            {filtered.map((project, i) => (
-              <ProjectCard project={project} key={i} />
-            ))}
-          </div>
-        ) : (
-          <div className="projects-empty">No projects found.</div>
-        )}
-      </div>
-    </div>
+      <Reveal><PcForgeShowcase n="01" /></Reveal>
+      <Lineup n="02" id="lineup" title="Filter & search" />
+      <CaseStudy n="03" />
+      <CTA n="04" />
+    </>
   );
 }
-
-export default ProjectsPage;
-

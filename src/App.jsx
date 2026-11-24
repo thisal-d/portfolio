@@ -1,35 +1,52 @@
-import './App.css';
-import Footer from './components/Footer';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
-import ClassifiedPage from './pages/ClassifiedPage';
-import ProjectPage from './pages/project/ProjectPage';
-import { ThemeProvider } from './context/ThemeContext';
+import { HashRouter, Route, Routes, Link, useLocation } from "react-router-dom";
+import { ThemeProvider } from "@/context/theme";
+import { Footer, Header, Page, ScrollManager, ScrollRuler } from "@/components/Layout";
+import Home from "@/pages/Home";
+import About from "@/pages/About";
+import Projects from "@/pages/Projects";
+import ProjectDetail from "@/pages/ProjectDetail";
+import Contact from "@/pages/Contact";
+import Classified from "@/pages/Classified";
 
-function App() {
+function NotFound() {
   return (
-    <ThemeProvider>
-      <div className="App">
-        <Router>
-          <Header />
-          <Routes>
-            <Route path="/classified"     element={<ClassifiedPage />} />
-            <Route path="/"               element={<Home />} />
-            <Route path="/about"          element={<About />} />
-            <Route path="/projects"       element={<Projects />} />
-            <Route path="/contact"        element={<Contact />} />
-            <Route path="/projects/:slug" element={<ProjectPage />} />
-          </Routes>
-          <Footer />
-        </Router>
-      </div>
-    </ThemeProvider>
+    <section className="frame sec-pad py-32 text-center">
+      <p className="mono text-ink3">404</p>
+      <h1 className="display mt-4 text-[clamp(3rem,10vw,8rem)]">Lost the trail.</h1>
+      <p className="lede mt-4">That page doesn't exist.</p>
+      <Link to="/" className="btn btn-solid mt-8">Back home</Link>
+    </section>
   );
 }
 
-export default App;
+function Routed() {
+  const loc = useLocation();
+  return (
+    <Page key={loc.pathname}>
+      <Routes location={loc}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:slug" element={<ProjectDetail />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/classified" element={<Classified />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Page>
+  );
+}
 
+export default function App() {
+  return (
+    <ThemeProvider>
+      {/* HashRouter: the build is a single self-contained index.html, so routes live in the hash. */}
+      <HashRouter>
+        <ScrollManager />
+        <Header />
+        <ScrollRuler />
+        <Routed />
+        <Footer />
+      </HashRouter>
+    </ThemeProvider>
+  );
+}

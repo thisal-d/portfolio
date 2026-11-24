@@ -1,237 +1,188 @@
-import React, { useEffect, useRef } from "react";
-import "../styles/Hero.css";
-import { useTheme } from "../context/ThemeContext";
-import { getBadgeImage } from "../utils/badgeResolver";
-import allBadges from "../data/badges.json";
+import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { useTheme } from "@/context/theme";
+import { badges } from "@/lib/data";
+import { badgeImage, img, resumeUrl } from "@/lib/assets";
+import { CountUp, IconArrowRight, IconDownload, Reveal } from "./ui";
 
-/* ── Scroll-reveal hook ── */
-function useReveal(delay = 0) {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    /* small RAF delay so CSS is painted first */
-    const timer = setTimeout(() => {
-      const obs = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            el.classList.add("revealed");
-            obs.disconnect();
-          }
-        },
-        { threshold: 0.1 }
-      );
-      obs.observe(el);
-      return () => obs.disconnect();
-    }, delay);
-    return () => clearTimeout(timer);
-  }, [delay]);
-  return ref;
-}
-
-/* ── Decorative terminal code lines ── */
-const CODE_LINES = [
-  { indent: 0, token: "keyword", text: "@staticmethod", suffix: "" },
-  { indent: 0, token: "fn", text: "def", suffix: " theme_tracker() -> None:" },
-  { indent: 1, token: "comment", text: "# auto-sync theme across all chart widgets", suffix: "" },
-  { indent: 1, token: "keyword", text: "while", suffix: " ThemeManager.child_objects:" },
-  { indent: 2, token: "var", text: "current_theme", suffix: " = ctk.get_appearance_mode()" },
-  { indent: 2, token: "keyword", text: "if", suffix: " current_theme != ThemeManager.theme:" },
-  { indent: 3, token: "var", text: "ThemeManager.theme", suffix: " = current_theme" },
-  { indent: 3, token: "keyword", text: "for", suffix: " widget in ThemeManager.child_objects:" },
-  { indent: 4, token: "keyword", text: "try:", suffix: "" },
-  { indent: 5, token: "var", text: "widget", suffix: ".__configure_theme_mode()" },
-  { indent: 4, token: "keyword", text: "except", suffix: " Exception as e:" },
-  { indent: 5, token: "fn", text: "print", suffix: "(f\"[ThemeManager] {e}\")" },
-  { indent: 2, token: "fn", text: "time", suffix: ".sleep(1)" },
-  { indent: 0, token: "comment", text: "", suffix: "" },
-  { indent: 0, token: "var", text: "ThemeManager.running_state", suffix: " = False" },
+/** Floating skill "app icons", all taken from the portfolio's own skill icons. */
+const TILES = [
+  { icon: "python", x: 7, y: 21, s: 88, c: "var(--blue)", r: -6, t: 7, d: 0, depth: 18, m: false },
+  { icon: "react", x: 87, y: 15, s: 78, c: "var(--teal)", r: 5, t: 8, d: 0.8, depth: -22, m: false },
+  { icon: "java", x: 3, y: 60, s: 70, c: "var(--red)", r: -3, t: 9, d: 1.2, depth: 26, m: false },
+  { icon: "mongodb", x: 91, y: 50, s: 68, c: "var(--green)", r: 4, t: 6.5, d: 0.3, depth: -16, m: false },
+  { icon: "arduino", x: 12, y: 90, s: 58, c: "var(--teal)", r: 6, t: 7.5, d: 1.8, depth: 14, m: true },
+  { icon: "nodejs", x: 79, y: 88, s: 72, c: "var(--green)", r: -5, t: 8.5, d: 0.5, depth: -24, m: true },
+  { icon: "android", x: 25, y: 7, s: 58, c: "var(--green)", r: -4, t: 6, d: 1.5, depth: 12, m: true },
+  { icon: "mysql", x: 68, y: 5, s: 56, c: "var(--blue)", r: 7, t: 7, d: 2.1, depth: -12, m: true },
+  { icon: "javascript", x: 28, y: 80, s: 56, c: "var(--amber)", r: 5, t: 9, d: 2.4, depth: 20, m: false },
+  { icon: "git", x: 63, y: 70, s: 52, c: "var(--red)", r: -7, t: 7.8, d: 0.9, depth: -18, m: false },
 ];
 
 const STATS = [
-  { value: "2+", label: "Projects Shipped" },
-  { value: "2", label: "PyPI Packages" },
-  { value: "3+", label: "Years Building" },
+  { value: 2, suffix: "+", label: "Projects Shipped" },
+  { value: 2, suffix: "", label: "PyPI Packages" },
+  { value: 3, suffix: "+", label: "Years Building" },
+  { value: badges.length, suffix: "", label: "Recognitions" },
 ];
 
-const Hero = () => {
+function Rings() {
+  const radii = [90, 150, 215, 285, 360, 440, 520, 610];
+  return (
+    <div className="pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[max(150vw,1500px)] -translate-x-1/2 -translate-y-1/2" aria-hidden="true">
+      <svg viewBox="0 0 1000 1000" className="absolute inset-0 h-full w-full" fill="none">
+        {radii.map((r, i) => (
+          <circle key={r} cx="500" cy="500" r={r * 0.82} stroke="var(--line)" strokeWidth={i % 3 === 0 ? 1.4 : 1} />
+        ))}
+        {/* ticks */}
+        <circle cx="500" cy="500" r={285 * 0.82} stroke="var(--line-strong)" strokeWidth="9" strokeDasharray="1.2 20" opacity=".35" />
+      </svg>
+      {/* heavier orbiting arcs */}
+      <svg viewBox="0 0 1000 1000" className="absolute inset-0 h-full w-full" style={{ animation: "spin-slow 90s linear infinite" }} fill="none">
+        <circle cx="500" cy="500" r={360 * 0.82} stroke="var(--ink)" strokeWidth="3" strokeDasharray="520 1800" strokeLinecap="round" opacity=".55" />
+      </svg>
+      <svg viewBox="0 0 1000 1000" className="absolute inset-0 h-full w-full" style={{ animation: "spin-slow 140s linear infinite reverse" }} fill="none">
+        <circle cx="500" cy="500" r={520 * 0.82} stroke="var(--ink)" strokeWidth="2" strokeDasharray="260 2400" strokeLinecap="round" opacity=".4" />
+        <circle cx="500" cy="500" r={440 * 0.82} stroke="var(--blue)" strokeWidth="2.5" strokeDasharray="160 2200" strokeLinecap="round" />
+      </svg>
+    </div>
+  );
+}
+
+export default function Hero() {
   const { theme } = useTheme();
-  const leftRef = useReveal(0);
-  const rightRef = useReveal(120);
-  const statsRef = useReveal(240);
+  const root = useRef(null);
+
+  const onMove = (e) => {
+    const el = root.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--px", String((e.clientX - r.left) / r.width - 0.5));
+    el.style.setProperty("--py", String((e.clientY - r.top) / r.height - 0.5));
+    el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    el.style.setProperty("--my", `${e.clientY - r.top}px`);
+  };
 
   return (
-    <section className="hero-section" aria-label="Introduction">
+    <section
+      id="hero"
+      ref={root}
+      onPointerMove={onMove}
+      className="relative isolate overflow-hidden border-b border-line"
+      style={{ "--px": 0, "--py": 0 }}
+      aria-label="Introduction"
+    >
+      <Rings />
+      {/* cursor spotlight */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-70 max-md:hidden"
+        style={{ background: "radial-gradient(420px circle at var(--mx, 50%) var(--my, 40%), color-mix(in srgb, var(--blue) 12%, transparent), transparent 70%)" }}
+        aria-hidden="true"
+      />
 
-      {/* ── Main content row ── */}
-      <div className="hero-content">
-
-        {/* ── LEFT: Decorative terminal card ── */}
-        <div className="hero-terminal-wrap reveal-left" ref={leftRef} aria-hidden="true">
-          {/* Window chrome */}
-          <div className="hero-terminal">
-            <div className="hero-terminal-bar">
-              <span className="hero-terminal-dot" style={{ background: "#ff5f57" }} />
-              <span className="hero-terminal-dot" style={{ background: "#febc2e" }} />
-              <span className="hero-terminal-dot" style={{ background: "#28c840" }} />
-              <a
-                href="https://github.com/thisal-d/ctkchart/blob/main/src/ctkchart/ThemeManager.py"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hero-terminal-filename hero-terminal-filename--link"
-              >ctkchart / ThemeManager.py</a>
-            </div>
-            <pre className="hero-terminal-code">
-              {CODE_LINES.map((line, i) => (
-                <div key={i} className={`hero-code-line token-${line.token}`}>
-                  {"\u00a0".repeat(line.indent * 2)}
-                  <span className={`hero-token hero-token--${line.token}`}>{line.text}</span>
-                  <span className="hero-token--suffix">{line.suffix}</span>
-                </div>
-              ))}
-            </pre>
-          </div>
-
-          {/* Profile photo overlaid at bottom-right of terminal */}
-          <div className="hero-avatar-wrap">
-            <div className="hero-avatar-ring" />
-            <img
-              src="/images/profile.jpg"
-              alt="Thisal Dilmith"
-              className="hero-avatar"
-              loading="eager"
-            />
+      {/* floating icons */}
+      {TILES.map((t) => (
+        <div
+          key={t.icon}
+          className={`absolute z-10 ${t.m ? "" : "max-md:hidden"}`}
+          style={{
+            left: `${t.x}%`, top: `${t.y}%`,
+            transform: `translate(calc(var(--px) * ${t.depth}px), calc(var(--py) * ${t.depth}px))`,
+            transition: "transform .5s cubic-bezier(.2,.7,.2,1)",
+          }}
+          aria-hidden="true"
+        >
+          <div
+            className="float-tile fade-up"
+            style={{
+              width: t.s, height: t.s, "--c": t.c, "--r": `${t.r}deg`, "--t": `${t.t}s`, "--dl": `${t.d}s`,
+              position: "relative", animationName: "fade-up, float", animationDuration: `0.9s, ${t.t}s`, animationDelay: `${600 + t.d * 300}ms, ${t.d}s`,
+              animationIterationCount: "1, infinite", animationFillMode: "both, none",
+            }}
+          >
+            <img src={img(`/icons/skill/${t.icon}.png`)} alt="" className="h-[58%] w-[58%] object-contain" loading="eager" />
           </div>
         </div>
+      ))}
 
-        {/* ── RIGHT: Headline, CTAs ── */}
-        <div className="hero-text reveal-right" ref={rightRef}>
+      <div className="relative z-20 mx-auto flex min-h-[calc(100svh-48px)] max-w-[1100px] flex-col items-center justify-center px-5 py-20 text-center">
+        <p className="mono fade-up mb-8 inline-flex items-center gap-3 border border-line bg-paper/70 px-4 py-2 text-ink2 backdrop-blur" style={{ "--d": "100ms" }}>
+          <span className="pulse-dot" aria-hidden="true" /> Available for opportunities
+        </p>
 
-          <p className="hero-pre-label">
-            <span className="hero-pre-label-dot" aria-hidden="true" />
-            Available for opportunities
-          </p>
+        <h1 className="display" style={{ fontSize: "clamp(2.5rem, 8.2vw, 7.4rem)" }}>
+          <span className="mask"><span style={{ "--d": "150ms" }}>THISAL</span></span>{" "}
+          <span className="mask"><span style={{ "--d": "280ms" }}>DILMITH</span></span>
+        </h1>
 
-          <h1 className="hero-title">
-            I build end-to-end<br />
-            <span className="hero-title-accent">engineering solutions.</span>
-          </h1>
+        <p className="display-md fade-up mt-7 text-[clamp(1.3rem,3vw,2.4rem)]" style={{ "--d": "560ms" }}>
+          I build end-to-end <span className="relative whitespace-nowrap">engineering solutions.
+            <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 10" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M2 6 C 60 1, 120 9, 180 4 S 270 3, 298 6" fill="none" stroke="var(--blue)" strokeWidth="3" strokeLinecap="round" pathLength="1" strokeDasharray="1" strokeDashoffset="1" style={{ animation: "dash 1.2s .95s ease forwards" }} />
+            </svg>
+          </span>
+        </p>
+        <style>{`@keyframes dash { to { stroke-dashoffset: 0; } }`}</style>
 
-          <p className="hero-subtitle">
-            Python developer &amp; open source contributor based in Sri Lanka.
-            I ship libraries to PyPI, build full-stack web platforms, and take
-            ideas from hardware prototype to production — because real problems
-            rarely live on just one layer of the stack.
-          </p>
+        <p className="lede fade-up mt-6 max-w-[640px]" style={{ "--d": "700ms" }}>
+          Python developer &amp; open source contributor based in Sri Lanka. I ship libraries to PyPI,
+          build full-stack web platforms, and take ideas from hardware prototype to production — because
+          real problems rarely live on just one layer of the stack.
+        </p>
 
-          <div className="hero-chips" aria-label="Specialisations">
-            {["Python", "Open Source", "Full Stack", "IoT", "PyPI Author"].map(t => (
-              <span className="hero-chip" key={t}>{t}</span>
+        <div className="fade-up mt-9 flex flex-wrap items-center justify-center gap-3" style={{ "--d": "820ms" }}>
+          <Link to="/projects" className="btn btn-solid">View Projects <IconArrowRight className="arr" /></Link>
+          <Link to="/contact" className="btn btn-ghost">Get in Touch</Link>
+          <a href={resumeUrl()} download="Thisal_Dilmith_Resume.pdf" className="btn btn-ghost" aria-label="Download Thisal Dilmith's resume as a PDF">
+            <IconDownload /> Resume
+          </a>
+        </div>
+
+        <p className="mono fade-up mt-8 flex flex-wrap justify-center gap-x-3 gap-y-1 text-ink3" style={{ "--d": "920ms" }}>
+          {["Python", "Open Source", "Full Stack", "IoT", "PyPI Author"].map((t, i) => (
+            <span key={t}>{i > 0 && <span className="mr-3">·</span>}{t}</span>
+          ))}
+        </p>
+
+        <div className="fade-up mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3" style={{ "--d": "1000ms" }}>
+          {[
+            { n: "GitHub", u: "https://github.com/thisal-d", i: "/icons/social/github.png", inv: true },
+            { n: "LinkedIn", u: "https://www.linkedin.com/in/thisal-dilmith", i: "/icons/social/linkedin.png" },
+            { n: "PyPI", u: "https://pypi.org/user/Thisal_D/", i: "/icons/social/pypi.svg" },
+          ].map((s) => (
+            <a key={s.n} href={s.u} target="_blank" rel="noopener noreferrer" className="mono flex items-center gap-2 text-ink2 transition-colors hover:text-ink" aria-label={`${s.n} profile`}>
+              <img src={img(s.i)} alt="" className={`h-4 w-4 object-contain ${s.inv ? "invert-dark" : ""}`} /> {s.n}
+            </a>
+          ))}
+        </div>
+
+        <div className="fade-up mt-8 flex flex-wrap items-center justify-center gap-4 border border-line bg-paper/70 px-5 py-3 backdrop-blur" style={{ "--d": "1100ms" }}>
+          <span className="mono text-ink3">Recognised by</span>
+          <div className="flex items-center gap-3">
+            {badges.map((b) => (
+              <img
+                key={b.id}
+                src={badgeImage(b.id, theme)}
+                alt={b.name}
+                title={`${b.platform} — ${b.name}${b.tierLabel ? ` (${b.tierLabel})` : ""}`}
+                className="h-7 w-auto max-w-[56px] object-contain transition-transform duration-300 hover:-translate-y-1 hover:scale-110"
+              />
             ))}
           </div>
-
-          <div className="hero-actions">
-            <a href="/projects" className="btn btn-primary" id="hero-cta-projects">
-              View Projects →
-            </a>
-            <a href="/contact" className="btn btn-secondary" id="hero-cta-contact">
-              Get in Touch
-            </a>
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-resume"
-              id="hero-cta-resume"
-              aria-label="Download Thisal Dilmith's resume as a PDF (opens in new tab)"
-              download="Thisal_Dilmith_Resume.pdf"
-            >
-              <svg
-                className="btn-resume-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Resume
-            </a>
-          </div>
-
-          {/* Social proof micro-links */}
-          <div className="hero-social-row">
-            <a
-              href="https://github.com/thisal-d"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-social-link"
-              aria-label="GitHub profile"
-            >
-              <img src="/icons/social/github.png" alt="" className="hero-social-icon" />
-              GitHub
-            </a>
-            <span className="hero-social-sep" aria-hidden="true">·</span>
-            <a
-              href="https://www.linkedin.com/in/thisal-dilmith"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-social-link"
-              aria-label="LinkedIn profile"
-            >
-              <img src="/icons/social/linkedin.png" alt="" className="hero-social-icon" />
-              LinkedIn
-            </a>
-            <span className="hero-social-sep" aria-hidden="true">·</span>
-            <a
-              href="https://pypi.org/user/Thisal_D/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-social-link"
-              aria-label="PyPI profile"
-            >
-              <img src="/icons/social/pypi.svg" alt="" className="hero-social-icon" />
-              PyPI
-            </a>
-          </div>
-
-          {/* Recognised By row */}
-          <div className="hero-recognised-row">
-            <span className="hero-recognised-label">Recognised By:</span>
-            <div className="hero-recognised-badges">
-              {allBadges.map(achv => (
-                <img
-                  key={achv.id}
-                  src={getBadgeImage(achv.id, theme)}
-                  alt={achv.name}
-                  className="hero-recognised-icon"
-                  title={`${achv.platform} — ${achv.name}${achv.tierLabel ? ` (${achv.tierLabel})` : ""}`}
-                />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 
-      {/* ── Stats bar ── */}
-      <div className="hero-stats reveal-up" ref={statsRef} aria-label="Highlights">
-        {STATS.map((s, i) => (
-          <div className="hero-stat" key={i}>
-            <span className="hero-stat-value">{s.value}</span>
-            <span className="hero-stat-label">{s.label}</span>
-          </div>
-        ))}
+      {/* stat strip */}
+      <div className="relative z-20 border-t border-line bg-paper/80 backdrop-blur-sm">
+        <div className="frame grid grid-cols-2 md:grid-cols-4" aria-label="Highlights">
+          {STATS.map((s, i) => (
+            <Reveal key={s.label} delay={i * 90} className={`px-6 py-6 ${i % 2 === 0 ? "border-r border-line" : ""} ${i < 2 ? "border-b border-line md:border-b-0" : ""} ${i < 3 ? "md:border-r" : "md:border-r-0"}`}>
+              <div className="display text-4xl md:text-5xl"><CountUp to={s.value} suffix={s.suffix} /></div>
+              <div className="mono mt-2 text-ink3">{s.label}</div>
+            </Reveal>
+          ))}
+        </div>
       </div>
-
     </section>
   );
-};
-
-export default Hero;
+}

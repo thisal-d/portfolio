@@ -1,305 +1,165 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import contactData from "../data/contact.json";
-import "../styles/Contact.css";
+import { contact } from "@/lib/data";
+import { img } from "@/lib/assets";
+import { IconArrow, Reveal, SectionBar } from "@/components/ui";
 
-const PUBLIC_LINKS = contactData.socials.filter(link => link.isPublic);
-
-/* ── Validation helpers ── */
+const PUBLIC_LINKS = contact.socials.filter((l) => l.isPublic);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAX_MSG  = 1500;
-
-function validate(form) {
-  const errs = {};
-  if (!form.name.trim())                       errs.name    = "Name is required.";
-  if (!form.email.trim())                      errs.email   = "Email is required.";
-  else if (!EMAIL_RE.test(form.email.trim()))  errs.email   = "Enter a valid email address.";
-  if (!form.subject.trim())                    errs.subject = "Subject is required.";
-  if (!form.message.trim())                    errs.message = "Message is required.";
-  else if (form.message.trim().length < 10)    errs.message = "Message must be at least 10 characters.";
-  return errs;
-}
+const MAX_MSG = 1500;
 
 const EMPTY = { name: "", email: "", subject: "", message: "" };
 
-function Contact() {
-  const [form,    setForm]    = useState(EMPTY);
-  const [errors,  setErrors]  = useState({});
+function validate(f) {
+  const e = {};
+  if (!f.name.trim()) e.name = "Name is required.";
+  if (!f.email.trim()) e.email = "Email is required.";
+  else if (!EMAIL_RE.test(f.email.trim())) e.email = "Enter a valid email address.";
+  if (!f.subject.trim()) e.subject = "Subject is required.";
+  if (!f.message.trim()) e.message = "Message is required.";
+  else if (f.message.trim().length < 10) e.message = "Message must be at least 10 characters.";
+  return e;
+}
+
+export default function Contact() {
+  const [form, setForm] = useState(EMPTY);
+  const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
-  const [status,  setStatus]  = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle");
 
-  /* ── Handlers ── */
-  function handleChange(e) {
+  const onChange = (e) => {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
-    // Re-validate touched field on every keystroke
-    if (touched[name]) {
-      const fresh = validate({ ...form, [name]: value });
-      setErrors(prev => ({ ...prev, [name]: fresh[name] }));
-    }
-  }
+    setForm((p) => ({ ...p, [name]: value }));
+    if (touched[name]) setErrors((p) => ({ ...p, [name]: validate({ ...form, [name]: value })[name] }));
+    if (status === "success") setStatus("idle");
+  };
+  const onBlur = (e) => {
+    const k = e.target.name;
+    setTouched((p) => ({ ...p, [k]: true }));
+    setErrors((p) => ({ ...p, [k]: validate(form)[k] }));
+  };
 
-  function handleBlur(e) {
-    const { name } = e.target;
-    setTouched(prev => ({ ...prev, [name]: true }));
-    const fresh = validate(form);
-    setErrors(prev => ({ ...prev, [name]: fresh[name] }));
-  }
-
-  async function handleSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault();
-
-    // Mark all fields touched so errors all show at once
     setTouched({ name: true, email: true, subject: true, message: true });
     const errs = validate(form);
     setErrors(errs);
-    if (Object.keys(errs).length > 0) return;
-
+    if (Object.keys(errs).length) return;
     setStatus("loading");
-
     try {
-      /* ── Formspree endpoint — swap YOUR_FORM_ID with your actual ID ──
-         Sign up free at https://formspree.io and create a form to get an ID.
-         Until then this will fail gracefully and fall back to mailto.       */
-      const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID;
-
-      if (FORMSPREE_ID) {
-        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-          method:  "POST",
+      // Set VITE_FORMSPREE_ID (see README) to send via Formspree; otherwise fall back to the visitor's mail client.
+      const id = import.meta.env.VITE_FORMSPREE_ID;
+      if (id) {
+        const res = await fetch(`https://formspree.io/f/${id}`, {
+          method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body:    JSON.stringify({ name: form.name, email: form.email, subject: form.subject, message: form.message }),
+          body: JSON.stringify(form),
         });
         if (!res.ok) throw new Error("Network response was not OK");
       } else {
-        /* Fallback: open mail client with all fields pre-filled */
         const body = `Message:\n${form.message}\n\nFrom: ${form.name} <${form.email}>`;
-        window.open(
-          `mailto:${contactData.email}?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(body)}`,
-          "_blank"
-        );
+        window.open(`mailto:${contact.email}?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(body)}`, "_blank");
       }
-
-      setStatus("success");
-      setForm(EMPTY);
-      setTouched({});
-      setErrors({});
+      setStatus("success"); setForm(EMPTY); setTouched({}); setErrors({});
     } catch {
       setStatus("error");
     }
   }
 
-  const msgLen     = form.message.length;
-  const isLoading  = status === "loading";
+  const loading = status === "loading";
+  const fld = (k) => ({
+    id: `contact-${k}`, name: k, value: form[k], onChange, onBlur, disabled: loading,
+    "aria-invalid": !!(errors[k] && touched[k]),
+    "aria-describedby": errors[k] && touched[k] ? `error-${k}` : undefined,
+    className: `field ${errors[k] && touched[k] ? "err" : ""}`,
+  });
+  const Err = ({ k }) =>
+    errors[k] && touched[k] ? <span id={`error-${k}`} role="alert" className="mt-1.5 block text-xs text-red">{errors[k]}</span> : null;
+  const Label = ({ k, children }) => (
+    <label htmlFor={`contact-${k}`} className="mono mb-2 block text-ink2">{children} <span className="text-red" aria-hidden="true">*</span></label>
+  );
 
   return (
-    <div className="contact-page">
-      <div className="contact-inner">
-
-        {/* ── Page header ── */}
-        <div className="contact-header">
-          <p className="section-label">Get in touch</p>
-          <h1 className="section-title">Contact</h1>
-          <p className="section-description">
-            Whether it's a project idea, a question about my code, or just saying hello —
-            I'm always open to a good conversation.
-          </p>
-        </div>
-
-        <div className="contact-layout">
-
-          {/* ══════════ LEFT — social links ══════════ */}
-          <div>
-            {/* Direct email card */}
-            <a
-              href={`mailto:${contactData.email}`}
-              className="contact-email-card"
-              aria-label={`Send an email to ${contactData.email}`}
-            >
-              <div className="contact-email-card-icon" aria-hidden="true">✉️</div>
-              <div>
-                <div className="contact-email-card-label">Email directly</div>
-                <div className="contact-email-card-address">{contactData.email}</div>
-              </div>
-              <span className="contact-link-arrow">↗</span>
-            </a>
-
-            <p className="contact-links-title" style={{ marginTop: "1.5rem" }}>Find Me Online</p>
-            <div className="contact-links">
-              {PUBLIC_LINKS.map((link, i) => (
-                <a
-                  key={i}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-link"
-                >
-                  <img src={link.icon} alt={link.name} className="contact-link-icon" />
-                  <div className="contact-link-info">
-                    <div className="contact-link-name">{link.name}</div>
-                    <div className="contact-link-handle">{link.handle}</div>
-                  </div>
-                  <span className="contact-link-arrow">↗</span>
-                </a>
-              ))}
-            </div>
-
-            <div className="contact-private-hint">
-              🔒 Some links are private.{" "}
-              <Link to="/classified">Think you can unlock them?</Link>
-            </div>
+    <>
+      <section className="border-b border-line">
+        <div className="frame">
+          <SectionBar n="00" label="Get in touch" right="Replies usually within a few days" />
+          <div className="sec-pad py-[clamp(3rem,8vw,6rem)]">
+            <h1 className="display text-[clamp(3rem,10vw,9rem)]"><span className="mask"><span>Contact</span></span></h1>
+            <p className="lede fade-up mt-6 max-w-2xl" style={{ "--d": "300ms" }}>
+              Whether it's a project idea, a question about my code, or just saying hello — I'm always open to a good conversation.
+            </p>
           </div>
+        </div>
+      </section>
 
-          {/* ══════════ RIGHT — form ══════════ */}
-          <div>
-            <p className="contact-form-title">Send a Message</p>
-
-            {/* Success banner */}
-            {status === "success" && (
-              <div className="contact-success" role="alert">
-                <span aria-hidden="true">✓</span>
-                Message sent — I'll get back to you soon!
-              </div>
-            )}
-
-            {/* Error banner */}
-            {status === "error" && (
-              <div className="contact-form-error-banner" role="alert">
-                <span aria-hidden="true">⚠</span>
-                Something went wrong. Please try emailing me directly.
-              </div>
-            )}
-
-            <form
-              className="contact-form"
-              onSubmit={handleSubmit}
-              noValidate
-              aria-label="Contact form"
-            >
-              {/* Name */}
-              <div className="contact-form-group">
-                <label className="contact-form-label" htmlFor="contact-name">
-                  Name <span className="contact-form-required" aria-hidden="true">*</span>
-                </label>
-                <input
-                  id="contact-name"
-                  className={`contact-form-input ${errors.name && touched.name ? "input-error" : ""}`}
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  value={form.name}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  aria-describedby={errors.name && touched.name ? "error-name" : undefined}
-                  aria-invalid={!!(errors.name && touched.name)}
-                  autoComplete="name"
-                  disabled={isLoading}
-                />
-                {errors.name && touched.name && (
-                  <span className="contact-field-error" id="error-name" role="alert">{errors.name}</span>
-                )}
-              </div>
-
-              {/* Email */}
-              <div className="contact-form-group">
-                <label className="contact-form-label" htmlFor="contact-email">
-                  Email <span className="contact-form-required" aria-hidden="true">*</span>
-                </label>
-                <input
-                  id="contact-email"
-                  className={`contact-form-input ${errors.email && touched.email ? "input-error" : ""}`}
-                  type="email"
-                  name="email"
-                  placeholder="your@email.com"
-                  value={form.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  aria-describedby={errors.email && touched.email ? "error-email" : undefined}
-                  aria-invalid={!!(errors.email && touched.email)}
-                  autoComplete="email"
-                  disabled={isLoading}
-                />
-                {errors.email && touched.email && (
-                  <span className="contact-field-error" id="error-email" role="alert">{errors.email}</span>
-                )}
-              </div>
-
-              {/* Subject */}
-              <div className="contact-form-group">
-                <label className="contact-form-label" htmlFor="contact-subject">
-                  Subject <span className="contact-form-required" aria-hidden="true">*</span>
-                </label>
-                <input
-                  id="contact-subject"
-                  className={`contact-form-input ${errors.subject && touched.subject ? "input-error" : ""}`}
-                  type="text"
-                  name="subject"
-                  placeholder="What's this about?"
-                  value={form.subject}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  aria-describedby={errors.subject && touched.subject ? "error-subject" : undefined}
-                  aria-invalid={!!(errors.subject && touched.subject)}
-                  disabled={isLoading}
-                />
-                {errors.subject && touched.subject && (
-                  <span className="contact-field-error" id="error-subject" role="alert">{errors.subject}</span>
-                )}
-              </div>
-
-              {/* Message */}
-              <div className="contact-form-group">
-                <div className="contact-form-label-row">
-                  <label className="contact-form-label" htmlFor="contact-message">
-                    Message <span className="contact-form-required" aria-hidden="true">*</span>
-                  </label>
-                  <span
-                    className={`contact-char-count ${msgLen > MAX_MSG ? "contact-char-count--over" : ""}`}
-                    aria-live="polite"
-                  >
-                    {msgLen} / {MAX_MSG}
-                  </span>
-                </div>
-                <textarea
-                  id="contact-message"
-                  className={`contact-form-textarea ${errors.message && touched.message ? "input-error" : ""}`}
-                  name="message"
-                  placeholder="What's on your mind?"
-                  value={form.message}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  aria-describedby={errors.message && touched.message ? "error-message" : undefined}
-                  aria-invalid={!!(errors.message && touched.message)}
-                  maxLength={MAX_MSG}
-                  disabled={isLoading}
-                />
-                {errors.message && touched.message && (
-                  <span className="contact-field-error" id="error-message" role="alert">{errors.message}</span>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                className="contact-form-submit"
-                disabled={isLoading || msgLen > MAX_MSG}
-                aria-busy={isLoading}
-              >
-                {isLoading ? (
-                  <><span className="contact-spinner" aria-hidden="true" /> Sending…</>
-                ) : (
-                  "Send Message →"
-                )}
-              </button>
-
-              <p className="contact-form-note">
-                * Required fields. I typically reply within 1–2 business days.
+      <section className="border-b border-line">
+        <div className="frame grid lg:grid-cols-2">
+          {/* links */}
+          <div className="sec-pad border-b border-line lg:border-b-0 lg:border-r">
+            <Reveal>
+              <a href={`mailto:${contact.email}`} aria-label={`Send an email to ${contact.email}`} className="group relative flex items-center gap-4 overflow-hidden border border-ink bg-ink p-5 text-paper transition-transform hover:-translate-y-0.5">
+                <span className="grid h-12 w-12 place-items-center border border-paper/30 text-xl" aria-hidden="true">✉️</span>
+                <span className="min-w-0 flex-1">
+                  <span className="mono block text-paper/60">Email directly</span>
+                  <span className="block truncate font-display text-lg font-bold" style={{ fontStretch: "110%" }}>{contact.email}</span>
+                </span>
+                <IconArrow className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+              <p className="mono mb-3 mt-10 text-ink3">Find me online</p>
+              <ul className="divide-y divide-line border-y border-line">
+                {PUBLIC_LINKS.map((l) => (
+                  <li key={l.name}>
+                    <a href={l.url} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 px-1 py-4 transition-all hover:bg-card hover:px-3">
+                      <img src={img(l.icon)} alt={l.name} className={`h-7 w-7 object-contain ${l.name === "GitHub" ? "invert-dark" : ""}`} />
+                      <span className="flex-1">
+                        <span className="block font-semibold">{l.name}</span>
+                        <span className="mono-sm text-ink3">{l.handle}</span>
+                      </span>
+                      <IconArrow className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 border border-dashed border-line-strong p-4 text-sm text-ink2" style={{ borderColor: "var(--line-strong)" }}>
+                🔒 Some links are private. <Link to="/classified" className="border-b border-ink font-semibold text-ink">Think you can unlock them?</Link>
               </p>
-            </form>
+            </Reveal>
           </div>
 
+          {/* form */}
+          <div className="sec-pad bg-card/50">
+            <Reveal dir="right">
+              <p className="display-md text-2xl">Send a Message</p>
+              {status === "success" && (
+                <div role="alert" className="mt-5 flex items-center gap-3 border border-green bg-green/10 p-4 text-sm text-green">
+                  <span aria-hidden="true">✓</span> Message sent — I'll get back to you soon!
+                </div>
+              )}
+              {status === "error" && (
+                <div role="alert" className="mt-5 flex items-center gap-3 border border-red bg-red/10 p-4 text-sm text-red">
+                  <span aria-hidden="true">⚠</span> Something went wrong. Please try emailing me directly.
+                </div>
+              )}
+              <form onSubmit={onSubmit} noValidate aria-label="Contact form" className="mt-6 space-y-5">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div><Label k="name">Name</Label><input type="text" placeholder="Your name" autoComplete="name" {...fld("name")} /><Err k="name" /></div>
+                  <div><Label k="email">Email</Label><input type="email" placeholder="your@email.com" autoComplete="email" {...fld("email")} /><Err k="email" /></div>
+                </div>
+                <div><Label k="subject">Subject</Label><input type="text" placeholder="What's this about?" {...fld("subject")} /><Err k="subject" /></div>
+                <div>
+                  <Label k="message">Message</Label>
+                  <textarea rows={7} maxLength={MAX_MSG} placeholder="Tell me about your idea…" {...fld("message")} className={`field resize-y ${errors.message && touched.message ? "err" : ""}`} />
+                  <div className="mt-1.5 flex justify-between"><Err k="message" /><span className="mono-sm ml-auto text-ink3">{form.message.length}/{MAX_MSG}</span></div>
+                </div>
+                <button type="submit" disabled={loading} className="btn btn-solid w-full disabled:opacity-60 sm:w-auto">
+                  {loading ? "Sending…" : <>Send message <IconArrow className="arr" /></>}
+                </button>
+              </form>
+            </Reveal>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
-
-export default Contact;

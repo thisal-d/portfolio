@@ -1,5 +1,35 @@
 [
   {
+    "slug": "pcforge",
+    "title": "PCForge",
+    "type": "system",
+    "flagship": true,
+    "description": "A full-stack, cross-platform e-commerce and custom PC building ecosystem. Customers design rigs with real-time hardware compatibility validation, five LangGraph AI agents recommend specs and reserve inventory, and store technicians review builds in dedicated assembly workbenches — with RMA and service scheduling built in.",
+    "stack": [
+      "ASP.NET Core 8",
+      "React 19",
+      "Flutter",
+      "FastAPI",
+      "LangGraph",
+      "PostgreSQL"
+    ],
+    "images": [
+      "/images/pcforge/dashboard.png",
+      "/images/pcforge/build-reviews.png",
+      "/images/pcforge/orders.png",
+      "/images/pcforge/inventory.png",
+      "/images/pcforge/service-requests.png",
+      "/images/pcforge/products.png"
+    ],
+    "repo_url": "https://github.com/thisal-d/pc-forge/",
+    "api_url": "https://api.github.com/repos/thisal-d/pc-forge",
+    "publish-url": "https://pc-forge-admin.pages.dev",
+    "why-i-made-this": {
+      "simple": "Modelled on the enthusiast computer retail industry — from a customer's custom rig to technician review, assembly and after-sales support."
+    },
+    "expand-on-new-tab": true
+  },
+  {
     "slug": "tkchart",
     "title": "tkchart",
     "type": "library",
@@ -18,7 +48,9 @@
     },
     "publish-url": "https://pypi.org/project/tkchart/",
     "expand-on-new-tab": true,
-    "achievements": ["starstruck"]
+    "achievements": [
+      "starstruck"
+    ]
   },
   {
     "slug": "ctkchart",
@@ -46,7 +78,13 @@
     "type": "app",
     "featured": true,
     "description": "Every YouTube downloader on the web is buried under ads or capped at 1080p. PyTube Downloader is a multi-threaded desktop app that downloads single videos or full playlists from 144p to 8K — with honest progress bars and no browser required.",
-    "stack": ["Python", "CustomTkinter", "yt-dlp", "Threading", "FFmpeg"],
+    "stack": [
+      "Python",
+      "CustomTkinter",
+      "yt-dlp",
+      "Threading",
+      "FFmpeg"
+    ],
     "images": [
       "/images/pytube-downloader/1.png",
       "/images/pytube-downloader/2.png",
@@ -68,7 +106,13 @@
     },
     "publish-url": "https://sourceforge.net/projects/pytube-downloader/",
     "expand-on-new-tab": true,
-    "achievements": ["starstruck-bronze", "starstruck-silver", "sf-rising-star", "sf-favourite", "sf-community-choice"]
+    "achievements": [
+      "starstruck-bronze",
+      "starstruck-silver",
+      "sf-rising-star",
+      "sf-favourite",
+      "sf-community-choice"
+    ]
   },
   {
     "slug": "ai-verse",
